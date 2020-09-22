@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         for(int i = -4; i < 10; i-=-2){
-            Log.d("I'm: ", i + "");
+            Log.d("I'm : ", i + "");
         }
 
     }
