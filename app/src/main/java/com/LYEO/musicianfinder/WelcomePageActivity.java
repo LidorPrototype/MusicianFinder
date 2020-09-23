@@ -1,5 +1,6 @@
 package com.LYEO.musicianfinder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,12 +16,12 @@ public class WelcomePageActivity extends AppCompatActivity {
     }
     public  void mainClick (View v){
         if (v.getId()==R.id.btLogin){
-//            Intent intent= new Intent(getApplicationContext(),Login.class);
-//            startActivity(intent);
+            Intent intent= new Intent(getApplicationContext(),Login.class);
+            startActivity(intent);
         }
         else if (v.getId()==R.id.btRegister){
-//            Intent intent= new Intent(getApplicationContext(),Register.class);
-//            startActivity(intent);
+            Intent intent= new Intent(getApplicationContext(),Register.class);
+            startActivity(intent);
 
         }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MusicianFinder</string>
+    <string name="login_text">התחברות</string>
+    <string name="sign_in_text">הרשמה</string>
+    <string name="password">סיסמא</string>
+    <string name="user_name">שם משתמש</string>
+    <string name="register">הרשמה</string>
+    <string name="user_password">סיסמה</string>
+    <string name="enter_at_least_6_characters">הכנס לפחות -6 ספרות</string>
+</resources>

@@ -2,4 +2,9 @@
     <string name="app_name">MusicianFinder</string>
     <string name="login_text">Login</string>
     <string name="sign_in_text">Sign In</string>
+    <string name="password">password</string>
+    <string name="user_name">user name</string>
+    <string name="register">Register</string>
+    <string name="user_password">User Password: </string>
+    <string name="enter_at_least_6_characters">Enter at least 6 characters</string>
 </resources>
