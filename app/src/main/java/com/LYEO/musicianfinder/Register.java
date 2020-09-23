@@ -89,8 +89,6 @@ public class Register extends AppCompatActivity {
                             //display some message here
                             Toast.makeText(Register.this,"Successfully registered",Toast.LENGTH_LONG).show();
                             if (fb1.sendUserInfoFb(UserName, UserPass)){
-                                //edit
-//                                fb1.sendUserInfoFb(UserName, UserPass)
                                 btReg.setText("User added");
                             }
                         }else{
