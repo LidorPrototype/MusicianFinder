@@ -1,6 +1,7 @@
 package com.LYEO.musicianfinder;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
@@ -16,11 +17,13 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-//import com.google.firebase.database.DatabaseReference;
-//import com.google.firebase.database.FirebaseDatabase;
+
 
 public class Register extends AppCompatActivity {
+    /*
+     * Created by yisrael bar & Lidor on 24/09/2020
 
+     * */
     private String UserName = "",UserPass = "", Name = "", UserBio = "", UserLink = "";
     private int UserAge = 0;
     private EditText edUserName, edUserPass, edName, edAge, edBio, edLink;
@@ -49,10 +52,9 @@ public class Register extends AppCompatActivity {
 
     public  void mainClick (View v){
         if (v.getId()==R.id.btnRegister){
-//            Intent intent= new Intent(getApplicationContext(),Register.class);
-//            startActivity(intent);
-//
-//
+
+
+
 
             try {
                 if (edUserName.getText().toString().equals("") || edUserPass.getText().toString().equals("")){
@@ -112,6 +114,8 @@ public class Register extends AppCompatActivity {
                             Toast.makeText(Register.this,"Successfully registered",Toast.LENGTH_LONG).show();
                             if (fb1.sendUserInfoFb(u1)){
                                 btReg.setText("User added");
+                                Intent intent= new Intent(getApplicationContext(),MenuActivity.class);
+                                startActivity(intent);
                             }
                         }else{
                             //display some message here

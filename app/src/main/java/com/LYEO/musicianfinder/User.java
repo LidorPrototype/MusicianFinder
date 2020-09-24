@@ -1,7 +1,9 @@
 package com.LYEO.musicianfinder;
 
 public class User {
-
+/*
+* Created by yisrael bar on 24/09/2020
+* */
     private String UserName ,UserPass , Name , UserBio , UserLink ;
     private int UserAge ;
 

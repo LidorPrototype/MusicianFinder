@@ -11,6 +11,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
+/*
+ * Created by yisrael bar on 24/09/2020
+ * */
+
 public class FireBase {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     static List <User> UserList=new ArrayList<User>();

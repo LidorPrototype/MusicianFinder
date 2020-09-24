@@ -18,6 +18,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
+    /*
+     * Created by yisrael bar on 24/09/2020
+     * */
     private EditText edUser,edpass;
     private SharedPreferences myShare;
 
