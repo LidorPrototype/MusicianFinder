@@ -7,34 +7,43 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class Publish_Band extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class Publish_Band extends AppCompatActivity{
 
+    private Button ToBand;
+    private Button ToMusician;
+    private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_yourself);
+        ToBand=(Button) findViewById(R.id.band);
+        ToMusician=(Button) findViewById(R.id.single);
 
-        Spinner spinner =findViewById(R.id.BandOrSingle);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this,R.array.ChooseBandOrSingle,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        ToBand.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openBand();
+            }
+        });
+        ToMusician.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMusician();
+            }
+        });
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long l) {
-        String text=parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(),text,Toast.LENGTH_SHORT).show();
-        if(text.equals("Musician")){
-            startActivity(new Intent(view.getContext(),Publish_Band.class));
-        }
+    public void openBand(){
+        intent=new Intent(this,Publish_Band.class);
+        startActivity(intent);
+    }
+    public void openMusician(){
+        intent=new Intent(this,Publish_Musician.class);
+        startActivity(intent);
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }

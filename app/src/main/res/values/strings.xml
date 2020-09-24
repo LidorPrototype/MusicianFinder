@@ -17,9 +17,4 @@
     <string name="bio">Bio</string>
     <string name="user_password">123456789</string>
     <string name="example_username">TopMusicianEven</string>
-    <string-array name="ChooseBandOrSingle">
-        <item></item>
-        <item>Musician</item>
-        <item>Band</item>
-    </string-array>
 </resources>
