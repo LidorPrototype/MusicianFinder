@@ -13,4 +13,8 @@
     <string name="enter_an_address">Enter an address</string>
     <string name="address">Address</string>
     <string name="user_password">123456789</string>
+    <string name="enter_your_bio">\nEnter your bio\n</string>
+    <string name="bio">Bio</string>
+    <string name="website_example" translatable="false">www.example.com</string>
+    <string name="link">Link</string>
 </resources>

@@ -14,4 +14,7 @@
     <string name="example_username">הכנס שם משתמש</string>
     <string name="enter_you_name">הכנס את שמך</string>
     <string name="name">שם</string>
+    <string name="enter_your_bio">ספר לנו על עצמך</string>
+    <string name="bio">רקע</string>
+    <string name="link">קישור</string>
 </resources>
