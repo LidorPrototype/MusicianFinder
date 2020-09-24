@@ -82,7 +82,7 @@ public class Register extends AppCompatActivity {
                         Toast.makeText(this, "Please provide a valid link!", Toast.LENGTH_SHORT).show();
                     }
 
-                    // TODO Fix Register for Mandatory + Optional data
+                    // TODO Fix Register for Mandatory + Optional Data
                     registerUser(UserName,UserPass);
 
 //                     User u1 = new User(UserName,UserPass);
