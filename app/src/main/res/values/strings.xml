@@ -17,4 +17,5 @@
     <string name="bio">Bio</string>
     <string name="user_password">123456789</string>
     <string name="example_username">TopMusicianEven</string>
+    <string name="age">age</string>
 </resources>

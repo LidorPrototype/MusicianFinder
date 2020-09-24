@@ -28,7 +28,7 @@ public class Register extends AppCompatActivity {
     private ProgressDialog progressDialog;
     private Button btReg;
     private FireBase fb1;
-
+    private User u1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,10 +52,8 @@ public class Register extends AppCompatActivity {
 //            Intent intent= new Intent(getApplicationContext(),Register.class);
 //            startActivity(intent);
 //
-//            FirebaseDatabase database = FirebaseDatabase.getInstance();
-//            DatabaseReference myRef = database.getReference("message");
 //
-//            myRef.setValue("Hello, World!");
+
             try {
                 if (edUserName.getText().toString().equals("") || edUserPass.getText().toString().equals("")){
                     Toast.makeText(this, "Please Fill The Mandatory Parts!", Toast.LENGTH_SHORT).show();
@@ -83,6 +81,7 @@ public class Register extends AppCompatActivity {
                     }
 
                     // TODO Fix Register for Mandatory + Optional Data
+                    u1= new User(UserName,UserPass,Name,UserBio,UserLink,UserAge);
                     registerUser(UserName,UserPass);
 
 //                     User u1 = new User(UserName,UserPass);
@@ -111,7 +110,7 @@ public class Register extends AppCompatActivity {
                         if(task.isSuccessful()){
                             //display some message here
                             Toast.makeText(Register.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            if (fb1.sendUserInfoFb(UserName, UserPass)){
+                            if (fb1.sendUserInfoFb(u1)){
                                 btReg.setText("User added");
                             }
                         }else{
