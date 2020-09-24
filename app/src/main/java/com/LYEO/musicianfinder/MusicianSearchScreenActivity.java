@@ -15,15 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
 
 public class MusicianSearchScreenActivity extends AppCompatActivity implements SearchView.OnQueryTextListener  {
 
@@ -31,8 +22,7 @@ public class MusicianSearchScreenActivity extends AppCompatActivity implements S
     ListView list;
     ListViewAdapter adapter;
     SearchView editsearch;
-    Instruments instrument=new Instruments();
-    int size=instrument.getNumberOfInstruments();
+    Configuration configuration = new Configuration();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +32,7 @@ public class MusicianSearchScreenActivity extends AppCompatActivity implements S
 
 
         // Pass results to ListViewAdapter Class
-        adapter = new ListViewAdapter(this, instrument.getInstruments());
+        adapter = new ListViewAdapter(this, configuration.getInstruments());
 
         // Binds the Adapter to the ListView
         list.setAdapter(adapter);
