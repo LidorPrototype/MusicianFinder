@@ -4,54 +4,189 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".Register">
-
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-
+    <!-- Username --><!-- Mandatory -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:weightSum="100"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/user_name" />
+            android:text="@string/user_name"
+            android:layout_weight="75" />
 
         <EditText
             android:id="@+id/edUserName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="@string/example_username"
+            android:layout_weight="25" />
+
     </LinearLayout>
 
+    <!-- Password --><!-- Mandatory -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:weightSum="100"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password" />
+            android:text="@string/password"
+            android:layout_weight="75" />
 
         <EditText
             android:id="@+id/edUserPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_at_least_6_characters" />
+            android:hint="@string/enter_at_least_6_characters"
+            android:inputType="textPassword"
+            android:layout_weight="25" />
 
     </LinearLayout>
 
+    <!-- Name --><!-- Mandatory -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/name" />
+
+        <EditText
+            android:id="@+id/edName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_you_name"
+            android:inputType="textPersonName"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Age --><!-- Optional -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/name" />
+
+        <EditText
+            android:id="@+id/edAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_age"
+            android:inputType="number"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Activity Area --><!-- Mandatory -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/address" />
+
+        <EditText
+            android:id="@+id/edArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_an_address"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Bio --><!-- Optional -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/bio" />
+
+        <EditText
+            android:id="@+id/edBio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:maxLength="500"
+            android:hint="@string/enter_your_bio"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Genre List --><!-- Optional -->
+    <!-- UNIMPLEMENTED YET -->
+
+    <!-- Instruments --><!-- Mandatory -->
+    <!-- UNIMPLEMENTED YET -->
+
+    <!-- Link To Website --><!-- Optional -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/link" />
+
+        <EditText
+            android:id="@+id/edLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/website_example"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Register Btn -->
     <Button
-        android:id="@+id/btRegister"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

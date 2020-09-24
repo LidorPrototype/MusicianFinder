@@ -32,11 +32,12 @@ import java.util.List;
 
 class configuration {
 
+    int[] tempIconsArray = new int[79];
+
     public List<String> Instruments =
                 new ArrayList<>(Arrays.asList(
                         "Accordion",
                         "Acoustic guitar",
-                        "Amplifier",
                         "Angklung",
                         "Baglama",
                         "Bagpipes",
@@ -57,7 +58,6 @@ class configuration {
                         "Classic guitar",
                         "Clave",
                         "Conga",
-                        "Cymbal",
                         "Cymbals",
                         "Darbuka",
                         "DJ mixer",
@@ -65,6 +65,7 @@ class configuration {
                         "Dorma",
                         "Double bass",
                         "Drum set",
+                        "Drum",
                         "Electric drum",
                         "Electric guitar",
                         "Fanfare",
@@ -72,8 +73,6 @@ class configuration {
                         "French horn",
                         "Glockenspiel",
                         "Gong",
-                        "Grand piano",
-                        "Guitar",
                         "Guzheng",
                         "Harmonica",
                         "Harp",
@@ -87,9 +86,7 @@ class configuration {
                         "Mandolin",
                         "Maracas",
                         "Marimba",
-                        "Melodica",
-                        "Melodion",
-                        "Metronome",
+                        "Melodic",
                         "Microphone",
                         "Oboe",
                         "Organ",
@@ -120,8 +117,6 @@ class configuration {
                         "Xylophone"
                 )
             );
-
-
 
 //    public List<Pair<String, Integer>> Instruments =
 //                new ArrayList<Pair<String, Integer>>(Arrays.asList(

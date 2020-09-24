@@ -8,4 +8,13 @@
     <string name="register">הרשמה</string>
     <string name="user_password">סיסמה</string>
     <string name="enter_at_least_6_characters">הכנס לפחות -6 ספרות</string>
+    <string name="address">כתובת</string>
+    <string name="enter_an_address">הכנס כתובת</string>
+    <string name="enter_your_age">הכנס גיל</string>
+    <string name="example_username">הכנס שם משתמש</string>
+    <string name="enter_you_name">הכנס את שמך</string>
+    <string name="name">שם</string>
+    <string name="enter_your_bio">ספר לנו על עצמך</string>
+    <string name="bio">רקע</string>
+    <string name="link">קישור</string>
 </resources>
