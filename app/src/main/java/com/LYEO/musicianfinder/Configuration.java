@@ -126,6 +126,7 @@ class Configuration{
 }
 
 class Instruments {
+    final int numberOfInstruments = 79;
     private String instrument = "";
     private int ID;
     public Instruments(String name, int _ID){
@@ -148,7 +149,4 @@ class Instruments {
     public void setID(int _ID) {
         this.ID = _ID;
     }
-
-    final int numberOfInstruments = 79;
-
 }
