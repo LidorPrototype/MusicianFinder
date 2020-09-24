@@ -66,12 +66,12 @@ class ListViewAdapter extends BaseAdapter {
     private List<Instruments> InstrumentsNameList = null;
     private ArrayList<Instruments> arraylist;
 
-    public ListViewAdapter(Context context, List<Instruments> animalNamesList) {
+    public ListViewAdapter(Context context, List<Instruments> InsturmnetsNamesList) {
         mContext = context;
-        this.InstrumentsNameList = animalNamesList;
+        this.InstrumentsNameList = InsturmnetsNamesList;
         inflater = LayoutInflater.from(mContext);
         this.arraylist = new ArrayList<Instruments>();
-        this.arraylist.addAll(animalNamesList);
+        this.arraylist.addAll(InsturmnetsNamesList);
     }
 
     public class ViewHolder {

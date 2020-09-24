@@ -1,5 +1,6 @@
 package com.LYEO.musicianfinder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ import java.util.List;
  */
 class Configuration{
 
-    private List<Instruments> instrumentsList;
+    private List<Instruments> instrumentsList=new ArrayList<Instruments>();
 
     public Configuration() {
         initList();
