@@ -5,6 +5,5 @@
     <string name="password">password</string>
     <string name="user_name">user name</string>
     <string name="register">Register</string>
-    <string name="user_password">User Password: </string>
     <string name="enter_at_least_6_characters">Enter at least 6 characters</string>
 </resources>
