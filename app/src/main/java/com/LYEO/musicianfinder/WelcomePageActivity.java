@@ -15,11 +15,11 @@ public class WelcomePageActivity extends AppCompatActivity {
 
     }
     public  void mainClick (View v){
-        if (v.getId()==R.id.btLogin){
+        if (v.getId()==R.id.btnLogin){
             Intent intent= new Intent(getApplicationContext(),Login.class);
             startActivity(intent);
         }
-        else if (v.getId()==R.id.btRegister){
+        else if (v.getId()==R.id.btnRegister){
             Intent intent= new Intent(getApplicationContext(),Register.class);
             startActivity(intent);
 
