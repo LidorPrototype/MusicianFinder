@@ -33,7 +33,7 @@ public class Register extends AppCompatActivity {
         edUserName=findViewById(R.id.edUserName);
         edUserPass=findViewById(R.id.edUserPass);
         progressDialog = new ProgressDialog(this);
-        btReg=findViewById(R.id.btRegister);
+        btReg=findViewById(R.id.btnRegister);
         fb1=new FireBase();
 
     }

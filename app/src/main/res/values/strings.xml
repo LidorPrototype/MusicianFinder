@@ -6,4 +6,11 @@
     <string name="user_name">user name</string>
     <string name="register">Register</string>
     <string name="enter_at_least_6_characters">Enter at least 6 characters</string>
+    <string name="name">Name</string>
+    <string name="enter_you_name">Enter you full name</string>
+    <string name="example_username">TopMusicianEven</string>
+    <string name="enter_your_age">Enter your Age</string>
+    <string name="enter_an_address">Enter an address</string>
+    <string name="address">Address</string>
+    <string name="user_password">123456789</string>
 </resources>

@@ -6,52 +6,129 @@
     android:layout_height="match_parent"
     tools:context=".Register">
 
-
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-
+    <!-- Username -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:weightSum="100"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/user_name" />
+            android:text="@string/user_name"
+            android:layout_weight="75" />
 
         <EditText
             android:id="@+id/edUserName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="@string/example_username"
+            android:layout_weight="25" />
     </LinearLayout>
 
+    <!-- Password -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
+        android:weightSum="100"
         android:orientation="horizontal">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/password" />
+            android:text="@string/password"
+            android:layout_weight="75" />
 
         <EditText
             android:id="@+id/edUserPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/enter_at_least_6_characters" />
+            android:hint="@string/enter_at_least_6_characters"
+            android:layout_weight="25" />
 
     </LinearLayout>
 
+    <!-- Name -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/name" />
+
+        <EditText
+            android:id="@+id/edName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_you_name"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Age -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/name" />
+
+        <EditText
+            android:id="@+id/edAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_your_age"
+            android:inputType="number"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Activity Area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:weightSum="100"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="75"
+            android:text="@string/address" />
+
+        <EditText
+            android:id="@+id/edArea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_an_address"
+            android:layout_weight="25" />
+
+    </LinearLayout>
+
+    <!-- Register Btn -->
     <Button
-        android:id="@+id/btRegister"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
