@@ -38,7 +38,7 @@ class Instruments {
         this.instrument = name;
         this.ID = _ID;
     }
-
+    public Instruments(){}
     public String getInstrument() {
         return instrument;
     }

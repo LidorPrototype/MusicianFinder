@@ -19,7 +19,7 @@ public class Publish_Band extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_publish_yourself);
+        setContentView(R.layout.activity_publish__band);
         ToBand=(Button) findViewById(R.id.band);
         ToMusician=(Button) findViewById(R.id.single);
 
