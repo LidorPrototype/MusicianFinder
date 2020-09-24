@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".WelcomePageActivity">
 
 
@@ -19,7 +20,7 @@
         android:onClick="mainClick"
         android:text="@string/login_text"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/btRegister"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

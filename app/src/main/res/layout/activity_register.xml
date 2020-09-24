@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
     tools:context=".Register">
 
 <LinearLayout
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/example_username"
             android:layout_weight="25" />
+
     </LinearLayout>
 
     <!-- Password --><!-- Mandatory -->
@@ -52,6 +54,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_at_least_6_characters"
+            android:inputType="textPassword"
             android:layout_weight="25" />
 
     </LinearLayout>
@@ -75,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_you_name"
+            android:inputType="textPersonName"
             android:layout_weight="25" />
 
     </LinearLayout>
