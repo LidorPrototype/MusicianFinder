@@ -1,12 +1,17 @@
 package com.LYEO.musicianfinder;
 
 import android.content.Context;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.cardview.widget.CardView;
+
+import java.util.ArrayList;
 
 /**
  * Created by Lidor on 9/25/2020.
@@ -27,16 +32,18 @@ public class GridViewAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private String[] names;
     private int[] numbers;
+    private ArrayList<CardViewItem> mCardViewItems;
 
-    public GridViewAdapter(Context c, String[] _names, int[] _numbers){
+    public GridViewAdapter(Context c, String[] _names, int[] _numbers, ArrayList<CardViewItem> cardViewItems){
         this.context = c;
         this.names = _names;
         this.numbers = _numbers;
+        this.mCardViewItems = cardViewItems;
     }
 
     @Override
     public int getCount() {
-        return names.length;
+        return mCardViewItems.size();
     }
 
     @Override
@@ -58,12 +65,14 @@ public class GridViewAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.instrument_item_container, null);
         }
 
+        CardViewItem currentItem = mCardViewItems.get(position);
+        CardView cardView = convertView.findViewById(R.id.ItemCardView);
         ImageView imageView = convertView.findViewById(R.id.image_instrument_icon);
         TextView textView = convertView.findViewById(R.id.text_instrument_name);
 
-        imageView.setImageResource(numbers[position]);
-        imageView.setClickable(false);
-        textView.setText(names[position]);
+        cardView.setCardBackgroundColor(currentItem.getmColorResource());
+        imageView.setImageResource(currentItem.getImageResource());
+        textView.setText(currentItem.getName());
 
         return convertView;
     }

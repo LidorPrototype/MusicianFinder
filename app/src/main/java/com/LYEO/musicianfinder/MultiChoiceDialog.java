@@ -2,6 +2,7 @@ package com.LYEO.musicianfinder;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -9,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.cardview.widget.CardView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +38,21 @@ public class MultiChoiceDialog extends AppCompatDialogFragment {
     private String[] names = new String[79];
     private int[] numbers = new int[79];
     private ArrayList<Instruments> listOfItems = new ArrayList<>();
+    private ArrayList<CardViewItem> itemInstrumentList;
     private List<Instruments> instrumentsList;
-    boolean isSelected = false;
+    private GridViewAdapter adapter;
+    private MultiChoiceDialogListener listener;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (MultiChoiceDialogListener) context;
+        } catch (ClassCastException e) {
+            throw  new ClassCastException(context.toString() +
+                    " must implement MultiChoiceDialogListener");
+        }
+    }
 
     @NonNull
     @Override
@@ -55,24 +67,28 @@ public class MultiChoiceDialog extends AppCompatDialogFragment {
 
         gridViewDialog = view.findViewById(R.id.GridViewDialog);
 
-        GridViewAdapter adapter = new GridViewAdapter(getActivity(), names, numbers);
+        itemInstrumentList = new ArrayList<>();
+        for (int f = 0; f < names.length; f++){
+            itemInstrumentList.add(new CardViewItem(names[f], numbers[f], Color.TRANSPARENT));
+        }
+
+        adapter = new GridViewAdapter(getActivity(), names, numbers, itemInstrumentList);
         gridViewDialog.setAdapter(adapter);
 
         gridViewDialog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                CardView cardView = (CardView) gridViewDialog.getChildAt(position);
-                if (!isSelected) {
-                    //Change background color
-                    cardView.setCardBackgroundColor(Color.parseColor("#FF6F00"));
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                if (!(itemInstrumentList.get(position).isSelected())) {
+                    itemInstrumentList.get(position).setSelected(true);
+                    itemInstrumentList.get(position).setmColorResource(Color.CYAN);
                     listOfItems.add(instrumentsList.get(position));
 
                 }else {
-                    //Change background color
-                    cardView.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
+                    itemInstrumentList.get(position).setSelected(false);
+                    itemInstrumentList.get(position).setmColorResource(Color.TRANSPARENT);
                     listOfItems.remove(instrumentsList.get(position));
                 }
-                isSelected = (!isSelected);
+                adapter.notifyDataSetChanged();
             }
         });
 
@@ -87,12 +103,11 @@ public class MultiChoiceDialog extends AppCompatDialogFragment {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        StringBuilder tmp = new StringBuilder();
-                        for (int k = 0; k < listOfItems.size(); k++){
-                            tmp.append(listOfItems.get(k).toString());
-                            tmp.append(", ");
+                        if(listOfItems.isEmpty()){
+                            listener.applyData(listOfItems, 0);
+                        }else{
+                            listener.applyData(listOfItems, 1);
                         }
-                        Toast.makeText(getActivity(), "" + tmp.toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -104,6 +119,10 @@ public class MultiChoiceDialog extends AppCompatDialogFragment {
             names[c] = instrumentsList.get(c).getInstrument();
             numbers[c] = instrumentsList.get(c).getID();
         }
+    }
+
+    public interface MultiChoiceDialogListener{
+        void applyData(ArrayList<Instruments> _listOfItems, int flag);// 0 - Empty, 1 - Full
     }
 
 }

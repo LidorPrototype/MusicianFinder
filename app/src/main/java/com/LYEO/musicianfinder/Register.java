@@ -3,11 +3,13 @@ package com.LYEO.musicianfinder;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,8 +20,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.util.ArrayList;
 
-public class Register extends AppCompatActivity {
+
+public class Register extends AppCompatActivity implements MultiChoiceDialog.MultiChoiceDialogListener {
     /*
      * Created by yisrael bar & Lidor on 24/09/2020
 
@@ -32,6 +36,7 @@ public class Register extends AppCompatActivity {
     private Button btReg;
     private FireBase fb1;
     private User u1;
+    private TextView textView_Instruments;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +48,9 @@ public class Register extends AppCompatActivity {
         edAge = findViewById(R.id.edAge);
         edBio = findViewById(R.id.edBio);
         edLink = findViewById(R.id.edLink);
+        textView_Instruments = findViewById(R.id.textView_listOfInstruments);
+
+        textView_Instruments.setMovementMethod(new ScrollingMovementMethod());
 
         progressDialog = new ProgressDialog(this);
         btReg = findViewById(R.id.btnRegister);
@@ -52,10 +60,6 @@ public class Register extends AppCompatActivity {
 
     public  void mainClick (View v){
         if (v.getId()==R.id.btnRegister){
-
-
-
-
             try {
                 if (edUserName.getText().toString().equals("") || edUserPass.getText().toString().equals("")){
                     Toast.makeText(this, "Please Fill The Mandatory Parts!", Toast.LENGTH_SHORT).show();
@@ -137,6 +141,46 @@ public class Register extends AppCompatActivity {
         multiChoiceDialog.show(getSupportFragmentManager(), "multi_choice dialog");
     }
 
+    @Override
+    public void applyData(ArrayList<Instruments> _listOfItems, int flag) {// 0 - Empty, 1 - Full
+        if(flag == 0){
+            textView_Instruments.setText("No Instruments Selected!");
+        }else if(flag == 1){
+            StringBuilder tmp = new StringBuilder();
+            for (int h = 0; h < _listOfItems.size(); h++){
+                tmp.append(_listOfItems.get(h).getInstrument());
+                if(h < _listOfItems.size() - 1){
+                    tmp.append(", ");
+                }
+            }
+            textView_Instruments.setText(tmp);
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
