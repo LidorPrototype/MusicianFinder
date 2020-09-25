@@ -30,17 +30,10 @@ import java.util.List;
  */
 class Configuration{
 
-    private List<Instruments> instrumentsList=new ArrayList<Instruments>();
+    private List<Instruments> instrumentsList = new ArrayList<Instruments>();
 
     public Configuration() {
         initList();
-    }
-
-    public List<Instruments> getInstruments() {
-        return instrumentsList;
-    }
-    public void setInstruments(List<Instruments> instruments) {
-        instrumentsList = instruments;
     }
 
     private void initList(){
@@ -124,6 +117,15 @@ class Configuration{
         instrumentsList.add(new Instruments("Vuvuzela", R.drawable.vuvuzela));
         instrumentsList.add(new Instruments("Xylophone", R.drawable.xylophone));
     }
+
+    public List<Instruments> getInstruments() {
+        return instrumentsList;
+    }
+    public void setInstruments(List<Instruments> instruments) {
+        instrumentsList = instruments;
+    }
+
+
 }
 
 class Instruments {

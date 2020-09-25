@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2sp"
+    >
+
+    <GridView
+        android:id="@+id/GridViewDialog"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
+        android:padding="5dp"
+        android:numColumns="auto_fit"
+        android:columnWidth="80sp"
+        android:horizontalSpacing="8sp"
+        android:verticalSpacing="8sp"
+        />
+
+</LinearLayout>
