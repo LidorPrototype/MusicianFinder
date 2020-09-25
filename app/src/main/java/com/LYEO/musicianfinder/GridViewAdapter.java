@@ -55,7 +55,7 @@ public class GridViewAdapter extends BaseAdapter {
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
         if(convertView == null){
-            convertView = inflater.inflate(R.layout.item_instrument, null);
+            convertView = inflater.inflate(R.layout.instrument_item_container, null);
         }
 
         ImageView imageView = convertView.findViewById(R.id.image_instrument_icon);

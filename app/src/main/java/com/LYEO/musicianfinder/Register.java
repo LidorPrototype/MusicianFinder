@@ -127,6 +127,16 @@ public class Register extends AppCompatActivity {
                 });
 
     }
+
+    public void OpenMultiChoiceDialog(View view) {
+        openDialog();
+    }
+
+    public void openDialog(){
+        MultiChoiceDialog multiChoiceDialog = new MultiChoiceDialog();
+        multiChoiceDialog.show(getSupportFragmentManager(), "multi_choice dialog");
+    }
+
 }
 
 

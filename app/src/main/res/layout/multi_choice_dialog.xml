@@ -12,7 +12,7 @@
         android:layout_height="300sp"
         android:padding="5dp"
         android:numColumns="auto_fit"
-        android:columnWidth="80sp"
+        android:columnWidth="100sp"
         android:horizontalSpacing="8sp"
         android:verticalSpacing="8sp"
         />
