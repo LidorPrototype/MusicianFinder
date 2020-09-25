@@ -38,8 +38,9 @@ public class MultiChoiceDialog extends AppCompatDialogFragment {
     private Configuration configuration;
     private String[] names = new String[79];
     private int[] numbers = new int[79];
-    private ArrayList<Integer> listOfItems = new ArrayList<>();
+    private ArrayList<Instruments> listOfItems = new ArrayList<>();
     private List<Instruments> instrumentsList;
+    boolean isSelected = false;
 
     @NonNull
     @Override
@@ -60,17 +61,18 @@ public class MultiChoiceDialog extends AppCompatDialogFragment {
         gridViewDialog.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final CardView cardView = (CardView) gridViewDialog.getChildAt(position);
-                if (cardView.getCardBackgroundColor().getDefaultColor() == -1) {
+                CardView cardView = (CardView) gridViewDialog.getChildAt(position);
+                if (!isSelected) {
                     //Change background color
                     cardView.setCardBackgroundColor(Color.parseColor("#FF6F00"));
-                    listOfItems.add(position + 1);
+                    listOfItems.add(instrumentsList.get(position));
 
-                } else {
+                }else {
                     //Change background color
                     cardView.setCardBackgroundColor(Color.parseColor("#FFFFFF"));
-                    listOfItems.remove(Integer.valueOf(position + 1));
+                    listOfItems.remove(instrumentsList.get(position));
                 }
+                isSelected = (!isSelected);
             }
         });
 
