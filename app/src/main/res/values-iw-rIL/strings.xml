@@ -18,4 +18,6 @@
     <string name="bio">רקע</string>
     <string name="link">קישור</string>
     <string name="age">גיל</string>
+    <string name="sample_text">טקסט לדוגמא</string>
+    <string name="instruments">כלי נגינה</string>
 </resources>

@@ -1,4 +1,5 @@
 <resources>
+    <string name="sample_text">Sample Text</string>
     <string name="app_name">MusicianFinder</string>
     <string name="login_text">Login</string>
     <string name="sign_in_text">Sign In</string>
@@ -18,4 +19,5 @@
     <string name="user_password">123456789</string>
     <string name="example_username">TopMusicianEven</string>
     <string name="age">age</string>
+    <string name="instruments">Instruments</string>
 </resources>

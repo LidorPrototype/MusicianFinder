@@ -85,7 +85,7 @@
 
     </LinearLayout>
 
-    <!-- Age --><!-- Optional -->
+    <!-- Age --><!-- Mandatory -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -110,6 +110,7 @@
     </LinearLayout>
 
     <!-- Activity Area --><!-- Mandatory -->
+    <!-- UNIMPLEMENTED YET -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -161,7 +162,27 @@
     <!-- UNIMPLEMENTED YET -->
 
     <!-- Instruments --><!-- Mandatory -->
-    <!-- UNIMPLEMENTED YET -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="33"
+            android:textSize="20sp"
+            android:text="@string/sample_text"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_weight="66"
+            android:text="@string/instruments"/>
+
+    </LinearLayout>
 
     <!-- Link To Website --><!-- Optional -->
     <LinearLayout
