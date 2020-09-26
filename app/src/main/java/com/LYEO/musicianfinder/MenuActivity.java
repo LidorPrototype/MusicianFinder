@@ -2,8 +2,10 @@ package com.LYEO.musicianfinder;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -53,8 +55,15 @@ public class MenuActivity extends AppCompatActivity {
 
         }
         public void openPrivateArea(){
-        intent=new Intent(this,PrivateAreaActivity.class);
-        startActivity(intent);
+            Log.d("yisrael", "yaa "+Login.u1);
+            try {
+
+            intent=new Intent(this,PrivateAreaActivity.class);
+            startActivity(intent);
+            }catch (Exception e){
+                Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
+
+            }
     }
         public void openFindABand(){
         intent=new Intent(this,BandSearchScreenActivity.class);

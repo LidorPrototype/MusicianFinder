@@ -1,6 +1,8 @@
 package com.LYEO.musicianfinder;
 
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -72,7 +74,7 @@ public class FireBase {
 //        Log.d("yisrael", "its "+UserList.isEmpty());
         return UserList;
     }
-    public  User getAUesr(final String UserName){
+    public  void getAUesr(final String UserName){
 
         DatabaseReference getUserInfo=database.getReference("Users");
         getUserInfo.addChildEventListener(new ChildEventListener() {
@@ -81,7 +83,10 @@ public class FireBase {
 
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
                     u1=ds.getValue(User.class);
-                    if (u1.getName().equals(UserName)){
+//                        Log.d("yisrael", "ya2a "+u1.getUserName() + " ? " + UserName);
+                    if (u1.getUserName().equals(UserName)){
+//                        Log.d("yisrael", "ya1a "+u1);
+                        Login.u1 =u1;
                         break;
                     }
                 }
@@ -92,11 +97,12 @@ public class FireBase {
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
                     u1=ds.getValue(User.class);
-                    if (u1.getName().equals(UserName)){
+                    if (u1.getUserName().equals(UserName)){
+
+                        Login.u1 =u1;
                         break;
                     }
                 }
-//                Log.d("yisrael", "yaa "+u1);
             }
 
             @Override
@@ -115,8 +121,8 @@ public class FireBase {
             }
         });
 
-//        Log.d("yisrael", "its "+UserList.isEmpty());
-        return u1;
+//        Log.d("yisrael", "its "+Login.u1);
+//        return u1;
     }
 
 

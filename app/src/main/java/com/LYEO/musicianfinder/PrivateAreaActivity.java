@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class PrivateAreaActivity extends AppCompatActivity {
+public class PrivateAreaActivity extends AppCompatActivity implements MultiChoiceDialog.MultiChoiceDialogListener{
 /* Created by Yisrael Bar on 26/09/2020*/
     private String UserName = "",UserPass = "", Name = "", UserBio = "", UserLink = "";
     private int UserAge = 0;
@@ -30,17 +30,25 @@ public class PrivateAreaActivity extends AppCompatActivity {
         edBio = findViewById(R.id.edBio);
         edLink = findViewById(R.id.edLink);
         btReg = findViewById(R.id.btnSaveChange);
+
         textView_Instruments = findViewById(R.id.textView_listOfInstruments);
 
         textView_Instruments.setMovementMethod(new ScrollingMovementMethod());
 
+        try {
 
-        edName.setText(Login.u1.getName());
-        edAge.setText(Login.u1.getUserAge());
-        edBio.setText(Login.u1.getUserBio());
-        edLink.setText(Login.u1.getUserLink());
-        UserName = Login.u1.getUserName();
-        UserPass = Login.u1.getUserPass();
+
+            edName.setText(Login.u1.getName());
+            edAge.setText(Login.u1.getUserAge()+"");
+            edBio.setText(Login.u1.getUserBio());
+            edLink.setText(Login.u1.getUserLink());
+            UserName = Login.u1.getUserName();
+            UserPass = Login.u1.getUserPass();
+        }catch (Exception e){
+            Toast.makeText(PrivateAreaActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
+
+        }
+
 
     }
     public  void mainClick (View v){
@@ -96,7 +104,7 @@ public class PrivateAreaActivity extends AppCompatActivity {
         multiChoiceDialog.show(getSupportFragmentManager(), "multi_choice dialog");
     }
 
-//    @Override
+    @Override
     public void applyData(ArrayList<Instruments> _listOfItems, int flag) {// 0 - Empty, 1 - Full
         if(flag == 0){
             textView_Instruments.setText("No Instruments Selected!");
