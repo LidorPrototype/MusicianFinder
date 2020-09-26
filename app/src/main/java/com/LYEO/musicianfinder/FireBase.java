@@ -12,7 +12,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.List;
 /*
- * Created by yisrael bar on 24/09/2020
+ * Created by Yisrael Bar on 24/09/2020
  * */
 
 public class FireBase {
@@ -21,15 +21,15 @@ public class FireBase {
     private  User u1 =new User();
 
 
-    public Boolean sendUserInfoFb(User u1){
+    public Boolean sendUserInfoFb(User u2){
         boolean flag=false;
         DatabaseReference UserInfo = database.getReference("Users").child("User");
-        UserInfo.child(u1.getUserName()).setValue(u1);
+        UserInfo.child(u2.getUserName()).setValue(u2);
         flag=true;
         return flag;
     }
 
-    public  List<User> getEmployeeList(){
+    public  List<User> getUesrsList(){
 
         DatabaseReference getUserInfo=database.getReference("Users");
         getUserInfo.addChildEventListener(new ChildEventListener() {
@@ -71,6 +71,52 @@ public class FireBase {
 
 //        Log.d("yisrael", "its "+UserList.isEmpty());
         return UserList;
+    }
+    public  User getAUesr(final String UserName){
+
+        DatabaseReference getUserInfo=database.getReference("Users");
+        getUserInfo.addChildEventListener(new ChildEventListener() {
+            @Override
+            public  void onChildAdded (@NonNull DataSnapshot dataSnapshot, @Nullable String s)  {
+
+                for (DataSnapshot ds:dataSnapshot.getChildren()){
+                    u1=ds.getValue(User.class);
+                    if (u1.getName().equals(UserName)){
+                        break;
+                    }
+                }
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                for (DataSnapshot ds:dataSnapshot.getChildren()){
+                    u1=ds.getValue(User.class);
+                    if (u1.getName().equals(UserName)){
+                        break;
+                    }
+                }
+//                Log.d("yisrael", "yaa "+u1);
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+//        Log.d("yisrael", "its "+UserList.isEmpty());
+        return u1;
     }
 
 

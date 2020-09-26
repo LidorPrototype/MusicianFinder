@@ -21,4 +21,8 @@
     <string name="example_username">TopMusicianEven</string>
     <string name="age">age</string>
     <string name="instruments">Instruments</string>
+    <string name="edit">Edit</string>
+    <string name="profile">Profile</string>
+    <string name="savechange">Save Change</string>
+    <string name="Return">Go back</string>
 </resources>

@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
      * */
     private EditText edUser,edpass;
     private SharedPreferences myShare;
-
+    static User u1;
     private static  final  String USER_NAME="USER_NAME";
     private static  final  String USER_PASSWORD="USER_PASSWORD";
     public static String userName="";
@@ -68,6 +68,9 @@ public class Login extends AppCompatActivity {
                 if (!edUser.getText().toString().equals("") && !edpass.getText().toString().equals("")) {
                     userName = edUser.getText().toString();
                     userPass = edpass.getText().toString();
+//                  get the user data
+                    FireBase fb1= new FireBase();
+                    this.u1 = fb1.getAUesr(userName);
                     login(userName, userPass);
                 }
             }catch (Exception e) {

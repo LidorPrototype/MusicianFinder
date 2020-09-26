@@ -21,4 +21,8 @@
     <string name="instruments">כלי נגינה</string>
     <string name="instrument_select_text">לא נבחרו כלים</string>
     <string name="sample_text">טקסט כללי</string>
+    <string name="edit">עריכה</string>
+    <string name="profile">פרופיל</string>
+    <string name="savechange">שמור שינויים</string>
+    <string name="Return">חזור</string>
 </resources>

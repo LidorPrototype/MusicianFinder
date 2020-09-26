@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class Register extends AppCompatActivity implements MultiChoiceDialog.MultiChoiceDialogListener {
     /*
-     * Created by yisrael bar & Lidor on 24/09/2020
+     * Created by Yisrael Bar & Lidor on 24/09/2020
 
      * */
     private String UserName = "",UserPass = "", Name = "", UserBio = "", UserLink = "";
@@ -89,7 +89,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                     // TODO Fix Register for Mandatory + Optional Data
                     u1= new User(UserName,UserPass,Name,UserBio,UserLink,UserAge);
                     registerUser(UserName,UserPass);
-
+                    Login.u1 =this.u1;
 //                     User u1 = new User(UserName,UserPass);
                     Toast.makeText(Register.this,"in register",Toast.LENGTH_LONG).show();
                 }
