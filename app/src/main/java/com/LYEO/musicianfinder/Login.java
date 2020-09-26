@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -72,6 +73,8 @@ public class Login extends AppCompatActivity {
                     FireBase fb1= new FireBase();
                     this.u1 = fb1.getAUesr(userName);
                     login(userName, userPass);
+//                    Log.d("yisrael", "yaa "+u1);
+
                 }
             }catch (Exception e) {
                 Toast.makeText(Login.this,""+e,Toast.LENGTH_LONG).show();
