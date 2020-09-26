@@ -71,7 +71,7 @@ public class Login extends AppCompatActivity {
                     userPass = edpass.getText().toString();
 //                  get the user data
                     FireBase fb1= new FireBase();
-                    this.u1 = fb1.getAUesr(userName);
+                    fb1.getAUesr(userName);
                     login(userName, userPass);
 //                    Log.d("yisrael", "yaa "+u1);
 
