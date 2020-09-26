@@ -7,6 +7,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -21,14 +23,18 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class Register extends AppCompatActivity implements MultiChoiceDialog.MultiChoiceDialogListener {
     /*
-     * Created by Yisrael Bar & Lidor on 24/09/2020
-
-     * */
-    private String UserName = "",UserPass = "", Name = "", UserBio = "", UserLink = "";
+     * Created by Yisrael Bar & Lidor Eliyahu on 24/09/2020
+     */
+    private String UserName = "",UserPass = "", Name = "",UserArea = "", UserBio = "", UserLink = "";
+    private List<String> instrumentsNames = new ArrayList<>();
+    private List<String> genreList = new ArrayList<>();
+    private AutoCompleteTextView actvArea;
     private int UserAge = 0;
     private EditText edUserName, edUserPass, edName, edAge, edBio, edLink;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -37,6 +43,15 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     private FireBase fb1;
     private User u1;
     private TextView textView_Instruments;
+
+    // TODO Change the below temporary dataset of cities into the APK one
+    private String citiesID = "citiesList";
+    private ArrayList<String> cities = new ArrayList<>();
+    private ArrayList<String> countries = new ArrayList<>();
+//            Arrays.asList("Jerusalem", "Tel Aviv", "Maale Adomim", "Modiin", "Jenine"));
+    private ArrayList<String> letterTEMP = new ArrayList<>(Arrays.asList(
+            "A", "AB", "ABC", "ABCD", "ABCDE", "ABCDEF", "ABCDEFG", "ABCDEFGH", "ABCDEFGHI", "ABCDEFGHIJ"));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +61,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         edUserPass = findViewById(R.id.edUserPass);
         edName = findViewById(R.id.edName);
         edAge = findViewById(R.id.edAge);
+        actvArea = findViewById(R.id.actvArea);
         edBio = findViewById(R.id.edBio);
         edLink = findViewById(R.id.edLink);
         textView_Instruments = findViewById(R.id.textView_listOfInstruments);
@@ -55,6 +71,24 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         progressDialog = new ProgressDialog(this);
         btReg = findViewById(R.id.btnRegister);
         fb1 = new FireBase();
+
+        // Activity Area
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.cities_items, R.id.text_city_name, letterTEMP);
+        actvArea.setAdapter(adapter);
+
+        Button btn = findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                List<String[]> tmp = readCVSFromAssetFolder();
+//                Log.d("CSV_CSV", tmp.size() + "");
+
+//                InputStream inputStream = getResources().openRawResource(R.raw.countriesToCities.csv);
+//                CSVFile csvFile = new CSVFile(inputStream);
+//                List scoreList = csvFile.read();
+            }
+        });
 
     }
 
@@ -68,6 +102,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                     UserPass = edUserPass.getText().toString();
                     Name = edName.getText().toString();
                     UserAge = Integer.parseInt(edAge.getText().toString());
+                    UserArea = actvArea.getText().toString();
                     UserBio = edBio.getText().toString();
                     UserLink = edLink.getText().toString();
 
@@ -86,7 +121,8 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                         Toast.makeText(this, "Please provide a valid link!", Toast.LENGTH_SHORT).show();
                     }
 
-                    // TODO Fix Register for Mandatory + Optional Data
+                    // TODO Fix Register for Mandatory + Optional Data: (9 in general)
+                    // TODO - Add instrumentsNames to the user credentials
                     u1= new User(UserName,UserPass,Name,UserBio,UserLink,UserAge);
                     registerUser(UserName,UserPass);
                     Login.u1 =this.u1;
@@ -149,6 +185,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
             StringBuilder tmp = new StringBuilder();
             for (int h = 0; h < _listOfItems.size(); h++){
                 tmp.append(_listOfItems.get(h).getInstrument());
+                instrumentsNames.add(_listOfItems.get(h).getInstrument());
                 if(h < _listOfItems.size() - 1){
                     tmp.append(", ");
                 }
