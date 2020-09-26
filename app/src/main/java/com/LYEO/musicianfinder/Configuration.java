@@ -1,6 +1,7 @@
 package com.LYEO.musicianfinder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -31,9 +32,16 @@ import java.util.List;
 class Configuration{
 
     private List<Instruments> instrumentsList = new ArrayList<Instruments>();
+    private String citiesID = "citiesList";
+    private ArrayList<String> _cities;
 
     public Configuration() {
+        initialization();
+    }
+
+    public void initialization(){
         initList();
+        initCities();
     }
 
     private void initList(){
@@ -118,14 +126,49 @@ class Configuration{
         instrumentsList.add(new Instruments("Xylophone", R.drawable.xylophone));
     }
 
+    private void initCities(){
+        _cities = new ArrayList<>(
+                Arrays.asList(
+                        "Lod","Tel Aviv","Jerusalem","Maale Adomim","Kfar Saba","Or Yehuda","Azor",
+                        "Bat Yam","Ramat Gan","Holon","Ashdod","Be'er Sheva","Yehud","Rishon LeZion",
+                        "Hazav","Ness Ziona","Eilat","Rehovot","Herzliya","Nahariya","Haifa",
+                        "Shave Ziyyon","Ramat HaSharon","Ramat Poleg","Kadima","Karmi'el","Pardesiyya",
+                        "Netanya","Gan Yavne","Petah Tikwah","Ashqelon","Savyon","Naham",
+                        "Mazkeret Batya","`Arugot","Ofaqim","Shetulim","Hadera","Qiryat Bialik",
+                        "Tel Mond","Hod HaSharon","Qiryat Yam","Shelomi","Binyamina","Liman","`Alma",
+                        "Ramla","Nazareth","Et Taiyiba","Rinnatya","Yavne","Acre","Nazerat `Illit",
+                        "Baraq","Even Yehuda","Nesher","Pardes Hanna Karkur","Netivot","Tirat Karmel",
+                        "Or `Aqiva","Kefar Yona","Afula","Bet Oren","Haluz","Biriyya","Gan Hayyim",
+                        "Qiryat Tiv`on","Qiryat Gat","Be'er Toviyya","`En Ayyala",
+                        "Misgav Regional Council","Safed","Gedera","Dimona","Bet Shemesh",
+                        "`En HaShelosha","Herut","Mazor","Shamir","Ra'anana","Bat Hadar",
+                        "Rosh Ha'Ayin","Zoran","Tirat Yehuda","Bareqet","Elyakhin","Hadid",
+                        "Hadar Ramatayim","Modiin","Hazor Ashdod","Kefar Daniyyel","Newe Efrayim",
+                        "Talme Menashe","Kefar Netter","Mazliah","Moran","Shoval","Ramat Aviv",
+                        "Afiqim","Ramat Dawid","Sde Warburg","Magen","Karkur","Qiryat Ata","Maghar",
+                        "Bet Alfa","Timrat","Elyaqim","Bet Dagan","Ginnosar","Qiryat Mal'akhi",
+                        "Hadar `Am","maalot Tarshiha","Ahituv","Qiryat Motzkin","Migdal","Bat Hefer",
+                        "Ben Shemen-Kefar Hano`ar","Emunim","Tiberias","Mikhmoret","Hever",
+                        "Ramat Yishay","Sderot","Gimzo","Mesillat Ziyyon","Pasuta","Bet She'an",
+                        "Newe Yamin","Nordiyya","HaKarmiel","Giv'atayim","Gibbeton","Qiryat Ono",
+                        "Sarid","Nir Zevi","Ramat Ef`al","Bene Ziyyon","Hurfeish","Shefayim",
+                        "Dabburiya","Rishpon","Mizpe Netofa","Sde Boker","Yaqum","Bahan","Jaffa",
+                        "Allonim","`Evron","Hazor HaGelilit","Ramot Naftali","Giv`at Hayyim","Urim",
+                        "Sedot Yam","`Aseret","Nirim","`Amir","Ganne Tiqwa","Ma`agan Mikha'el",
+                        "Qiryat Hayyim","Kefar Witqin"
+                )
+        );
+    }
+
     public List<Instruments> getInstruments() {
         return instrumentsList;
     }
     public void setInstruments(List<Instruments> instruments) {
         instrumentsList = instruments;
     }
-
-
+    public ArrayList<String> getCities() {
+        return _cities;
+    }
 }
 
 class Instruments {

@@ -22,9 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -44,14 +42,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     private FireBase fb1;
     private User u1;
     private TextView textView_Instruments;
-
-    // TODO Change the below temporary dataset of cities into the APK one
-    private String citiesID = "citiesList";
-    private ArrayList<String> cities = new ArrayList<>();
-    private ArrayList<String> countries = new ArrayList<>();
-//            Arrays.asList("Jerusalem", "Tel Aviv", "Maale Adomim", "Modiin", "Jenine"));
-    private ArrayList<String> letterTEMP = new ArrayList<>(Arrays.asList(
-            "A", "AB", "ABC", "ABCD", "ABCDE", "ABCDEF", "ABCDEFG", "ABCDEFGH", "ABCDEFGHI", "ABCDEFGHIJ"));
+    private ArrayList<String> cities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +58,8 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         edLink = findViewById(R.id.edLink);
         textView_Instruments = findViewById(R.id.textView_listOfInstruments);
 
+        Configuration configurationObj = new Configuration();
+
         textView_Instruments.setMovementMethod(new ScrollingMovementMethod());
 
         progressDialog = new ProgressDialog(this);
@@ -74,28 +67,11 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         fb1 = new FireBase();
 
         // Activity Area
+        cities = configurationObj.getCities();
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.cities_items, R.id.text_city_name, letterTEMP);
+                R.layout.cities_items, R.id.text_city_name, cities);
         actvArea.setAdapter(adapter);
 
-        Button btn = findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                List<String[]> tmp = readCVSFromAssetFolder();
-//                Log.d("CSV_CSV", tmp.size() + "");
-
-                InputStream inputStream = getResources().openRawResource(R.raw.countries_to_cities);
-                CSVFile csvFile = new CSVFile(inputStream);
-                List scoreList = csvFile.read();
-                for (int i = 0 ; i < scoreList.size(); i++){
-                    Log.d("CSVCSVCSV", Arrays.deepToString(scoreList.toArray()));
-                }
-//                for(String[] scoreData:scoreList ) {
-//                    adapter.add(scoreData);
-//                }
-            }
-        });
 
     }
 

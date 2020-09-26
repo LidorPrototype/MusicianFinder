@@ -9,16 +9,7 @@ import java.util.List;
 
 /**
  * Created by Lidor on 9/26/2020.
- * Website: www.buckystudents.com
- * _        _   _____     ____    ______
- * | |      |_| |  __ \   / __ \  |  O   |
- * | |      | | | |  | | | |  | | |   ___/
- * | |____  | | | |__| | | |__| | | | \
- * |______| |_| |_____/   \____/  |_|__\
- * ____         ____
- * |  __|       |  __|
- * |  __|   _   |__  |
- * |____|  |_|  |____|
+ * NOT WORKING CURRENTLY --> we were forced to force the user to pick cities in Israel ONLY
  */
 public class CSVFile {
     InputStream inputStream;
@@ -27,11 +18,11 @@ public class CSVFile {
         this.inputStream = inputStream;
     }
 
-    public List read(){
-        List resultList = new ArrayList();
+    public List<String[]> read(){
+        List<String[]> resultList = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         try {
-            String csvLine;
+            String csvLine = "";
             while ((csvLine = reader.readLine()) != null) {
                 String[] row = csvLine.split(",");
                 resultList.add(row);
