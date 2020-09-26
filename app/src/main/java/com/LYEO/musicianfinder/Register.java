@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -73,7 +74,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         fb1 = new FireBase();
 
         // Activity Area
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.cities_items, R.id.text_city_name, letterTEMP);
         actvArea.setAdapter(adapter);
 
@@ -84,9 +85,15 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
 //                List<String[]> tmp = readCVSFromAssetFolder();
 //                Log.d("CSV_CSV", tmp.size() + "");
 
-//                InputStream inputStream = getResources().openRawResource(R.raw.countriesToCities.csv);
-//                CSVFile csvFile = new CSVFile(inputStream);
-//                List scoreList = csvFile.read();
+                InputStream inputStream = getResources().openRawResource(R.raw.countries_to_cities);
+                CSVFile csvFile = new CSVFile(inputStream);
+                List scoreList = csvFile.read();
+                for (int i = 0 ; i < scoreList.size(); i++){
+                    Log.d("CSVCSVCSV", Arrays.deepToString(scoreList.toArray()));
+                }
+//                for(String[] scoreData:scoreList ) {
+//                    adapter.add(scoreData);
+//                }
             }
         });
 
