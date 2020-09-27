@@ -3,11 +3,7 @@ package com.LYEO.musicianfinder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,10 +35,12 @@ public class PublishYourselfActivity extends AppCompatActivity{
     public void openBand(){
         intent=new Intent(this,Publish_Band.class);
         startActivity(intent);
+        finish();
     }
     public void openMusician(){
         intent=new Intent(this,Publish_Musician.class);
         startActivity(intent);
+        finish();
     }
 
 }

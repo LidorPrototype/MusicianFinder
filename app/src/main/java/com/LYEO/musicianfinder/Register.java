@@ -139,6 +139,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                                 btReg.setText("User added");
                                 Intent intent= new Intent(getApplicationContext(),MenuActivity.class);
                                 startActivity(intent);
+                                finish();
                             }
                         }else{
                             //display some message here

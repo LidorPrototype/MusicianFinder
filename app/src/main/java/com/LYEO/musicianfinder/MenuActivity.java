@@ -60,6 +60,7 @@ public class MenuActivity extends AppCompatActivity {
 
             intent=new Intent(this,PrivateAreaActivity.class);
             startActivity(intent);
+            finish();
             }catch (Exception e){
                 Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
 
@@ -68,13 +69,16 @@ public class MenuActivity extends AppCompatActivity {
         public void openFindABand(){
         intent=new Intent(this,BandSearchScreenActivity.class);
         startActivity(intent);
+        finish();
     }
         public void openFindAMusician(){
         intent=new Intent(this,MusicianSearchScreenActivity.class);
         startActivity(intent);
+        finish();
     }
         public void openPublishYouself(){
         intent=new Intent(this,PublishYourselfActivity.class);
         startActivity(intent);
+        finish();
     }
     }

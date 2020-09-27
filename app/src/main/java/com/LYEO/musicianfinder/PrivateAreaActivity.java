@@ -92,6 +92,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
         if (v.getId()==R.id.btnReturn){
             Intent intent=new Intent(this,MenuActivity.class);
             startActivity(intent);
+            finish();
         }
     }
 
