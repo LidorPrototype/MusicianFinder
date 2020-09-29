@@ -9,11 +9,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.LYEO.musicianfinder.Chat.Rooms;
+
 public class MenuActivity extends AppCompatActivity {
     private Button ToPrivateArea;
     private Button ToFindABand;
     private Button ToFindAMusician;
     private Button ToPublishYouself;
+    private Button ToChats;
     private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,7 @@ public class MenuActivity extends AppCompatActivity {
         ToFindABand=(Button) findViewById(R.id.FindABand);
         ToFindAMusician=(Button) findViewById(R.id.FindAMusician);
         ToPublishYouself=(Button) findViewById(R.id.PublishYourself);
+        ToChats = (Button) findViewById(R.id.btnChats);
 
         ToPrivateArea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,12 +53,19 @@ public class MenuActivity extends AppCompatActivity {
                 openPublishYouself();
             }
         });
-
-
+        ToChats.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openChats();
+            }
+        });
 
 
         }
-        public void openPrivateArea(){
+
+
+
+    public void openPrivateArea(){
             Log.d("yisrael", "yaa "+Login.u1);
             try {
 
@@ -78,6 +89,11 @@ public class MenuActivity extends AppCompatActivity {
     }
         public void openPublishYouself(){
         intent=new Intent(this,PublishYourselfActivity.class);
+        startActivity(intent);
+        finish();
+    }
+    public void openChats() {
+        intent=new Intent(this, Rooms.class);
         startActivity(intent);
         finish();
     }

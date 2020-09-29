@@ -4,6 +4,7 @@ package com.LYEO.musicianfinder;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.LYEO.musicianfinder.Chat.Message;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +22,12 @@ public class FireBase {
     static List <User> UserList=new ArrayList<User>();
     private  User u1 = new User();
 
+    public void sendMessageToFb(Message m){
+
+        DatabaseReference  myRef1= database.getReference("rooms").child(Login.u1.getUserName()).child(m.getOther_name()).child("message");
+        myRef1.push().setValue(m);
+
+    }
 
     public Boolean sendUserInfoFb(User u2){
         boolean flag=false;

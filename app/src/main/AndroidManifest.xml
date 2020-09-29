@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Chat.Chat"></activity>
+        <activity android:name=".Chat.Rooms" />
         <activity android:name=".Publish_Musician" />
         <activity android:name=".Publish_Band" />
         <activity android:name=".Register" />
