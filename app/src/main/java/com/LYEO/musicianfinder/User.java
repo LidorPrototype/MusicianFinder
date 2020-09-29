@@ -102,13 +102,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "UserName ='" + UserName + '\'' +
-                ", UserPass ='" + UserPass + '\'' +
-                ", Name ='" + Name + '\'' +
-                ", Location ='" + UserLocation + '\'' +
-                ", UserBio ='" + UserBio + '\'' +
-                ", UserLink ='" + UserLink + '\'' +
-                ", UserAge =" + UserAge +
+                "UserName = '" + UserName + '\'' +
+                ", UserPass = '" + UserPass + '\'' +
+                ", Name = '" + Name + '\'' +
+                ", Location = '" + UserLocation + '\'' +
+                ", UserBio = '" + UserBio + '\'' +
+                ", Instruments = '" + UserInstruments.toString() + '\'' +
+                ", UserLink = '" + UserLink + '\'' +
+                ", UserAge = " + UserAge +
                 '}';
     }
 }

@@ -43,6 +43,15 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
             edAge.setText(Login.u1.getUserAge()+"");
             edBio.setText(Login.u1.getUserBio());
             edLocation.setText(Login.u1.getUserLocation());
+            instrumentsNames = Login.u1.getUserInstruments();
+            StringBuilder namesIntoText = new StringBuilder();
+            for (int f = 0; f < instrumentsNames.size(); f++){
+                namesIntoText.append(instrumentsNames.get(f));
+                if (f < instrumentsNames.size() - 1){
+                    namesIntoText.append(", ");
+                }
+            }
+            textView_Instruments.setText(namesIntoText);
             edLink.setText(Login.u1.getUserLink());
             UserName = Login.u1.getUserName();
             UserPass = Login.u1.getUserPass();
@@ -106,6 +115,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
         if(flag == 0){
             textView_Instruments.setText("No Instruments Selected!");
         }else if(flag == 1){
+            instrumentsNames.clear();
             StringBuilder tmp = new StringBuilder();
             for (int h = 0; h < _listOfItems.size(); h++){
                 tmp.append(_listOfItems.get(h).getInstrument());
@@ -118,4 +128,6 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
         }
     }
 
+    public void OpenGenresList(View view) {
+    }
 }

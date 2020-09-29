@@ -28,4 +28,7 @@
     <string name="genres">סגנונות</string>
     <string name="genres_select_text">רשימת סגנונות</string>
     <string name="chat_s">צאטים</string>
+    <string name="choose_weapons">בחרו את הנשקים שלכם!</string>
+    <string name="cancel">בטל</string>
+    <string name="ok">סבבה</string>
 </resources>
