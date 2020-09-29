@@ -93,7 +93,7 @@ public class MultiChoiceDialog extends AppCompatDialogFragment {
         });
 
         builder.setView(view)
-                .setTitle("Choose!!!")
+                .setTitle(R.string.choose_weapons)
                 .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

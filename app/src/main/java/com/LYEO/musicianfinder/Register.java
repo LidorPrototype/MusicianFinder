@@ -164,6 +164,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         if(flag == 0){
             textView_Instruments.setText("No Instruments Selected!");
         }else if(flag == 1){
+            instrumentsNames.clear();
             StringBuilder tmp = new StringBuilder();
             for (int h = 0; h < _listOfItems.size(); h++){
                 tmp.append(_listOfItems.get(h).getInstrument());

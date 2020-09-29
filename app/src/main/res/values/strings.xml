@@ -7,6 +7,8 @@
     <string name="password">password</string>
     <string name="user_name">user name</string>
     <string name="register">Register</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
     <string name="enter_at_least_6_characters">Enter at least 6 characters</string>
     <string name="website_example" translatable="false">www.example.com</string>
     <string name="link">Link</string>
@@ -27,4 +29,5 @@
     <string name="Return">Go back</string>
     <string name="genres">Genres</string>
     <string name="genres_select_text">No Genres Selected!</string>
+    <string name="choose_weapons">Choose Your Weapons!</string>
 </resources>
