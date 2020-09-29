@@ -25,11 +25,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.List;
 
+/*
+ * Created by Yisrael Bar & Lidor Eliyahu on 24/09/2020
+ */
 
 public class Register extends AppCompatActivity implements MultiChoiceDialog.MultiChoiceDialogListener {
-    /*
-     * Created by Yisrael Bar & Lidor Eliyahu on 24/09/2020
-     */
+
     private String UserName = "",UserPass = "", Name = "",UserArea = "", UserBio = "", UserLink = "";
     private List<String> instrumentsNames = new ArrayList<>();
     private List<String> genreList = new ArrayList<>();
