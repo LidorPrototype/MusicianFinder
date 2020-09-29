@@ -1,27 +1,54 @@
 package com.LYEO.musicianfinder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 /*
-* Created by Yisrael Bar on 24/09/2020
+* Created by Yisrael Bar & Lidor Eliyahu on 24/09/2020
 * */
-    private String UserName ,UserPass , Name , UserBio , UserLink ;
+    private String UserName, UserPass , Name, UserLocation, UserBio , UserLink;
+    private List<String> UserInstruments;
     private int UserAge ;
 
-    public User (String userName ,String userPass ,String name ,String userBio ,String userLink,int userAge){
+    public User(String userName, String userPass, String name, String location,
+                 String userBio,List<String> instruments,  String userLink, int userAge
+            ){
         this.UserName = userName;
         this.UserPass = userPass;
         this.Name = name;
+        this.UserLocation = location;
         this.UserBio = userBio;
+        this.UserInstruments = instruments;
         this.UserLink = userLink;
         this.UserAge = userAge;
     }
+
     public User (){
         this.UserName = "";
         this.UserPass = "";
         this.Name = "";
+        this.UserLocation = "";
         this.UserBio = "";
+        this.UserInstruments = new ArrayList<>();
         this.UserLink = "";
         this.UserAge = 0;
+    }
+
+    public List<String> getUserInstruments() {
+        return UserInstruments;
+    }
+
+    public void setUserInstruments(List<String> userInstruments) {
+        UserInstruments = userInstruments;
+    }
+
+    public String getUserLocation() {
+        return UserLocation;
+    }
+
+    public void setUserLocation(String userLocation) {
+        UserLocation = userLocation;
     }
 
     public String getUserName() {
@@ -75,12 +102,13 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "UserName='" + UserName + '\'' +
-                ", UserPass='" + UserPass + '\'' +
-                ", Name='" + Name + '\'' +
-                ", UserBio='" + UserBio + '\'' +
-                ", UserLink='" + UserLink + '\'' +
-                ", UserAge=" + UserAge +
+                "UserName ='" + UserName + '\'' +
+                ", UserPass ='" + UserPass + '\'' +
+                ", Name ='" + Name + '\'' +
+                ", Location ='" + UserLocation + '\'' +
+                ", UserBio ='" + UserBio + '\'' +
+                ", UserLink ='" + UserLink + '\'' +
+                ", UserAge =" + UserAge +
                 '}';
     }
 }

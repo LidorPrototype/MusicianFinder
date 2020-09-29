@@ -2,7 +2,7 @@ package com.LYEO.musicianfinder;
 
 /**
  * Created by Lidor on 9/25/2020.
- * Website: www.buckystudents.com
+ * Developer name: L-ES
  *  _        _   _____     ____    ______
  * | |      |_| |  __ \   / __ \  |  O   |
  * | |      | | | |  | | | |  | | |   ___/

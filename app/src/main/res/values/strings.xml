@@ -25,4 +25,6 @@
     <string name="profile">Profile</string>
     <string name="savechange">Save Change</string>
     <string name="Return">Go back</string>
+    <string name="genres">Genres</string>
+    <string name="genres_select_text">No Genres Selected!</string>
 </resources>

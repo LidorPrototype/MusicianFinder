@@ -41,6 +41,7 @@ class Configuration{
 
     public void initialization(){
         initList();
+        initGenres();
         initCities();
     }
 
@@ -124,6 +125,10 @@ class Configuration{
         instrumentsList.add(new Instruments("Violin", R.drawable.violin));
         instrumentsList.add(new Instruments("Vuvuzela", R.drawable.vuvuzela));
         instrumentsList.add(new Instruments("Xylophone", R.drawable.xylophone));
+    }
+
+    private void initGenres(){
+
     }
 
     private void initCities(){

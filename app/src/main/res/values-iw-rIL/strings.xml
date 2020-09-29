@@ -25,4 +25,6 @@
     <string name="profile">פרופיל</string>
     <string name="savechange">שמור שינויים</string>
     <string name="Return">חזור</string>
+    <string name="genres">סגנונות</string>
+    <string name="genres_select_text">רשימת סגנונות</string>
 </resources>

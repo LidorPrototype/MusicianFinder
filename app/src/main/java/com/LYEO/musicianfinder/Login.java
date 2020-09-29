@@ -40,16 +40,12 @@ public class Login extends AppCompatActivity {
         firebaseAuth=FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
         try {
-//            Log.d("yisrael", " 0");
-
-
             myShare = getSharedPreferences("first", Context.MODE_PRIVATE);
             userName = myShare.getString(USER_NAME, null);
             userPass = myShare.getString(USER_PASSWORD, null);
             edUser.setText(userName);
             edpass.setText(userPass);
-
-        } catch (Exception e) {
+        }catch (Exception e) {
             Toast.makeText(this, "" + e, Toast.LENGTH_SHORT).show();
         }
 
@@ -68,7 +64,6 @@ public class Login extends AppCompatActivity {
                 if (!edUser.getText().toString().equals("") && !edpass.getText().toString().equals("")) {
                     userName = edUser.getText().toString();
                     userPass = edpass.getText().toString();
-//                  get the user data
                     FireBase fb1= new FireBase();
                     fb1.getAUesr(userName);
                     login(userName, userPass);
@@ -77,14 +72,8 @@ public class Login extends AppCompatActivity {
                 }
             }catch (Exception e) {
                 Toast.makeText(Login.this,""+e,Toast.LENGTH_LONG).show();
-
-
-
             }
-
-
         }
-
     }
 
     private void login(String userName, String userPass) {
@@ -92,7 +81,6 @@ public class Login extends AppCompatActivity {
         firebaseAuth.signInWithEmailAndPassword(userName,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-
                 //checking if success
                 if(task.isSuccessful()){
                     //display some message here

@@ -31,10 +31,10 @@ import java.util.List;
 
 public class Register extends AppCompatActivity implements MultiChoiceDialog.MultiChoiceDialogListener {
 
-    private String UserName = "",UserPass = "", Name = "",UserArea = "", UserBio = "", UserLink = "";
+    private String UserName = "",UserPass = "", Name = "",UserLocation = "", UserBio = "", UserLink = "";
     private List<String> instrumentsNames = new ArrayList<>();
     private List<String> genreList = new ArrayList<>();
-    private AutoCompleteTextView actvArea;
+    private AutoCompleteTextView actvLocation;
     private int UserAge = 0;
     private EditText edUserName, edUserPass, edName, edAge, edBio, edLink;
     private FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -54,7 +54,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         edUserPass = findViewById(R.id.edUserPass);
         edName = findViewById(R.id.edName);
         edAge = findViewById(R.id.edAge);
-        actvArea = findViewById(R.id.actvArea);
+        actvLocation = findViewById(R.id.actvLocation);
         edBio = findViewById(R.id.edBio);
         edLink = findViewById(R.id.edLink);
         textView_Instruments = findViewById(R.id.textView_listOfInstruments);
@@ -71,9 +71,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         cities = configurationObj.getCities();
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.cities_items, R.id.text_city_name, cities);
-        actvArea.setAdapter(adapter);
-
-
+        actvLocation.setAdapter(adapter);
     }
 
     public  void mainClick (View v){
@@ -86,7 +84,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                     UserPass = edUserPass.getText().toString();
                     Name = edName.getText().toString();
                     UserAge = Integer.parseInt(edAge.getText().toString());
-                    UserArea = actvArea.getText().toString();
+                    UserLocation = actvLocation.getText().toString();
                     UserBio = edBio.getText().toString();
                     UserLink = edLink.getText().toString();
 
@@ -105,9 +103,8 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                         Toast.makeText(this, "Please provide a valid link!", Toast.LENGTH_SHORT).show();
                     }
 
-                    // TODO Fix Register for Mandatory + Optional Data: (9 in general)
-                    // TODO - Add instrumentsNames to the user credentials
-                    u1= new User(UserName,UserPass,Name,UserBio,UserLink,UserAge);
+                    // TODO Fix Register for Mandatory + Optional Data: (9 in general) - current 7 saved
+                    u1= new User(UserName, UserPass, Name, UserLocation, UserBio, instrumentsNames, UserLink, UserAge);
                     registerUser(UserName,UserPass);
                     Login.u1 =this.u1;
 //                     User u1 = new User(UserName,UserPass);
@@ -177,6 +174,13 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
             }
             textView_Instruments.setText(tmp);
         }
+    }
+
+    public void OpenGenresList(View view) {
+    }
+
+    public void TestClick(View view) {
+        Log.d("TESTING_STUFF", instrumentsNames.toString());
     }
 }
 

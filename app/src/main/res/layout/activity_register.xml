@@ -124,7 +124,7 @@
             android:text="@string/address" />
 
         <AutoCompleteTextView
-            android:id="@+id/actvArea"
+            android:id="@+id/actvLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_an_address"
@@ -161,7 +161,31 @@
     </LinearLayout>
 
     <!-- Genre List --><!-- Optional -->
-    <!-- UNIMPLEMENTED YET -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/textView_listOfGenres"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="33"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/genres_select_text"/>
+
+        <Button
+            android:id="@+id/btnDialogMultiChoiceGenres"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="66"
+            android:onClick="OpenGenresList"
+            android:text="@string/genres"/>
+
+    </LinearLayout>
 
     <!-- Instruments --><!-- Mandatory -->
     <LinearLayout
@@ -221,6 +245,15 @@
         android:layout_gravity="center"
         android:onClick="mainClick"
         android:text="@string/register" />
+
+    <!-- Test Btn -->
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="TestClick"
+        android:text="TEST" />
 
 </LinearLayout>
 

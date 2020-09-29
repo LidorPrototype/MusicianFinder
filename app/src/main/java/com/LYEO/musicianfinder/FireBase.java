@@ -1,8 +1,6 @@
 package com.LYEO.musicianfinder;
 
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -11,6 +9,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 import java.util.List;
 /*
@@ -20,7 +19,7 @@ import java.util.List;
 public class FireBase {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     static List <User> UserList=new ArrayList<User>();
-    private  User u1 =new User();
+    private  User u1 = new User();
 
 
     public Boolean sendUserInfoFb(User u2){
@@ -75,12 +74,10 @@ public class FireBase {
         return UserList;
     }
     public  void getAUesr(final String UserName){
-
         DatabaseReference getUserInfo=database.getReference("Users");
         getUserInfo.addChildEventListener(new ChildEventListener() {
             @Override
             public  void onChildAdded (@NonNull DataSnapshot dataSnapshot, @Nullable String s)  {
-
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
                     u1=ds.getValue(User.class);
 //                        Log.d("yisrael", "ya2a "+u1.getUserName() + " ? " + UserName);
@@ -90,7 +87,6 @@ public class FireBase {
                         break;
                     }
                 }
-
             }
 
             @Override

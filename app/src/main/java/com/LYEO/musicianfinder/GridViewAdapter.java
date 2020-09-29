@@ -1,7 +1,6 @@
 package com.LYEO.musicianfinder;
 
 import android.content.Context;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Lidor on 9/25/2020.
- * Website: www.buckystudents.com
+ * Developer name: L-ES
  *  _        _   _____     ____    ______
  * | |      |_| |  __ \   / __ \  |  O   |
  * | |      | | | |  | | | |  | | |   ___/
