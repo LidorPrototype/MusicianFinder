@@ -18,12 +18,10 @@ public class WelcomePageActivity extends AppCompatActivity {
         if (v.getId()==R.id.btnLogin){
             Intent intent= new Intent(getApplicationContext(),Login.class);
             startActivity(intent);
-            finish();
         }
         else if (v.getId()==R.id.btnRegister){
             Intent intent= new Intent(getApplicationContext(),Register.class);
             startActivity(intent);
-            finish();
         }
 
     }
