@@ -33,7 +33,7 @@ public class Rooms extends AppCompatActivity {
 //            s.AddChatName("or");
 //            s.AddChatName("eli");
             s.showChatNames();
-//
+
             adaptersForNewChat adapter=new adaptersForNewChat(getApplicationContext(),chatsList);
             l1.setAdapter(adapter);
         } catch (Exception e) {
