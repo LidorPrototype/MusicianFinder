@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MusicianFinder</string>
+    <string name="app_name">Musician Finder</string>
     <string name="login_text">התחברות</string>
     <string name="sign_in_text">הרשמה</string>
     <string name="password">סיסמא</string>
@@ -31,4 +31,7 @@
     <string name="choose_weapons">בחרו את הנשקים שלכם!</string>
     <string name="cancel">בטל</string>
     <string name="ok">סבבה</string>
+    <string name="find_a_band">מצא להקה</string>
+    <string name="find_a_musician">מצא מוזיקאי</string>
+    <string name="publish_yourself">פרסם את עצמך</string>
 </resources>

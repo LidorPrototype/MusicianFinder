@@ -37,7 +37,7 @@ public class adaptersForNewChat  extends ArrayAdapter<String> {
             @Override
             public void onClick(View v) {
                 Button btn1 = (Button)v;
-                String other_name=btn1.getText().toString();
+                String other_name = btn1.getText().toString();
                 Intent intent = new Intent(Rooms.cn1,Chat.class);
                 intent.putExtra("other_name",other_name);
                 Rooms.cn1.startActivity(intent);

@@ -9,6 +9,7 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class sql extends SQLiteOpenHelper {
     public sql(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -51,6 +52,20 @@ public class sql extends SQLiteOpenHelper {
         }
     }
 
+    public void DELETEChat(String p){
+        String res="error";
+
+        try {
+            SQLiteDatabase db= getWritableDatabase();
+            String query=("delete from t1 where chatName =  '"+p+"'" );
+            db.execSQL(query);
+            res="change was made ";
+//            Toast.makeText(cn1, res, Toast.LENGTH_SHORT).show();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+
+    }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 

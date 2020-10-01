@@ -142,7 +142,9 @@
             android:layout_height="50dp"
             android:layout_weight="66"
             android:onClick="OpenGenresList"
-            android:text="@string/genres"/>
+            android:text="@string/genres"
+            android:layout_margin="6dp"
+            />
 
     </LinearLayout>
 
@@ -169,7 +171,9 @@
             android:layout_height="60dp"
             android:layout_weight="66"
             android:onClick="OpenMultiChoiceDialog"
-            android:text="@string/instruments" />
+            android:text="@string/instruments"
+            android:layout_margin="6dp"
+            />
 
     </LinearLayout>
 
@@ -199,29 +203,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
+
     <Button
         android:id="@+id/btnSaveChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_weight="1"
         android:onClick="mainClick"
-        android:text="@string/savechange"
-        android:padding="20dp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        />
+        android:text="@string/savechange" />
 
     <Button
         android:id="@+id/btnReturn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_weight="1"
         android:onClick="mainClick"
-        android:text="@string/Return"
-        android:padding="20dp"
-        android:layout_margin="20dp"
-        />
+
+        android:text="@string/Return" />
 
 </LinearLayout>
 

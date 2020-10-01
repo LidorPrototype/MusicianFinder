@@ -4,13 +4,16 @@ package com.LYEO.musicianfinder.Chat;
  */
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
 import com.LYEO.musicianfinder.FireBase;
 import com.LYEO.musicianfinder.Login;
+import com.LYEO.musicianfinder.MenuActivity;
 import com.LYEO.musicianfinder.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -23,6 +26,7 @@ import java.util.List;
 
 public class Chat extends AppCompatActivity {
     EditText eText;
+    Button btnReturn;
     ListView l1;
     Message m ;
     List<Message> messageList=new ArrayList<>();
@@ -35,7 +39,13 @@ public class Chat extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
         l1=(ListView)findViewById(R.id.l1);
         eText=(EditText)findViewById(R.id.edText);
-
+        btnReturn = (Button) findViewById(R.id.btnReturn);
+        btnReturn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToMenu();
+            }
+        });
         try {
             Bundle bndl = getIntent().getExtras();
             other_name = bndl.getString("other_name");
@@ -53,7 +63,7 @@ public class Chat extends AppCompatActivity {
             public void onClick(View v) {
                 String toSend = eText.getText().toString();
                 eText.setText("");
-                m = new Message( Login.u1.getName(), "tal", toSend);
+                m = new Message( Login.u1.getUserName(), other_name, toSend);
                 FireBase fb1 = new FireBase();
                 fb1.sendMessageToFb(m);
             }
@@ -98,5 +108,10 @@ public class Chat extends AppCompatActivity {
             Adapter adapter=new Adapter(getApplicationContext(),messageList);
             l1.setAdapter(adapter);
         }
+    }
+    private void goToMenu(){
+        Intent intent=new Intent(this, Rooms.class);
+        startActivity(intent);
+        finish();
     }
 }

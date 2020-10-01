@@ -1,7 +1,7 @@
 <resources>
     <string name="instrument_select_text">No Instruments Selected!</string>
     <string name="sample_text">Sample Text</string>
-    <string name="app_name">MusicianFinder</string>
+    <string name="app_name">Musician Finder</string>
     <string name="login_text">Login</string>
     <string name="sign_in_text">Sign In</string>
     <string name="password">password</string>
@@ -31,4 +31,7 @@
     <string name="genres_select_text">No Genres Selected!</string>
     <string name="chat_s">Chats</string>
     <string name="choose_weapons">Choose Your Weapons!</string>
+    <string name="find_a_band">Find a Band</string>
+    <string name="find_a_musician">Find a Musician</string>
+    <string name="publish_yourself">Publish yourself</string>
 </resources>

@@ -23,10 +23,10 @@ public class FireBase {
     private  User u1 = new User();
 
     public void sendMessageToFb(Message m){
-
-        DatabaseReference  myRef1= database.getReference("rooms").child(Login.u1.getUserName()).child(m.getOther_name()).child("message");
+        DatabaseReference  myRef1= database.getReference("rooms").child(m.getSelf_name()).child(m.getOther_name()).child("message");
         myRef1.push().setValue(m);
-
+        myRef1= database.getReference("rooms").child(m.getOther_name()).child(m.getSelf_name()).child("message");
+        myRef1.push().setValue(m);
     }
 
     public Boolean sendUserInfoFb(User u2){

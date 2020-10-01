@@ -35,7 +35,7 @@ public class Adapter extends ArrayAdapter<Message> {
         tv3=(TextView)myView.findViewById(R.id.tv3);
         Message pd1=getItem(position);
 
-        if (pd1.getSelf_name().equals(Login.u1.getName())){
+        if (pd1.getSelf_name().equals(Login.u1.getUserName())){
             tv1.setBackgroundColor(Color.GRAY);
             tv1.setTextColor(Color.BLACK);
             tv2.setBackgroundColor(Color.GRAY);
@@ -54,7 +54,7 @@ public class Adapter extends ArrayAdapter<Message> {
             tv3.setBackgroundColor(Color.CYAN);
             tv3.setTextColor(Color.BLACK);
             tv3.setTextSize(12);
-            tv1.setText("name: "+pd1.getOther_name());
+            tv1.setText("name: "+pd1.getSelf_name());
             tv2.setText("message: "+pd1.getMesseage());
             tv3.setText(pd1.getDate());
         }
