@@ -33,7 +33,8 @@ class Configuration{
 
     private List<Instruments> instrumentsList = new ArrayList<Instruments>();
     private String citiesID = "citiesList";
-    private ArrayList<String> _cities;
+    private ArrayList<String> _cities = new ArrayList<String>();
+    private String[] genres = new String[61];
 
     public Configuration() {
         initialization();
@@ -127,8 +128,68 @@ class Configuration{
         instrumentsList.add(new Instruments("Xylophone", R.drawable.xylophone));
     }
 
-    private void initGenres(){
-
+    private void initGenres(){          /* In User.java you need to add the number of genres manually!!! */
+        genres[0] = ("Africa music");
+        genres[1] = ("Alternative");
+        genres[2] = ("Ambient");
+        genres[3] = ("Art");
+        genres[4] = ("Bluegrass");
+        genres[5] = ("Blues");
+        genres[6] = ("Breakbeat");
+        genres[7] = ("Chant");
+        genres[8] = ("Classical");
+        genres[9] = ("Country");
+        genres[10] = ("Crossover");
+        genres[11] = ("Dance");
+        genres[12] = ("Disco");
+        genres[13] = ("Drum 'N' Base");
+        genres[14] = ("Dubstep");
+        genres[15] = ("Easy Listening");
+        genres[16] = ("Electro");
+        genres[17] = ("Electronic Dance");
+        genres[18] = ("Emo");
+        genres[19] = ("Folk");
+        genres[20] = ("Funk");
+        genres[21] = ("Gospel");
+        genres[22] = ("Grunge");
+        genres[23] = ("Hard Rock");
+        genres[24] = ("Hardcore");
+        genres[25] = ("Heavy Metal");
+        genres[26] = ("Hip Hop");
+        genres[27] = ("House");
+        genres[28] = ("Indie Rock");
+        genres[29] = ("Industrial");
+        genres[30] = ("Instrumental");
+        genres[31] = ("Jazz");
+        genres[32] = ("Jazz Fusion");
+        genres[33] = ("Jungle Music");
+        genres[34] = ("K-pop");
+        genres[35] = ("Latin");
+        genres[36] = ("Metal");
+        genres[37] = ("Musical Theatre");
+        genres[38] = ("New Wave");
+        genres[39] = ("Opera");
+        genres[40] = ("Orchestra");
+        genres[41] = ("Pop");
+        genres[42] = ("Pop Rock");
+        genres[43] = ("Progressive ");
+        genres[44] = ("Punk Rock");
+        genres[45] = ("Rap");
+        genres[46] = ("Reggae");
+        genres[47] = ("Rhythm and Blues");
+        genres[48] = ("Rock");
+        genres[49] = ("Rock ‘N’ Roll");
+        genres[50] = ("Singing");
+        genres[51] = ("Ska");
+        genres[52] = ("Soul");
+        genres[53] = ("Swing");
+        genres[54] = ("Synth-pop");
+        genres[55] = ("Techno");
+        genres[56] = ("Trance");
+        genres[57] = ("Trap");
+        genres[58] = ("Vocal");
+        genres[59] = ("Western");
+        genres[60] = ("World");
     }
 
     private void initCities(){
@@ -165,11 +226,11 @@ class Configuration{
         );
     }
 
+    public String[] getGenres() {
+        return genres;
+    }
     public List<Instruments> getInstruments() {
         return instrumentsList;
-    }
-    public void setInstruments(List<Instruments> instruments) {
-        instrumentsList = instruments;
     }
     public ArrayList<String> getCities() {
         return _cities;

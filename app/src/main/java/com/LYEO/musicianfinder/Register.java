@@ -1,6 +1,8 @@
 package com.LYEO.musicianfinder;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
@@ -33,7 +35,8 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
 
     private String UserName = "",UserPass = "", Name = "",UserLocation = "", UserBio = "", UserLink = "";
     private List<String> instrumentsNames = new ArrayList<>();
-    private List<String> genreList = new ArrayList<>();
+    private List<String> genresNames = new ArrayList<>();
+    private String[] genreList = new String[61];
     private AutoCompleteTextView actvLocation;
     private int UserAge = 0;
     private EditText edUserName, edUserPass, edName, edAge, edBio, edLink;
@@ -42,7 +45,10 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     private Button btReg;
     private FireBase fb1;
     private User u1;
-    private TextView textView_Instruments;
+    private TextView textView_Instruments, textView_Genres;
+    private boolean[] genresCheckedItems;
+    private ArrayList<Boolean> genresCheckedItemsList = new ArrayList<>();
+    private ArrayList<Integer> userGenres = new ArrayList<>();
     private ArrayList<String> cities;
 
     @Override
@@ -58,6 +64,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         edBio = findViewById(R.id.edBio);
         edLink = findViewById(R.id.edLink);
         textView_Instruments = findViewById(R.id.textView_listOfInstruments);
+        textView_Genres = findViewById(R.id.textView_listOfGenres);
 
         Configuration configurationObj = new Configuration();
 
@@ -72,6 +79,10 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.cities_items, R.id.text_city_name, cities);
         actvLocation.setAdapter(adapter);
+
+        // Getting the Genres
+        genreList = configurationObj.getGenres();
+        genresCheckedItems = new boolean[genreList.length];
     }
 
     public  void mainClick (View v){
@@ -104,7 +115,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                     }
 
                     // TODO Fix Register for Mandatory + Optional Data: (9 in general) - current 7 saved
-                    u1= new User(UserName, UserPass, Name, UserLocation, UserBio, instrumentsNames, UserLink, UserAge);
+                    u1 = new User(UserName, UserPass, Name, UserLocation, UserBio, genresNames, genresCheckedItemsList, instrumentsNames, UserLink, UserAge);
                     registerUser(UserName,UserPass);
                     Login.u1 =this.u1;
 //                     User u1 = new User(UserName,UserPass);
@@ -178,6 +189,62 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     }
 
     public void OpenGenresList(View view) {
+        AlertDialog.Builder mBuilder = new AlertDialog.Builder(Register.this);
+        mBuilder.setTitle(R.string.genres);
+        mBuilder.setMultiChoiceItems(genreList, genresCheckedItems, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
+                if(isChecked){
+                    userGenres.add(position);
+                }else{
+                    userGenres.remove((Integer.valueOf(position)));
+                }
+            }
+        });
+
+        mBuilder.setCancelable(false);
+        mBuilder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                genresNames.clear();
+                StringBuilder item = new StringBuilder();
+                for (int i = 0; i < userGenres.size(); i++) {
+                    item.append(genreList[userGenres.get(i)]);
+                    genresNames.add(genreList[userGenres.get(i)]);
+                    if (i != userGenres.size() - 1) {
+                        item.append(", ");
+                    }
+                }
+//                mItemSelected.setText(item);
+                textView_Genres.setText(item.toString());
+                genresCheckedItemsList.clear();
+                for (boolean genresCheckedItem : genresCheckedItems) {
+                    genresCheckedItemsList.add(genresCheckedItem);
+                }
+            }
+        });
+
+        mBuilder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+
+//        mBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialogInterface, int which) {
+//                for (int i = 0; i < checkedItems.length; i++) {
+//                    checkedItems[i] = false;
+//                    mUserItems.clear();
+//                    mItemSelected.setText("");
+//                }
+//            }
+//        });
+
+        AlertDialog mDialog = mBuilder.create();
+        mDialog.show();
+
     }
 
     public void TestClick(View view) {
