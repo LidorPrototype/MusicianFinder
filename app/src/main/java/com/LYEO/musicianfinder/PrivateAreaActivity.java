@@ -90,7 +90,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
 
 
     }
-    public  void mainClick (View v){
+    public void mainClick (View v){
         if (v.getId()==R.id.btnSaveChange){
             try {
                 Name = edName.getText().toString();
