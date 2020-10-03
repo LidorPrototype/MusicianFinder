@@ -68,7 +68,7 @@ public class MenuActivity extends AppCompatActivity {
         FireBase fb1= new FireBase();
         fb1.getAllNewChats();
         }catch (Exception e){
-            Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
+//            Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
 
         }
 
