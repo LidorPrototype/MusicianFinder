@@ -21,7 +21,7 @@ import java.util.List;
 public class Rooms extends AppCompatActivity {
     static List<String> chatsList=new ArrayList<>();
     ListView l1;
-    static Context cn1;
+    public static Context cn1;
     Button btnReturn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,18 +40,16 @@ public class Rooms extends AppCompatActivity {
 
         try {
             cn1=this;
-
             chatsList.clear();
             sql s=new sql(getApplicationContext(),"yisrael",null,1);
 
-
+            //put in chat list all the chats from sql
             s.showChatNames();
-            if (chatsList.size()<1){
-                s.AddChatName("yisrael");
-                s.AddChatName("tal");
-                s.showChatNames();
-            }
-
+//            if (chatsList.size()<1){
+//                s.AddChatName("test");
+//                s.showChatNames();
+//            }
+            //send the chat list to the adapter to display
             adaptersForNewChat adapter=new adaptersForNewChat(getApplicationContext(),chatsList);
             l1.setAdapter(adapter);
         } catch (Exception e) {

@@ -1,5 +1,6 @@
 package com.LYEO.musicianfinder;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -60,13 +61,23 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        try {
+
+
+        //get all new chat
+        FireBase fb1= new FireBase();
+        fb1.getAllNewChats();
+        }catch (Exception e){
+            Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
 
         }
+
+    }
 
 
 
     public void openPrivateArea(){
-            Log.d("yisrael", "yaa "+Login.u1);
+//            Log.d("yisrael", "yaa "+Login.u1);
             try {
 
             intent=new Intent(this,PrivateAreaActivity.class);

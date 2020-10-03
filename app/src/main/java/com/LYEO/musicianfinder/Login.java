@@ -30,13 +30,15 @@ public class Login extends AppCompatActivity {
     private  String userPass="";
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
+    public static Context cn1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         edUser = findViewById(R.id.edUserName);
         edpass = findViewById((R.id.edPassword));
-
+        //connect Context for - firebase - sql - getNewChats()
+        cn1=this;
         firebaseAuth=FirebaseAuth.getInstance();
         progressDialog = new ProgressDialog(this);
         try {

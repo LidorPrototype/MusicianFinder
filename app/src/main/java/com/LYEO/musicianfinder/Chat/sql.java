@@ -52,12 +52,12 @@ public class sql extends SQLiteOpenHelper {
         }
     }
 
-    public void DELETEChat(String p){
+    public void DELETEChat(String userName){
         String res="error";
 
         try {
             SQLiteDatabase db= getWritableDatabase();
-            String query=("delete from t1 where chatName =  '"+p+"'" );
+            String query=("delete from t1 where chatName =  '"+userName+"'" );
             db.execSQL(query);
             res="change was made ";
 //            Toast.makeText(cn1, res, Toast.LENGTH_SHORT).show();
@@ -65,6 +65,32 @@ public class sql extends SQLiteOpenHelper {
             e1.printStackTrace();
         }
 
+    }
+
+    public boolean searchUserIfExist (String userName){
+        String allUsers="";
+        try {
+            String query=("select * from t1 where chatName =  '"+userName+"'" );
+            SQLiteDatabase db=getWritableDatabase();
+            Cursor c1;
+            c1=db.rawQuery(query,null);
+            if (c1.moveToFirst()){
+
+                do {
+                    String user;
+                    user=c1.getString(0);
+                    allUsers+=user+"\n";
+                }while (c1.moveToNext());
+
+            }
+        } catch (Exception e1) {
+            e1.printStackTrace();
+        }
+        if (allUsers.equals("")){
+            allUsers= "no result was found";
+            return false;
+        }
+        return true;
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
