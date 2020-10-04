@@ -62,13 +62,13 @@ public class WelcomePageActivity extends AppCompatActivity {
         // Headline Animation - START
         final float[] from = new float[3], to =   new float[3];
 
-        Color.colorToHSV(Color.parseColor(headlineStartColor), from);    // from
-        Color.colorToHSV(Color.parseColor(headlineMiddleColor), to);     // to
+        Color.colorToHSV(Color.parseColor(headlineStartColor), from);               // from
+        Color.colorToHSV(Color.parseColor(headlineMiddleColor), to);                // to
 
-        anim1 = ValueAnimator.ofFloat(0, 1);                             // animate from 0 to 1
-        anim1.setDuration(durationTextColorChange);                      // for 8000 ms
+        anim1 = ValueAnimator.ofFloat(0, 1);                                        // animate from 0 to 1
+        anim1.setDuration(durationTextColorChange);                                 // for 8000 ms
 
-        final float[] hsv  = new float[3];                              // transition color
+        final float[] hsv  = new float[3];                                          // transition color
         anim1.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
             @Override public void onAnimationUpdate(ValueAnimator animation) {
                 // Transition along each axis of HSV (hue, saturation, value)
