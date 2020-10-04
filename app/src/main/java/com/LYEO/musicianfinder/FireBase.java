@@ -1,10 +1,15 @@
 package com.LYEO.musicianfinder;
 
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.LYEO.musicianfinder.Chat.Adapter;
 import com.LYEO.musicianfinder.Chat.Message;
+import com.LYEO.musicianfinder.Chat.Rooms;
+import com.LYEO.musicianfinder.Chat.sql;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,6 +26,46 @@ public class FireBase {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     static List <User> UserList=new ArrayList<User>();
     private  User u1 = new User();
+    sql sql1=new sql(Login.cn1.getApplicationContext(),"yisrael",null,1);
+
+
+    public void getAllNewChats (){
+        DatabaseReference myRef1 = database.getReference("rooms").child(Login.userName);
+        myRef1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+
+                try {
+                    String s1 = dataSnapshot.getKey();
+                    if (!sql1.searchUserIfExist(s1)){
+                        sql1.AddChatName(s1);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                try {
+                    String s1 = dataSnapshot.getKey();
+                    if (!sql1.searchUserIfExist(s1)){
+                        sql1.AddChatName(s1);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+            }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
 
     public void sendMessageToFb(Message m){
         DatabaseReference  myRef1= database.getReference("rooms").child(m.getSelf_name()).child(m.getOther_name()).child("message");
