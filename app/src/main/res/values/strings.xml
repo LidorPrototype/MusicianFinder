@@ -34,4 +34,5 @@
     <string name="find_a_band">Find a Band</string>
     <string name="find_a_musician">Find a Musician</string>
     <string name="publish_yourself">Publish yourself</string>
+    <string name="welcome_headline" translatable="false">Welcome To\nMusician Finder</string>
 </resources>

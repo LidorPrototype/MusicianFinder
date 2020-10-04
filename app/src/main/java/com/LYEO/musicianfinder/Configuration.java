@@ -18,17 +18,7 @@ import java.util.List;
  * |____|  |_|  |____|
  */
 
-/*
- * Contributions:
- *
- * Instruments Icons were made by
- * Link:
- * 1-instrument.zip ->  iconixar    -   https://www.flaticon.com/authors/iconixar
- * 2-instrument.zip ->  Freepik    -   https://www.flaticon.com/authors/freepik
- * 3-instrument.zip ->  Freepik    -   https://www.flaticon.com/authors/freepik
- * 4-instrument.zip ->  Freepik    -   https://www.flaticon.com/authors/freepik
- * 5-instrument.zip ->  Freepik    -   https://www.flaticon.com/authors/freepik
- */
+
 class Configuration{
 
     private List<Instruments> instrumentsList = new ArrayList<Instruments>();

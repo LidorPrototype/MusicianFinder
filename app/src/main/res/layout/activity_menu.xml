@@ -7,60 +7,161 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient">
 
-    <Button
-        android:id="@+id/privateArea"
-        android:layout_width="160dp"
-        android:layout_height="46dp"
-        android:text="@string/profile"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <LinearLayout
+        android:id="@+id/linearLayout_Profile"
+        android:layout_width="180sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="100sp"
+        android:weightSum="100"
+        android:background="@drawable/greyish_bg"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:paddingRight="8sp"
+        android:paddingLeft="8sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/FindABand"
-        android:layout_width="160dp"
-        android:layout_height="46dp"
-        android:text="@string/find_a_band"
-        app:layout_constraintBottom_toTopOf="@+id/FindAMusician"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/privateArea"
-        app:layout_constraintVertical_bias="0.175" />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/user"
+            android:layout_weight="66"/>
 
-    <Button
-        android:id="@+id/FindAMusician"
-        android:layout_width="160dp"
-        android:layout_height="46dp"
-        android:text="@string/find_a_musician"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.309" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="33"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="@string/profile" />
 
-    <Button
-        android:id="@+id/PublishYourself"
-        android:layout_width="160dp"
-        android:layout_height="46dp"
-        android:text="@string/publish_yourself"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.377" />
+    </LinearLayout>
 
-    <Button
-        android:layout_width="160dp"
-        android:layout_height="46dp"
-        android:text="@string/chat_s"
-        android:id="@+id/btnChats"
-        app:layout_constraintHorizontal_bias="0.5"
+    <LinearLayout
+        android:id="@+id/linearLayout_Band"
+        android:layout_width="180sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="35sp"
+        android:weightSum="100"
+        android:background="@drawable/greyish_bg"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:paddingRight="8sp"
+        android:paddingLeft="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PublishYourself" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Profile" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/band"
+            android:layout_weight="66"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="33"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/find_a_band" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_Musician"
+        android:layout_width="180sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="35sp"
+        android:weightSum="100"
+        android:background="@drawable/greyish_bg"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:paddingRight="8sp"
+        android:paddingLeft="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Band">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/musician_icon"
+            android:layout_weight="66"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="33"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/find_a_musician" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_Publish"
+        android:layout_width="180sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="35sp"
+        android:weightSum="100"
+        android:background="@drawable/greyish_bg"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:paddingRight="8sp"
+        android:paddingLeft="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Musician" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/publish_yourself_icon"
+            android:layout_marginLeft="2sp"
+            android:padding="2sp"
+            android:layout_weight="66"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="33"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/publish_yourself" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_Chat"
+        android:layout_width="180sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="35sp"
+        android:weightSum="100"
+        android:background="@drawable/greyish_bg"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:paddingRight="8sp"
+        android:paddingLeft="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Publish">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/background_gradient"
+            android:layout_weight="66"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="33"
+            android:gravity="center"
+            android:textSize="25sp"
+            android:text="@string/chat_s" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

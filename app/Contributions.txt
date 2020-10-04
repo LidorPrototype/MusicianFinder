@@ -1,0 +1,12 @@
+/// Lidor's icon providers, require a contributions,
+/// if you add materials that need contributions as well add them to the list with the contribution signature only!
+
+Contributions:
+    Instruments Icons were made by
+    Link:
+        1 - instrument.zip          ->  iconixar    -   https://www.flaticon.com/authors/iconixar
+        2 - instrument.zip          ->  Freepik     -   https://www.flaticon.com/authors/freepik
+        3 - user icon               ->  Freepik     -   https://www.flaticon.com/authors/freepik
+        4 - band icon               ->  Freepik     -   https://www.flaticon.com/authors/freepik
+        5 - musician icon           ->  Freepik     -   https://www.flaticon.com/authors/freepik
+        6 - publish yourself icon   ->  Freepik     -   https://www.flaticon.com/authors/Eucalyp

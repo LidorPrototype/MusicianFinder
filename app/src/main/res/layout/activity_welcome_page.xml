@@ -9,41 +9,44 @@
     android:fitsSystemWindows="true"
     >
 
+    <TextView
+        android:id="@+id/textView_WelcomeHeadLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/welcome_headline"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="false"
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:layout_marginTop="65sp"
         android:layout_gravity="center"
-        android:layout_marginTop="160dp"
-        android:background="#4CAF50"
+        android:background="@drawable/animation_list_btn_login"
+        android:elevation="0sp"
         android:gravity="center"
         android:onClick="mainClick"
         android:text="@string/login_text"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_WelcomeHeadLine" />
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_width="200sp"
+        android:layout_height="50sp"
+        android:layout_marginTop="40sp"
         android:layout_gravity="center"
-        android:background="#982D2D"
+        android:background="@drawable/animation_list_btn_sign_in"
         android:onClick="mainClick"
         android:text="@string/sign_in_text"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.557" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

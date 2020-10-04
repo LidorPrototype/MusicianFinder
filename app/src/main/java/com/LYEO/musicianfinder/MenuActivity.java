@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,22 +12,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.LYEO.musicianfinder.Chat.Rooms;
 
 public class MenuActivity extends AppCompatActivity {
-    private Button ToPrivateArea;
-    private Button ToFindABand;
-    private Button ToFindAMusician;
-    private Button ToPublishYouself;
-    private Button ToChats;
+
+    private LinearLayout ToPrivateArea, ToFindABand, ToFindAMusician, ToPublishYouself, ToChats;
     private Intent intent;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        ToPrivateArea=(Button) findViewById(R.id.privateArea);
-        ToFindABand=(Button) findViewById(R.id.FindABand);
-        ToFindAMusician=(Button) findViewById(R.id.FindAMusician);
-        ToPublishYouself=(Button) findViewById(R.id.PublishYourself);
-        ToChats = (Button) findViewById(R.id.btnChats);
+        ToPrivateArea = findViewById(R.id.linearLayout_Profile);
+        ToFindABand = findViewById(R.id.linearLayout_Band);
+        ToFindAMusician = findViewById(R.id.linearLayout_Musician);
+        ToPublishYouself = findViewById(R.id.linearLayout_Publish);
+        ToChats = findViewById(R.id.linearLayout_Chat);
 
         ToPrivateArea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,41 +58,36 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
-
-        }
-
-
+    }
 
     public void openPrivateArea(){
-            Log.d("yisrael", "yaa "+Login.u1);
-            try {
+        Log.d("yisrael", "yaa "+Login.u1);
+        try {
+        intent = new Intent(this,PrivateAreaActivity.class);
+        startActivity(intent);
+        }catch (Exception e){
+            Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
+        }
+    }
 
-            intent=new Intent(this,PrivateAreaActivity.class);
-            startActivity(intent);
-            finish();
-            }catch (Exception e){
-                Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
+    public void openFindABand(){
+        intent = new Intent(this,BandSearchScreenActivity.class);
+        startActivity(intent);
+    }
 
-            }
+    public void openFindAMusician(){
+    intent = new Intent(this,MusicianSearchScreenActivity.class);
+    startActivity(intent);
     }
-        public void openFindABand(){
-        intent=new Intent(this,BandSearchScreenActivity.class);
-        startActivity(intent);
-        finish();
+
+    public void openPublishYouself(){
+    intent = new Intent(this,PublishYourselfActivity.class);
+    startActivity(intent);
     }
-        public void openFindAMusician(){
-        intent=new Intent(this,MusicianSearchScreenActivity.class);
-        startActivity(intent);
-        finish();
-    }
-        public void openPublishYouself(){
-        intent=new Intent(this,PublishYourselfActivity.class);
-        startActivity(intent);
-        finish();
-    }
+
     public void openChats() {
-        intent=new Intent(this, Rooms.class);
+        intent = new Intent(this, Rooms.class);
         startActivity(intent);
-        finish();
     }
-    }
+
+}
