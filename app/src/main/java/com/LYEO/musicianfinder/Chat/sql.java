@@ -66,7 +66,7 @@ public class sql extends SQLiteOpenHelper {
         }
 
     }
-
+//return true if no result was found else true
     public boolean searchUserIfExist (String userName){
         String allUsers="";
         try {

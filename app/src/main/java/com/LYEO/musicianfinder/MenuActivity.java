@@ -10,10 +10,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.LYEO.musicianfinder.Chat.Rooms;
+import com.LYEO.musicianfinder.Posts.DisplayPosts;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private LinearLayout ToPrivateArea, ToFindABand, ToFindAMusician, ToPublishYouself, ToChats;
+    private LinearLayout ToPrivateArea, ToFindABand, ToFindAMusician, ToPublishYouself, ToChats, ToPosts;
     private Intent intent;
 
     @Override
@@ -26,6 +27,7 @@ public class MenuActivity extends AppCompatActivity {
         ToFindAMusician = findViewById(R.id.linearLayout_Musician);
         ToPublishYouself = findViewById(R.id.linearLayout_Publish);
         ToChats = findViewById(R.id.linearLayout_Chat);
+        ToPosts = findViewById(R.id.linearLayout_Posts);
 
         ToPrivateArea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,7 +59,12 @@ public class MenuActivity extends AppCompatActivity {
                 openChats();
             }
         });
-
+        ToPosts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openPosts();
+            }
+        });
         try {
         //get all new chat
         FireBase fb1= new FireBase();
@@ -100,5 +107,8 @@ public class MenuActivity extends AppCompatActivity {
         intent = new Intent(this, Rooms.class);
         startActivity(intent);
     }
-
+    public void openPosts() {
+        intent = new Intent(this, DisplayPosts.class);
+        startActivity(intent);
+    }
 }

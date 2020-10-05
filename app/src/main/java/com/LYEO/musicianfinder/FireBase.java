@@ -1,15 +1,12 @@
 package com.LYEO.musicianfinder;
 
 
-import android.util.Log;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.LYEO.musicianfinder.Chat.Adapter;
 import com.LYEO.musicianfinder.Chat.Message;
-import com.LYEO.musicianfinder.Chat.Rooms;
 import com.LYEO.musicianfinder.Chat.sql;
+import com.LYEO.musicianfinder.Posts.Post;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +25,15 @@ public class FireBase {
     private  User u1 = new User();
     sql sql1=new sql(Login.cn1.getApplicationContext(),"yisrael",null,1);
 
+
+    public  void sendPostToFb(Post p){
+        DatabaseReference myRef1= database.getReference("posts").child("post");
+        //to update your post from before
+        myRef1.child(Login.userName).setValue(p);
+//        other way to send to firebase - for new post every time
+//        myRef1.push().setValue(p);
+
+    }
 
     public void getAllNewChats (){
         DatabaseReference myRef1 = database.getReference("rooms").child(Login.userName);
