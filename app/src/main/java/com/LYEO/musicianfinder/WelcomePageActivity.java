@@ -3,11 +3,13 @@ package com.LYEO.musicianfinder;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,12 +38,12 @@ public class WelcomePageActivity extends AppCompatActivity {
     private int durationTextColorChange = 6500;
     protected AnimationDrawable animDrawableLogin, animDrawableSignIn;
     protected ValueAnimator anim1, anim2;
-
+    public static Context cn1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_page);
-
+        cn1=this;
         btnLogin = findViewById(R.id.btnLogin);
         btnSignIn = findViewById(R.id.btnRegister);
         textView_Headline = findViewById(R.id.textView_WelcomeHeadLine);
@@ -123,8 +125,16 @@ public class WelcomePageActivity extends AppCompatActivity {
             Intent intent= new Intent(getApplicationContext(),Login.class);
             startActivity(intent);
         }else if (v.getId()==R.id.btnRegister){
+            try {
+//                Log.d("yisrael", "im here");
+
             Intent intent= new Intent(getApplicationContext(),Register.class);
             startActivity(intent);
+            }catch (Exception e){
+                Log.d("yisrael", "yaa "+e);
+
+            }
+
         }
 
     }

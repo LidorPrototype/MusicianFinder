@@ -56,7 +56,8 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        edUserName = findViewById(R.id.edUserName);
+        try {
+            edUserName = findViewById(R.id.edUserName);
         edUserPass = findViewById(R.id.edUserPass);
         edName = findViewById(R.id.edName);
         edAge = findViewById(R.id.edAge);
@@ -83,6 +84,11 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         // Getting the Genres
         genreList = configurationObj.getGenres();
         genresCheckedItems = new boolean[genreList.length];
+
+        }catch (Exception e){
+            Log.d("yisrael", "yaa "+e);
+        }
+
     }
 
     public  void mainClick (View v){

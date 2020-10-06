@@ -1,6 +1,8 @@
 package com.LYEO.musicianfinder;
 
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -23,7 +25,7 @@ public class FireBase {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     static List <User> UserList=new ArrayList<User>();
     private  User u1 = new User();
-    sql sql1=new sql(Login.cn1.getApplicationContext(),"yisrael",null,1);
+    sql sql1;
 
 
     public  void sendPostToFb(Post p){
@@ -36,6 +38,14 @@ public class FireBase {
     }
 
     public void getAllNewChats (){
+        try{
+//            Log.d("yisrael", "im here0");
+
+            sql1=new sql(WelcomePageActivity.cn1.getApplicationContext(),"yisrael",null,1);
+        }catch (Exception e){
+            Log.d("yisrael", "yaa "+e);
+        }
+
         DatabaseReference myRef1 = database.getReference("rooms").child(Login.userName);
         myRef1.addChildEventListener(new ChildEventListener() {
             @Override
