@@ -57,7 +57,7 @@
         android:drawablePadding="20sp"
         android:background="@drawable/edit_text_custom_input"
         android:hint="@string/enter_you_name"
-        android:inputType="text"
+        android:inputType="textPersonName|textCapWords"
         android:padding="10dp"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="129dp" />
@@ -95,6 +95,7 @@
             android:drawableStart="@drawable/custom_location_icon"
             android:completionHint="Select a city"
             android:background="@drawable/edit_text_custom_input"
+            android:inputType="textCapWords"
             android:layout_weight="25"
             android:padding="10dp" />
 
@@ -105,33 +106,35 @@
         android:id="@+id/edBio"
         android:layout_width="300sp"
         android:layout_height="65sp"
-        android:layout_gravity="center_horizontal"
+        android:layout_gravity="center"
         android:layout_marginTop="12sp"
         android:ems="10"
         android:drawableStart="@drawable/custom_biography_icon"
         android:drawablePadding="20sp"
         android:background="@drawable/edit_text_custom_input"
-        android:inputType="textMultiLine"
+        android:inputType="textMultiLine|textCapSentences"
         android:maxLength="500"
         android:hint="@string/enter_your_bio"
-        android:padding="10dp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="129dp" />
+        android:padding="10dp" />
 
     <!-- Genre List --><!-- Optional -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="8sp"
+        android:layout_marginEnd="8sp"
+        android:padding="2sp"
         android:orientation="horizontal"
         android:weightSum="100"
+        android:gravity="center"
         android:layout_gravity="center_vertical">
 
         <TextView
             android:id="@+id/textView_listOfGenres"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:textSize="20sp"
+            android:layout_height="60dp"
+            android:layout_weight="45"
+            android:textSize="15sp"
             android:gravity="center"
             android:text="@string/genres_select_text"/>
 
@@ -139,8 +142,11 @@
             android:id="@+id/btnDialogMultiChoiceGenres"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="66"
+            android:layout_weight="55"
+            android:padding="8sp"
             android:onClick="OpenGenresList"
+            android:drawableStart="@drawable/genre_icon_layer_list"
+            android:background="@drawable/button_custom_background"
             android:text="@string/genres"/>
 
     </LinearLayout>
@@ -149,25 +155,32 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="8sp"
+        android:layout_marginEnd="8sp"
+        android:padding="2sp"
         android:orientation="horizontal"
         android:weightSum="100"
+        android:gravity="center"
         android:layout_gravity="center_vertical">
 
         <TextView
             android:id="@+id/textView_listOfInstruments"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:textSize="20sp"
+            android:layout_height="60dp"
+            android:layout_weight="45"
+            android:textSize="15sp"
             android:gravity="center"
             android:text="@string/instrument_select_text"/>
 
         <Button
             android:id="@+id/btnDialogMultiChoiceInstruments"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="66"
+            android:layout_height="50dp"
+            android:layout_weight="55"
+            android:padding="8sp"
             android:onClick="OpenMultiChoiceDialog"
+            android:drawableStart="@drawable/instruments_icon_layer_list"
+            android:background="@drawable/button_custom_background"
             android:text="@string/instruments"/>
 
     </LinearLayout>

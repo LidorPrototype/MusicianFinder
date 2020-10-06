@@ -1,138 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/background_gradient"
+    android:orientation="vertical"
     tools:context=".PrivateAreaActivity">
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
     <TextView
+        android:id="@+id/privateAreaHeadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:background="#1AB5B5F3"
         android:padding="20dp"
         android:text="@string/profile"
         android:textSize="42dp"
         android:layout_gravity="center"
         />
+
     <!-- Name --><!-- Mandatory -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/name" />
-
-        <EditText
-            android:id="@+id/edName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_you_name"
-            android:inputType="textPersonName"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edName"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="4sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_name_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/enter_you_name"
+        android:inputType="textPersonName|textCapWords"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="129dp" />
 
     <!-- Age --><!-- Mandatory -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/age" />
-
-        <EditText
-            android:id="@+id/edAge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_your_age"
-            android:inputType="number"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edAge"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_age_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/enter_your_age"
+        android:inputType="number"
+        android:padding="10dp" />
 
     <!-- Activity Area --><!-- Mandatory -->
-    <!-- UNIMPLEMENTED YET -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginTop="12sp"
+        android:layout_gravity="center_horizontal|center_vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/address" />
-
-        <EditText
-            android:id="@+id/edLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <AutoCompleteTextView
+            android:id="@+id/actvLocation"
+            android:layout_width="0dp"
+            android:layout_height="65sp"
             android:hint="@string/enter_an_address"
-            android:layout_weight="25" />
+            android:completionThreshold="1"
+            android:ems="10"
+            android:inputType="textCapWords"
+            android:drawablePadding="20sp"
+            android:drawableStart="@drawable/custom_location_icon"
+            android:completionHint="Select a city"
+            android:background="@drawable/edit_text_custom_input"
+            android:layout_weight="25"
+            android:padding="10dp" />
 
     </LinearLayout>
 
     <!-- Bio --><!-- Optional -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/bio" />
-
-        <EditText
-            android:id="@+id/edBio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:maxLength="500"
-            android:hint="@string/enter_your_bio"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edBio"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_biography_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:inputType="textMultiLine|textCapSentences"
+        android:maxLength="500"
+        android:hint="@string/enter_your_bio"
+        android:padding="10dp" />
 
     <!-- Genre List --><!-- Optional -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="8sp"
+        android:layout_marginEnd="8sp"
+        android:padding="2sp"
         android:orientation="horizontal"
         android:weightSum="100"
+        android:gravity="center"
         android:layout_gravity="center_vertical">
 
         <TextView
             android:id="@+id/textView_listOfGenres"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:textSize="20sp"
+            android:layout_height="60dp"
+            android:layout_weight="45"
+            android:textSize="15sp"
             android:gravity="center"
             android:text="@string/genres_select_text"/>
 
@@ -140,11 +115,12 @@
             android:id="@+id/btnDialogMultiChoiceGenres"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="66"
+            android:layout_weight="55"
+            android:padding="8sp"
             android:onClick="OpenGenresList"
-            android:text="@string/genres"
-            android:layout_margin="6dp"
-            />
+            android:drawableStart="@drawable/genre_icon_layer_list"
+            android:background="@drawable/button_custom_background"
+            android:text="@string/genres"/>
 
     </LinearLayout>
 
@@ -152,77 +128,88 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:layout_marginStart="8sp"
+        android:layout_marginEnd="8sp"
+        android:padding="2sp"
         android:orientation="horizontal"
         android:weightSum="100"
+        android:gravity="center"
         android:layout_gravity="center_vertical">
 
         <TextView
             android:id="@+id/textView_listOfInstruments"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:textSize="20sp"
+            android:layout_height="60dp"
+            android:layout_weight="45"
+            android:textSize="15sp"
             android:gravity="center"
             android:text="@string/instrument_select_text"/>
 
         <Button
             android:id="@+id/btnDialogMultiChoiceInstruments"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_weight="66"
+            android:layout_height="50dp"
+            android:layout_weight="55"
+            android:padding="8sp"
             android:onClick="OpenMultiChoiceDialog"
-            android:text="@string/instruments"
-            android:layout_margin="6dp"
-            />
+            android:drawableStart="@drawable/instruments_icon_layer_list"
+            android:background="@drawable/button_custom_background"
+            android:text="@string/instruments"/>
 
     </LinearLayout>
 
     <!-- Link To Website --><!-- Optional -->
+    <EditText
+        android:id="@+id/edLink"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_link_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/website_example"
+        android:inputType="textUri"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="129dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
+        android:weightSum="2"
+        android:layout_marginTop="28sp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
         android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/link" />
+        <Button
+            android:id="@+id/btnSaveChange"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_weight="1"
+            android:padding="8sp"
+            android:onClick="mainClick"
+            android:drawableStart="@drawable/save_changes_icon_layer_list"
+            android:background="@drawable/button_custom_background"
+            android:text="@string/savechange" />
 
-        <EditText
-            android:id="@+id/edLink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/website_example"
-            android:layout_weight="25" />
+        <Button
+            android:id="@+id/btnReturn"
+            android:layout_width="wrap_content"
+            android:layout_height="40sp"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_weight="1"
+            android:padding="8sp"
+            android:onClick="mainClick"
+            android:drawableStart="@drawable/back_arrow_icon_layer_list"
+            android:background="@drawable/button_custom_background"
+            android:text="@string/Return" />
 
     </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
-
-    <Button
-        android:id="@+id/btnSaveChange"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="mainClick"
-        android:text="@string/savechange" />
-
-    <Button
-        android:id="@+id/btnReturn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="mainClick"
-
-        android:text="@string/Return" />
 
 </LinearLayout>
-
-</LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>

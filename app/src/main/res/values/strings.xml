@@ -34,4 +34,7 @@
     <string name="find_a_musician">Find a Musician</string>
     <string name="publish_yourself">Publish yourself</string>
     <string name="welcome_headline" translatable="false">Welcome To\nMusician Finder</string>
+    <string name="data_saved">data been update</string>
+    <string name="posts">Posts</string>
+    <string name="re_choose_instruments">#Re-Choose All your instruments</string>
 </resources>

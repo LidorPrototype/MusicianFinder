@@ -34,4 +34,7 @@
     <string name="find_a_band">מצא להקה</string>
     <string name="find_a_musician">מצא מוזיקאי</string>
     <string name="publish_yourself">פרסם את עצמך</string>
+    <string name="data_saved">השינויים נשמרו</string>
+    <string name="posts">פוסטים</string>
+    <string name="re_choose_instruments">#אנא בחר את הכלים מחדש</string>
 </resources>

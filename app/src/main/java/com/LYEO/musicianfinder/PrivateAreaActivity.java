@@ -3,10 +3,13 @@ package com.LYEO.musicianfinder;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -24,12 +27,14 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
     private List<String> genresNames = new ArrayList<>();
     private String[] genreList = new String[61];
     private int UserAge = 0;
-    private EditText edName, edAge, edLocation, edBio, edLink;
+    private EditText edName, edAge, edBio, edLink;
+    private AutoCompleteTextView actvLocation;
     private Button btReg;
-    private TextView textView_Instruments, textView_Genres;
+    private TextView textView_Instruments, textView_Genres, textView_Headline;
     private boolean[] genresCheckedItems;
     private ArrayList<Boolean> genresCheckedItemsList = new ArrayList<>();
     private ArrayList<Integer> userGenres = new ArrayList<>();
+    private ArrayList<String> cities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +42,21 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
         setContentView(R.layout.activity_private_area);
 
         edName = findViewById(R.id.edName);
-        edLocation = findViewById(R.id.edLocation);
+        actvLocation = findViewById(R.id.actvLocation);
         edAge = findViewById(R.id.edAge);
         edBio = findViewById(R.id.edBio);
         edLink = findViewById(R.id.edLink);
         btReg = findViewById(R.id.btnSaveChange);
         textView_Instruments = findViewById(R.id.textView_listOfInstruments);
         textView_Genres = findViewById(R.id.textView_listOfGenres);
+        textView_Headline = findViewById(R.id.privateAreaHeadline);
 
         Configuration configurationObj = new Configuration();
 
         textView_Instruments.setMovementMethod(new ScrollingMovementMethod());
+
+        Typeface typefaceHeadlinePrivateArea = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
+        textView_Headline.setTypeface(typefaceHeadlinePrivateArea);
 
         // Getting the Genres
         genreList = configurationObj.getGenres();
@@ -57,7 +66,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
             edName.setText(Login.u1.getName());
             edAge.setText(Login.u1.getUserAge()+"");
             edBio.setText(Login.u1.getUserBio());
-            edLocation.setText(Login.u1.getUserLocation());
+            actvLocation.setText(Login.u1.getUserLocation());
             instrumentsNames = Login.u1.getUserInstruments();
             genresNames = Login.u1.getUserGenres();
             genresCheckedItemsList = Login.u1.getGenresCheckedItems();
@@ -88,13 +97,18 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
             Toast.makeText(PrivateAreaActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
         }
 
+        // Activity Area
+        cities = configurationObj.getCities();
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.cities_items, R.id.text_city_name, cities);
+        actvLocation.setAdapter(adapter);
 
     }
     public void mainClick (View v){
         if (v.getId()==R.id.btnSaveChange){
             try {
                 Name = edName.getText().toString();
-                UserLocation = edLocation.getText().toString();
+                UserLocation = actvLocation.getText().toString();
                 UserAge = Integer.parseInt(edAge.getText().toString());
                 UserBio = edBio.getText().toString();
                 UserLink = edLink.getText().toString();
@@ -117,7 +131,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
                 FireBase fb1 = new FireBase();
                 Login.u1 = u2;
                 if (fb1.sendUserInfoFb(u2)){
-                    btReg.setText("data been update");
+                    Toast.makeText(this, R.string.data_saved, Toast.LENGTH_SHORT).show();
                 }else Toast.makeText(PrivateAreaActivity.this,"Update Error",Toast.LENGTH_LONG).show();
             }catch (Exception e){
                 Toast.makeText(PrivateAreaActivity.this,"Update Error" +e,Toast.LENGTH_LONG).show();

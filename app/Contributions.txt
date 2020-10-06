@@ -17,5 +17,8 @@ Contributions:
         11  - location                ->  Freepik             -   https://www.flaticon.com/authors/freepik
         12  - biography               ->  Becris              -   https://www.flaticon.com/authors/Becris
         13  - link                    ->  Freepik             -   https://www.flaticon.com/authors/freepik
-        13  - posts                   ->  ultimatearm         -   https://www.flaticon.com/authors/ultimatearm
-        13  - chat                    ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        14  - posts                   ->  ultimatearm         -   https://www.flaticon.com/authors/ultimatearm
+        15  - chat                    ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        16  - genre_icon              ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        17  - general_instrument      ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        18  - back_arrow              ->  Freepik             -   https://www.flaticon.com/authors/freepik

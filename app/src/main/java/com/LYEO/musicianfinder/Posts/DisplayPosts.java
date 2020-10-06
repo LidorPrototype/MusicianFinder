@@ -2,16 +2,18 @@ package com.LYEO.musicianfinder.Posts;
 /*
  * created by yisrael bar
  */
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.LYEO.musicianfinder.MenuActivity;
 import com.LYEO.musicianfinder.R;
@@ -26,6 +28,7 @@ import java.util.List;
 
 public class DisplayPosts extends AppCompatActivity {
 
+    private TextView textViewPostHeadline;
     ListView l1;
     List<Post> postList = new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -37,6 +40,12 @@ public class DisplayPosts extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_posts);
+
+        textViewPostHeadline = findViewById(R.id.textView_PostsHeadline);
+
+        Typeface typefaceHeadlinePost = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
+        textViewPostHeadline.setTypeface(typefaceHeadlinePost);
+
         l1=(ListView)findViewById(R.id.l1);
         try {
             cn1=this;
