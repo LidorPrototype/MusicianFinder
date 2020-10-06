@@ -4,9 +4,18 @@
 Contributions:
     Instruments Icons were made by
     Link:
-        1 - instrument.zip          ->  iconixar    -   https://www.flaticon.com/authors/iconixar
-        2 - instrument.zip          ->  Freepik     -   https://www.flaticon.com/authors/freepik
-        3 - user icon               ->  Freepik     -   https://www.flaticon.com/authors/freepik
-        4 - band icon               ->  Freepik     -   https://www.flaticon.com/authors/freepik
-        5 - musician icon           ->  Freepik     -   https://www.flaticon.com/authors/freepik
-        6 - publish yourself icon   ->  Freepik     -   https://www.flaticon.com/authors/Eucalyp
+        1   - instrument.zip          ->  iconixar            -   https://www.flaticon.com/authors/iconixar
+        2   - instrument.zip          ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        3   - user icon               ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        4   - band icon               ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        5   - musician icon           ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        6   - publish yourself icon   ->  Eucalyp             -   https://www.flaticon.com/authors/Eucalyp
+        7   - username icon           ->  Pixel perfect       -   https://www.flaticon.com/authors/Pixel perfect
+        8   - password                ->  surang              -   https://www.flaticon.com/authors/surang
+        9   - name                    ->  Gorbachev           -   https://www.flaticon.com/authors/Gorbachev
+        10  - age                     ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        11  - location                ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        12  - biography               ->  Becris              -   https://www.flaticon.com/authors/Becris
+        13  - link                    ->  Freepik             -   https://www.flaticon.com/authors/freepik
+        13  - posts                   ->  ultimatearm         -   https://www.flaticon.com/authors/ultimatearm
+        13  - chat                    ->  Freepik             -   https://www.flaticon.com/authors/freepik

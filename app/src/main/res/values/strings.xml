@@ -3,7 +3,6 @@
     <string name="sample_text">Sample Text</string>
     <string name="app_name">Musician Finder</string>
     <string name="login_text">Login</string>
-    <string name="sign_in_text">Sign In</string>
     <string name="password">password</string>
     <string name="user_name">user name</string>
     <string name="register">Register</string>

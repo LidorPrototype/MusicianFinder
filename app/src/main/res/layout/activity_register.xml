@@ -6,159 +6,117 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
     tools:context=".Register"
-    android:paddingTop="26dp"
     >
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginTop="42dp">
 
     <!-- Username --><!-- Mandatory -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/user_name"
-            android:layout_weight="75" />
-
-        <EditText
-            android:id="@+id/edUserName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/example_username"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edUserName"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_username_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/user_name"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="129dp" />
 
     <!-- Password --><!-- Mandatory -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/password"
-            android:layout_weight="75" />
-
-        <EditText
-            android:id="@+id/edUserPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_at_least_6_characters"
-            android:inputType="textPassword"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edUserPass"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_password_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/enter_at_least_6_characters"
+        android:inputType="textPassword"
+        android:padding="10dp" />
 
     <!-- Name --><!-- Mandatory -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/name" />
-
-        <EditText
-            android:id="@+id/edName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_you_name"
-            android:inputType="textPersonName"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edName"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_name_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/enter_you_name"
+        android:inputType="text"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="129dp" />
 
     <!-- Age --><!-- Mandatory -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/age" />
-
-        <EditText
-            android:id="@+id/edAge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/enter_your_age"
-            android:inputType="number"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edAge"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_age_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/enter_your_age"
+        android:inputType="number"
+        android:padding="10dp" />
 
     <!-- Activity Area --><!-- Mandatory -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/address" />
+        android:layout_width="300sp"
+        android:layout_height="70sp"
+        android:layout_marginTop="12sp"
+        android:layout_gravity="center_horizontal|center_vertical">
 
         <AutoCompleteTextView
             android:id="@+id/actvLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="65sp"
             android:hint="@string/enter_an_address"
             android:completionThreshold="1"
+            android:ems="10"
+            android:drawablePadding="20sp"
+            android:drawableStart="@drawable/custom_location_icon"
             android:completionHint="Select a city"
-            android:popupBackground="@color/colorTransparent"
-            android:layout_weight="25" />
+            android:background="@drawable/edit_text_custom_input"
+            android:layout_weight="25"
+            android:padding="10dp" />
 
     </LinearLayout>
 
     <!-- Bio --><!-- Optional -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/bio" />
-
-        <EditText
-            android:id="@+id/edBio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:maxLength="500"
-            android:hint="@string/enter_your_bio"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edBio"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_biography_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:inputType="textMultiLine"
+        android:maxLength="500"
+        android:hint="@string/enter_your_bio"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="129dp" />
 
     <!-- Genre List --><!-- Optional -->
     <LinearLayout
@@ -215,45 +173,32 @@
     </LinearLayout>
 
     <!-- Link To Website --><!-- Optional -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:weightSum="100"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="75"
-            android:text="@string/link" />
-
-        <EditText
-            android:id="@+id/edLink"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/website_example"
-            android:layout_weight="25" />
-
-    </LinearLayout>
+    <EditText
+        android:id="@+id/edLink"
+        android:layout_width="300sp"
+        android:layout_height="65sp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12sp"
+        android:ems="10"
+        android:drawableStart="@drawable/custom_link_icon"
+        android:drawablePadding="20sp"
+        android:background="@drawable/edit_text_custom_input"
+        android:hint="@string/website_example"
+        android:inputType="textUri"
+        android:padding="10dp"
+        tools:layout_editor_absoluteX="85dp"
+        tools:layout_editor_absoluteY="129dp" />
 
     <!-- Register Btn -->
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="350sp"
+        android:layout_height="50sp"
         android:layout_gravity="center"
+        android:layout_marginTop="6sp"
+        android:background="@drawable/animation_list_btn_sign_in"
         android:onClick="mainClick"
         android:text="@string/register" />
-
-    <!-- Test Btn -->
-    <Button
-        android:id="@+id/btnTest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:onClick="TestClick"
-        android:text="TEST" />
 
 </LinearLayout>
 

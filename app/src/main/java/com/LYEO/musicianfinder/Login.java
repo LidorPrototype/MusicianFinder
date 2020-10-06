@@ -4,9 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,24 +23,31 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
     /*
-     * Created by yisrael bar on 24/09/2020
+     * Created by yisrael bar and Lidor Eliyahu on 24/09/2020
      * */
     private EditText edUser,edpass;
+    private TextView textViewHeadline;
+    private Button btnLogin;
     private SharedPreferences myShare;
     public static User u1;
     private static  final  String USER_NAME="USER_NAME";
     private static  final  String USER_PASSWORD="USER_PASSWORD";
     public static String userName="";
+    public static Context cn1;
     private  String userPass="";
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
-    public static Context cn1;
+    protected AnimationDrawable animationDrawableLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         edUser = findViewById(R.id.edUserName);
         edpass = findViewById((R.id.edPassword));
+        textViewHeadline = findViewById(R.id.textView_LoginHeadline);
+        btnLogin = findViewById(R.id.btnLogin);
+
         //connect Context for - firebase - sql - getNewChats()
         cn1=this;
         firebaseAuth=FirebaseAuth.getInstance();
@@ -51,7 +62,15 @@ public class Login extends AppCompatActivity {
             Toast.makeText(this, "" + e, Toast.LENGTH_SHORT).show();
         }
 
+        Typeface typefaceHeadlineLogin = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
+        textViewHeadline.setTypeface(typefaceHeadlineLogin);
+
+        animationDrawableLogin = (AnimationDrawable) btnLogin.getBackground();
+        animationDrawableLogin.setEnterFadeDuration(2500);
+        animationDrawableLogin.setExitFadeDuration(2500);
+
     }
+
     @Override
     protected void onPause() {
         super.onPause();
@@ -59,9 +78,21 @@ public class Login extends AppCompatActivity {
         edit1.putString(USER_NAME,userName);
         edit1.putString(USER_PASSWORD,userPass);
         edit1.commit();
+        if (animationDrawableLogin != null && animationDrawableLogin.isRunning()){
+            animationDrawableLogin.stop();
+        }
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (animationDrawableLogin != null && !animationDrawableLogin.isRunning()){
+            animationDrawableLogin.start();
+        }
+    }
+
     public  void mainClick (View v){
-        if (v.getId()==R.id.btLogin){
+        if (v.getId()==R.id.btnLogin){
             try {
                 if (!edUser.getText().toString().equals("") && !edpass.getText().toString().equals("")) {
                     userName = edUser.getText().toString();
@@ -70,7 +101,6 @@ public class Login extends AppCompatActivity {
                     fb1.getAUesr(userName);
                     login(userName, userPass);
 //                    Log.d("yisrael", "yaa "+u1);
-
                 }
             }catch (Exception e) {
                 Toast.makeText(Login.this,""+e,Toast.LENGTH_LONG).show();
@@ -95,7 +125,6 @@ public class Login extends AppCompatActivity {
                     Toast.makeText(Login.this,"sign Error",Toast.LENGTH_LONG).show();
                     progressDialog.dismiss();
                 }
-
             }
         });
     }

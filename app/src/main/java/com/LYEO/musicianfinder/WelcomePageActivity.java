@@ -48,7 +48,7 @@ public class WelcomePageActivity extends AppCompatActivity {
         btnSignIn = findViewById(R.id.btnRegister);
         textView_Headline = findViewById(R.id.textView_WelcomeHeadLine);
 
-        Typeface rockIt =Typeface.createFromAsset(getAssets(), "fonts/rock_it.regular.ttf");
+        Typeface rockIt = Typeface.createFromAsset(getAssets(), "fonts/rock_it.regular.ttf");
         textView_Headline.setTypeface(rockIt);
 
         // Buttons Animation - START

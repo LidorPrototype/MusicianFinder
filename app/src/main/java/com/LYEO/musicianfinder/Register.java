@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.graphics.drawable.AnimationDrawable;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -50,6 +51,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     private ArrayList<Boolean> genresCheckedItemsList = new ArrayList<>();
     private ArrayList<Integer> userGenres = new ArrayList<>();
     private ArrayList<String> cities;
+    protected AnimationDrawable animDrawableReg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +90,12 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         }catch (Exception e){
             Log.d("yisrael", "yaa "+e);
         }
+
+
+        // Register Button Animation
+        animDrawableReg = (AnimationDrawable) btReg.getBackground();
+        animDrawableReg.setEnterFadeDuration(2000);
+        animDrawableReg.setExitFadeDuration(2000);
 
     }
 
@@ -253,9 +261,22 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
 
     }
 
-    public void TestClick(View view) {
-        Log.d("TESTING_STUFF", instrumentsNames.toString());
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (animDrawableReg != null && !animDrawableReg.isRunning()){
+            animDrawableReg.start();
+        }
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (animDrawableReg != null && animDrawableReg.isRunning()){
+            animDrawableReg.stop();
+        }
+    }
+
 }
 
 
