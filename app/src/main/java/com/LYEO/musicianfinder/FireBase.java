@@ -28,7 +28,7 @@ public class FireBase {
     sql sql1;
 
 
-    public  void sendPostToFb(Post p){
+    public void sendPostToFb(Post p){
         DatabaseReference myRef1= database.getReference("posts").child("post");
         //to update your post from before
         myRef1.child(Login.userName).setValue(p);

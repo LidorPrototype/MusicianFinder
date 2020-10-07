@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.LYEO.musicianfinder.Chat.Rooms;
 import com.LYEO.musicianfinder.Posts.DisplayPosts;
+import com.LYEO.musicianfinder.Posts.PublishYourselfActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -99,7 +100,7 @@ public class MenuActivity extends AppCompatActivity {
     }
 
     public void openPublishYouself(){
-    intent = new Intent(this,PublishYourselfActivity.class);
+    intent = new Intent(this, PublishYourselfActivity.class);
     startActivity(intent);
     }
 

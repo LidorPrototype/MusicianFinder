@@ -37,4 +37,12 @@
     <string name="data_saved">data been update</string>
     <string name="posts">Posts</string>
     <string name="re_choose_instruments">#Re-Choose All your instruments</string>
+    <string name="musicain_or_band">Musicain or band?</string>
+    <string name="publish_a_post">publish a post</string>
+    <string name="single">single</string>
+    <string name="band">band</string>
+    <string name="publish">publish</string>
+    <string name="content">Content</string>
+    <string name="instrument">Instrument</string>
+    <string name="play_location">Play Location</string>
 </resources>

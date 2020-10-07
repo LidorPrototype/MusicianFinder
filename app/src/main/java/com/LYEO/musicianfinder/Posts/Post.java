@@ -7,12 +7,34 @@ public class Post {
     private String content;
     private String location;
     private String instrument;
+    private boolean itIsABand ;
 
+
+    //empty constructor
     public Post(){
         userName = "yakov";
         content = "test bla bla";
         location = "jerusalem";
         instrument = "bass";
+        itIsABand = false;
+    }
+
+    public Post(String userName, String content, String location, String instrument, boolean itIsABand) {
+        this.userName = userName;
+        this.content = content;
+        this.location = location;
+        this.instrument = instrument;
+        this.itIsABand = itIsABand;
+    }
+
+
+    //get replaced the is
+    public boolean getItIsABand() {
+        return itIsABand;
+    }
+
+    public void setItIsABand(boolean itIsABand) {
+        this.itIsABand = itIsABand;
     }
 
     public String getUserName() {
