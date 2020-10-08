@@ -5,7 +5,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient">
+    android:scrollbars="vertical"
+    android:background="@drawable/background_gradient"
+    tools:context=".MenuActivity"
+    >
 
     <LinearLayout
         android:id="@+id/linearLayout_Profile"
