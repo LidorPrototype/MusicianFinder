@@ -1,81 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    android:orientation="vertical"
-    android:scrollbars="vertical"
-    android:weightSum="100"
-    android:paddingBottom="6sp"
-    android:paddingTop="30sp"
+    android:fillViewport="true"
+    android:paddingBottom="35sp"
+    android:paddingTop="35sp"
     tools:context=".Chat.Chat"
     >
 
-    <TextView
-        android:id="@+id/textView_UserNameRecipient"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Name"
-        android:textAlignment="center"
-        android:padding="8sp"
-        android:textSize="20sp"
-        android:paddingTop="10dp"
-        android:layout_weight="47"
-        />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingTop="10dp"
-        android:layout_weight="8"
-        android:weightSum="100"
-        android:paddingBottom="50sp"
-        >
+        android:weightSum="100">
 
-        <ListView
-            android:id="@+id/l1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:padding="8sp"
+            android:paddingTop="10dp"
+            android:layout_weight="47"
+            android:orientation="horizontal"
+            >
+
+            <ImageButton
+                android:id="@+id/image_btnReturn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:padding="12sp"
+                android:src="@drawable/back_arrow_icon_layer_list"
+                android:background="@drawable/button_custom_background" />
+
+            <TextView
+                android:id="@+id/textView_UserNameRecipient"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/sample_text"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="10dp"
             android:layout_weight="8"
-            />
+            android:paddingBottom="50sp"
+            >
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/Return"
-            android:id="@+id/btnReturn"
-            android:layout_gravity="center"
-            android:layout_weight="92"
-            />
+            <ListView
+                android:id="@+id/l1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:layout_weight="45"
-        >
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/edText"
-            android:layout_width="280sp"
-            android:layout_height="wrap_content"
-            android:hint="enter text here"
-            />
-
-        <Button
-            android:id="@+id/btnSend"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="send" />
+            android:layout_height="match_parent"
+            android:layout_weight="45"
+            android:paddingTop="2sp"
+            >
+
+            <EditText
+                android:id="@+id/edText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/type_a_message"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/img_btnSend"
+                android:layout_marginEnd="4sp"
+                />
+
+            <ImageButton
+                android:id="@+id/img_btnSend"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:src="@drawable/send_message"
+                android:layout_marginStart="4sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
+
 
 <!--
     Inside of each chat UI

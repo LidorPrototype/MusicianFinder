@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Musician Finder</string>
     <string name="login_text">התחברות</string>
-    <string name="sign_in_text">הרשמה</string>
     <string name="password">סיסמא</string>
     <string name="user_name">שם משתמש</string>
     <string name="register">הרשמה</string>
@@ -45,4 +44,5 @@
     <string name="content">תוכן</string>
     <string name="instrument">כלי נגינה</string>
     <string name="play_location">מיקום הנגינה</string>
+    <string name="type_a_message">כתוב הודעה</string>
 </resources>

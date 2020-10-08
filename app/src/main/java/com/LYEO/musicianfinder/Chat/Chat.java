@@ -5,8 +5,8 @@ package com.LYEO.musicianfinder.Chat;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -28,7 +28,7 @@ public class Chat extends AppCompatActivity {
 
     public static ListView l1;
     EditText eText;
-    Button btnReturn;
+    ImageButton btnReturn;
     Message m;
     List<Message> messageList=new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -42,7 +42,7 @@ public class Chat extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
         l1=(ListView)findViewById(R.id.l1);
         eText=(EditText)findViewById(R.id.edText);
-        btnReturn = (Button) findViewById(R.id.btnReturn);
+        btnReturn = findViewById(R.id.image_btnReturn);
         nameRecipient = findViewById(R.id.textView_UserNameRecipient);
 
         btnReturn.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +66,7 @@ public class Chat extends AppCompatActivity {
         onChild();
 
         //write message to firebase
-        findViewById(R.id.btnSend).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.img_btnSend).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String toSend = eText.getText().toString();
