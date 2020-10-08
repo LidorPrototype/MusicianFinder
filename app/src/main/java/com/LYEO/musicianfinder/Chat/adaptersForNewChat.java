@@ -32,7 +32,9 @@ public class adaptersForNewChat  extends ArrayAdapter<String> {
         bt1=(Button)myView.findViewById(R.id.btAdapter);
         pd1=getItem(position);
         bt1.setText(pd1);
+
 //        myView.findViewById(R.id.btAdapter).setText(getItem(position));
+
         myView.findViewById(R.id.btAdapter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

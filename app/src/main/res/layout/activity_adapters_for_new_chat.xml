@@ -5,9 +5,18 @@
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
     >
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btAdapter"
+        android:background="@drawable/background_gradient"
         />
+
 </LinearLayout>
+
+
+<!--
+    Chats Activity //> Each chat button look (tal, yakov,yisrael)
+    !#Must Be a Button Property Only#!
+-->

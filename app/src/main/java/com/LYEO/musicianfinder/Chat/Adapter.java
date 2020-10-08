@@ -4,11 +4,11 @@ package com.LYEO.musicianfinder.Chat;
  */
 
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -20,8 +20,10 @@ import com.LYEO.musicianfinder.R;
 import java.util.List;
 
 public class Adapter extends ArrayAdapter<Message> {
-    TextView tv1,tv2,tv3;
 
+    // All the variables:
+    private TextView tv1,tv2,tv3;
+    private LinearLayout linearLayoutChat;
 
     public Adapter(@NonNull Context context, @NonNull List<Message> objects) {
         super(context, 0, objects);
@@ -29,35 +31,28 @@ public class Adapter extends ArrayAdapter<Message> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View myView= LayoutInflater.from(getContext()).inflate(R.layout.activity_adapter,parent,false);
-        tv1=(TextView)myView.findViewById(R.id.tv1);
-        tv2=(TextView)myView.findViewById(R.id.tv2);
-        tv3=(TextView)myView.findViewById(R.id.tv3);
-        Message pd1=getItem(position);
+        View myView = LayoutInflater.from(getContext()).inflate(R.layout.activity_adapter,parent,false);
 
-        if (pd1.getSelf_name().equals(Login.u1.getUserName())){
-            tv1.setBackgroundColor(Color.GRAY);
-            tv1.setTextColor(Color.BLACK);
-            tv2.setBackgroundColor(Color.GRAY);
-            tv2.setTextColor(Color.BLACK);
-            tv3.setBackgroundColor(Color.GRAY);
-            tv3.setTextColor(Color.BLACK);
-            tv3.setTextSize(10);
-            tv1.setText("name: "+pd1.getSelf_name());
-            tv2.setText("message: "+pd1.getMesseage());
-            tv3.setText(pd1.getDate());
+        tv2 = myView.findViewById(R.id.tv2);
+        tv3 = myView.findViewById(R.id.tv3);
+        linearLayoutChat = myView.findViewById(R.id.linearLayout_ChatSelf);
+
+        Message pd1 = getItem(position);
+
+        if(pd1.getSelf_name().equals(Login.u1.getUserName())){
+            tv2.setBackgroundResource(R.drawable.chat_me_background);
+            linearLayoutChat.setTextDirection(View.TEXT_DIRECTION_RTL);
+            linearLayoutChat.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+//                tv3.setText(pd1.getDate());
         }else {
-            tv1.setBackgroundColor(Color.CYAN);
-            tv1.setTextColor(Color.BLACK);
-            tv2.setBackgroundColor(Color.CYAN);
-            tv2.setTextColor(Color.BLACK);
-            tv3.setBackgroundColor(Color.CYAN);
-            tv3.setTextColor(Color.BLACK);
-            tv3.setTextSize(12);
-            tv1.setText("name: "+pd1.getSelf_name());
-            tv2.setText("message: "+pd1.getMesseage());
-            tv3.setText(pd1.getDate());
+            tv2.setBackgroundResource(R.drawable.chat_resipient_background);
+            linearLayoutChat.setTextDirection(View.TEXT_DIRECTION_LTR);
+            linearLayoutChat.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+//                tv3.setText(pd1.getDate());
         }
+
+        tv2.setText(pd1.getMesseage());
+
         return myView;
     }
 }

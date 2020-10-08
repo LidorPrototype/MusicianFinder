@@ -7,22 +7,63 @@
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
     android:scrollbars="vertical"
+    android:weightSum="100"
+    android:paddingBottom="6sp"
+    android:paddingTop="30sp"
     tools:context=".Chat.Chat"
     >
 
+    <TextView
+        android:id="@+id/textView_UserNameRecipient"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Name"
+        android:textAlignment="center"
+        android:padding="8sp"
+        android:textSize="20sp"
+        android:paddingTop="10dp"
+        android:layout_weight="47"
+        />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="30dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingTop="10dp"
+        android:layout_weight="8"
+        android:weightSum="100"
+        android:paddingBottom="50sp"
+        >
 
+        <ListView
+            android:id="@+id/l1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/Return"
+            android:id="@+id/btnReturn"
+            android:layout_gravity="center"
+            android:layout_weight="92"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="45"
         >
 
         <EditText
             android:id="@+id/edText"
-            android:layout_width="280dp"
+            android:layout_width="280sp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
             android:hint="enter text here"
             />
 
@@ -33,26 +74,12 @@
             android:text="send" />
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="30dp"
-        >
 
-        <ListView
-            android:id="@+id/l1"
-            android:layout_width="match_parent"
-            android:layout_height="447dp">
-
-        </ListView>
-    </LinearLayout>
-
-<Button
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="@string/Return"
-    android:id="@+id/btnReturn"
-    android:layout_gravity="center"
-    />
 </LinearLayout>
+
+<!--
+    Inside of each chat UI
+-->
+
+
+

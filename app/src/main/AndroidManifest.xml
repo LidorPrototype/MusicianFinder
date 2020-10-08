@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Posts.DisplayPosts"></activity>
         <activity android:name=".MusicianSearchScreenActivity" />
-        <activity android:name=".Chat.Chat" />
+        <activity android:name=".Chat.Chat" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Chat.Rooms" />
         <activity android:name=".Publish_Musician" />
         <activity android:name=".Publish_Band" />

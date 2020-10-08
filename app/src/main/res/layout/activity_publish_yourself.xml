@@ -16,21 +16,18 @@
         android:layout_height="wrap_content"
         android:text="@string/publish_a_post"
         android:gravity="center"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:layout_margin="16dp"
         />
-
-
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/musicain_or_band"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:layout_margin="6dp"
         android:onClick="mainClick"
         />
-
 
    <RadioGroup
        android:layout_margin="6dp"
@@ -38,6 +35,7 @@
        android:layout_height="wrap_content"
         android:id="@+id/radioGroup"
        >
+
        <RadioButton
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -45,57 +43,72 @@
            android:id="@+id/single"
            android:checked="true"
            />
+
        <RadioButton
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:text="@string/band"
            android:id="@+id/band"
            />
+
    </RadioGroup>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/play_location"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edPlayLocation"
             />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/instrument"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edInstrument"
             />
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/content"/>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edContent"
             />
+
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <Button
             android:layout_margin="14dp"
             android:layout_width="wrap_content"
@@ -105,12 +118,13 @@
             android:id="@+id/btnPublish"
             android:onClick="mainClick"
             android:layout_weight="1"
-            />
+        />
 
         <Button
         android:layout_margin="14dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10sp"
         android:text="@string/Return"
         android:layout_gravity="center"
         android:id="@+id/btnReturn"

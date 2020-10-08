@@ -2,18 +2,18 @@ package com.LYEO.musicianfinder.Chat;
 /*
  * created by yisrael bar
  */
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.LYEO.musicianfinder.FireBase;
 import com.LYEO.musicianfinder.Login;
-import com.LYEO.musicianfinder.MenuActivity;
 import com.LYEO.musicianfinder.R;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -25,14 +25,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Chat extends AppCompatActivity {
+
+    public static ListView l1;
     EditText eText;
     Button btnReturn;
-    ListView l1;
-    Message m ;
+    Message m;
     List<Message> messageList=new ArrayList<>();
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef1 ;
     String other_name = "";
+    private TextView nameRecipient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +43,8 @@ public class Chat extends AppCompatActivity {
         l1=(ListView)findViewById(R.id.l1);
         eText=(EditText)findViewById(R.id.edText);
         btnReturn = (Button) findViewById(R.id.btnReturn);
+        nameRecipient = findViewById(R.id.textView_UserNameRecipient);
+
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,14 +54,17 @@ public class Chat extends AppCompatActivity {
         try {
             Bundle bndl = getIntent().getExtras();
             other_name = bndl.getString("other_name");
+            nameRecipient.setText(other_name);
         } catch (Exception e) {
             e.printStackTrace();
         }
         myRef1 = database.getReference("rooms").child(Login.u1.getUserName()).child(other_name);
 
+        l1.setDividerHeight(0);
 
         //listen to upcoming messages
         onChild();
+
         //write message to firebase
         findViewById(R.id.btnSend).setOnClickListener(new View.OnClickListener() {
             @Override
