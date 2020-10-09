@@ -46,4 +46,6 @@
     <string name="instrument">Instrument</string>
     <string name="play_location">Play Location</string>
     <string name="type_a_message">Type a message</string>
+    <string name="all_posts">All Posts</string>
+    <string name="search">Search</string>
 </resources>

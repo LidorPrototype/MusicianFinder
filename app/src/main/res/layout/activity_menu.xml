@@ -14,7 +14,7 @@
         android:id="@+id/linearLayout_Profile"
         android:layout_width="180sp"
         android:layout_height="60sp"
-        android:layout_marginTop="100sp"
+        android:layout_marginTop="80sp"
         android:weightSum="100"
         android:background="@drawable/greyish_bg"
         android:paddingTop="5sp"
@@ -36,16 +36,18 @@
             android:layout_height="match_parent"
             android:layout_weight="33"
             android:gravity="center"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:text="@string/profile" />
 
     </LinearLayout>
 
+<!--  Do Not Use  -->
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/linearLayout_Band"
         android:layout_width="180sp"
         android:layout_height="60sp"
-        android:layout_marginTop="35sp"
+        android:layout_marginTop="25sp"
         android:weightSum="100"
         android:background="@drawable/greyish_bg"
         android:paddingTop="5sp"
@@ -71,12 +73,12 @@
             android:text="@string/find_a_band" />
 
     </LinearLayout>
-
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/linearLayout_Musician"
         android:layout_width="180sp"
         android:layout_height="60sp"
-        android:layout_marginTop="35sp"
+        android:layout_marginTop="25sp"
         android:weightSum="100"
         android:background="@drawable/greyish_bg"
         android:paddingTop="5sp"
@@ -102,6 +104,38 @@
             android:text="@string/find_a_musician" />
 
     </LinearLayout>
+<!--  Do Not Use  -->
+
+    <LinearLayout
+        android:id="@+id/linearLayout_Search"
+        android:layout_width="180sp"
+        android:layout_height="60sp"
+        android:layout_marginTop="35sp"
+        android:weightSum="100"
+        android:background="@drawable/greyish_bg"
+        android:paddingTop="5sp"
+        android:paddingBottom="5sp"
+        android:paddingRight="8sp"
+        android:paddingLeft="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Musician">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/search"
+            android:layout_weight="66"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="33"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:text="@string/search" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout_Publish"
@@ -116,13 +150,12 @@
         android:paddingLeft="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Musician" >
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Search" >
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/publish_yourself_icon"
-            android:layout_marginLeft="2sp"
             android:padding="2sp"
             android:layout_weight="66"/>
 
@@ -162,7 +195,7 @@
             android:layout_height="match_parent"
             android:layout_weight="33"
             android:gravity="center"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:text="@string/chat_s" />
 
     </LinearLayout>
@@ -193,8 +226,8 @@
             android:layout_height="match_parent"
             android:layout_weight="33"
             android:gravity="center"
-            android:text="Posts"
-            android:textSize="25sp" />
+            android:text="@string/all_posts"
+            android:textSize="20sp" />
 
     </LinearLayout>
 

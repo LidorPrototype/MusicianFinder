@@ -25,5 +25,6 @@ Contributions:
             19  - send_message            ->  Email Send icon     -   https://icons8.com/icons/set/sent
                                               icon by
                                           ->  Icons8              -   https://icons8.com
-            20  - ttt                     ->  ttt                 -   ttt
+            20  - search icon             ->  Freepik             -   https://www.flaticon.com/authors/freepik
+            21  - ttt                     ->  ttt                 -   ttt
 
