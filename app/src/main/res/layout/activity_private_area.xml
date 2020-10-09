@@ -6,210 +6,216 @@
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
     android:scrollbars="vertical"
+    android:id="@+id/linearLayout_PrivateArea"
     tools:context=".PrivateAreaActivity">
 
-    <TextView
-        android:id="@+id/privateAreaHeadline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:padding="20dp"
-        android:text="@string/profile"
-        android:textSize="42dp"
-        android:layout_gravity="center"
-        />
-
-    <!-- Name --><!-- Mandatory -->
-    <EditText
-        android:id="@+id/edName"
-        android:layout_width="300sp"
-        android:layout_height="65sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="4sp"
-        android:ems="10"
-        android:drawableStart="@drawable/custom_name_icon"
-        android:drawablePadding="20sp"
-        android:background="@drawable/edit_text_custom_input"
-        android:hint="@string/enter_you_name"
-        android:inputType="textPersonName|textCapWords"
-        android:padding="10dp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="129dp" />
-
-    <!-- Age --><!-- Mandatory -->
-    <EditText
-        android:id="@+id/edAge"
-        android:layout_width="300sp"
-        android:layout_height="65sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12sp"
-        android:ems="10"
-        android:drawableStart="@drawable/custom_age_icon"
-        android:drawablePadding="20sp"
-        android:background="@drawable/edit_text_custom_input"
-        android:hint="@string/enter_your_age"
-        android:inputType="number"
-        android:padding="10dp" />
-
-    <!-- Activity Area --><!-- Mandatory -->
     <LinearLayout
-        android:layout_width="300sp"
-        android:layout_height="70sp"
-        android:layout_marginTop="12sp"
-        android:layout_gravity="center_horizontal|center_vertical">
+        android:id="@+id/linearLayout_PrivateAreaInside"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <AutoCompleteTextView
-            android:id="@+id/actvLocation"
-            android:layout_width="0dp"
+        <!-- HeadLine -->
+        <TextView
+            android:id="@+id/privateAreaHeadline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="@string/profile"
+            android:textSize="42sp"
+            android:textColor="#000000"
+            android:layout_gravity="center"
+            />
+
+        <!-- Name --><!-- Mandatory -->
+        <EditText
+            android:id="@+id/edName"
+            android:layout_width="300sp"
             android:layout_height="65sp"
-            android:hint="@string/enter_an_address"
-            android:completionThreshold="1"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4sp"
             android:ems="10"
-            android:inputType="textCapWords"
+            android:drawableStart="@drawable/custom_name_icon"
             android:drawablePadding="20sp"
-            android:drawableStart="@drawable/custom_location_icon"
-            android:completionHint="Select a city"
             android:background="@drawable/edit_text_custom_input"
-            android:layout_weight="25"
+            android:hint="@string/enter_you_name"
+            android:inputType="textPersonName|textCapWords"
             android:padding="10dp" />
 
-    </LinearLayout>
+        <!-- Age --><!-- Mandatory -->
+        <EditText
+            android:id="@+id/edAge"
+            android:layout_width="300sp"
+            android:layout_height="65sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12sp"
+            android:ems="10"
+            android:drawableStart="@drawable/custom_age_icon"
+            android:drawablePadding="20sp"
+            android:background="@drawable/edit_text_custom_input"
+            android:hint="@string/enter_your_age"
+            android:inputType="number"
+            android:padding="10dp" />
 
-    <!-- Bio --><!-- Optional -->
-    <EditText
-        android:id="@+id/edBio"
-        android:layout_width="300sp"
-        android:layout_height="65sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="12sp"
-        android:ems="10"
-        android:drawableStart="@drawable/custom_biography_icon"
-        android:drawablePadding="20sp"
-        android:background="@drawable/edit_text_custom_input"
-        android:inputType="textMultiLine|textCapSentences"
-        android:maxLength="500"
-        android:hint="@string/enter_your_bio"
-        android:padding="10dp" />
+        <!-- Activity Area --><!-- Mandatory -->
+        <LinearLayout
+            android:layout_width="300sp"
+            android:layout_height="70sp"
+            android:layout_marginTop="12sp"
+            android:layout_gravity="center_horizontal|center_vertical">
 
-    <!-- Genre List --><!-- Optional -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="8sp"
-        android:layout_marginEnd="8sp"
-        android:padding="2sp"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:gravity="center"
-        android:layout_gravity="center_vertical">
+            <AutoCompleteTextView
+                android:id="@+id/actvLocation"
+                android:layout_width="0dp"
+                android:layout_height="65sp"
+                android:hint="@string/enter_an_address"
+                android:completionThreshold="1"
+                android:ems="10"
+                android:inputType="textCapWords"
+                android:drawablePadding="20sp"
+                android:drawableStart="@drawable/custom_location_icon"
+                android:completionHint="Select a city"
+                android:background="@drawable/edit_text_custom_input"
+                android:layout_weight="25"
+                android:padding="10dp" />
 
-        <TextView
-            android:id="@+id/textView_listOfGenres"
+        </LinearLayout>
+
+        <!-- Bio --><!-- Optional -->
+        <EditText
+            android:id="@+id/edBio"
+            android:layout_width="300sp"
+            android:layout_height="65sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="12sp"
+            android:ems="10"
+            android:drawableStart="@drawable/custom_biography_icon"
+            android:drawablePadding="20sp"
+            android:background="@drawable/edit_text_custom_input"
+            android:inputType="textMultiLine|textCapSentences"
+            android:maxLength="500"
+            android:hint="@string/enter_your_bio"
+            android:padding="10dp" />
+
+        <!-- Genre List --><!-- Optional -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_weight="45"
-            android:textSize="15sp"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="8sp"
+            android:padding="2sp"
+            android:orientation="horizontal"
+            android:weightSum="100"
             android:gravity="center"
-            android:text="@string/genres_select_text"/>
+            android:layout_gravity="center_vertical">
 
-        <Button
-            android:id="@+id/btnDialogMultiChoiceGenres"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="55"
-            android:padding="8sp"
-            android:onClick="OpenGenresList"
-            android:drawableStart="@drawable/genre_icon_layer_list"
-            android:background="@drawable/button_custom_background"
-            android:text="@string/genres"/>
+            <TextView
+                android:id="@+id/textView_listOfGenres"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="45"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="@string/genres_select_text"/>
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnDialogMultiChoiceGenres"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="55"
+                android:padding="8sp"
+                android:onClick="OpenGenresList"
+                android:drawableStart="@drawable/genre_icon_layer_list"
+                android:background="@drawable/button_custom_background"
+                android:text="@string/genres"/>
 
-    <!-- Instruments --><!-- Mandatory -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginStart="8sp"
-        android:layout_marginEnd="8sp"
-        android:padding="2sp"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:gravity="center"
-        android:layout_gravity="center_vertical">
+        </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView_listOfInstruments"
+        <!-- Instruments --><!-- Mandatory -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_weight="45"
-            android:textSize="15sp"
+            android:layout_marginStart="8sp"
+            android:layout_marginEnd="8sp"
+            android:padding="2sp"
+            android:orientation="horizontal"
+            android:weightSum="100"
             android:gravity="center"
-            android:text="@string/instrument_select_text"/>
+            android:layout_gravity="center_vertical">
 
-        <Button
-            android:id="@+id/btnDialogMultiChoiceInstruments"
+            <TextView
+                android:id="@+id/textView_listOfInstruments"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="45"
+                android:textSize="15sp"
+                android:gravity="center"
+                android:text="@string/instrument_select_text"/>
+
+            <Button
+                android:id="@+id/btnDialogMultiChoiceInstruments"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="55"
+                android:padding="8sp"
+                android:onClick="OpenMultiChoiceDialog"
+                android:drawableStart="@drawable/instruments_icon_layer_list"
+                android:background="@drawable/button_custom_background"
+                android:text="@string/instruments"/>
+
+        </LinearLayout>
+
+        <!-- Link To Website --><!-- Optional -->
+        <EditText
+            android:id="@+id/edLink"
+            android:layout_width="300sp"
+            android:layout_height="65sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12sp"
+            android:ems="10"
+            android:drawableStart="@drawable/custom_link_icon"
+            android:drawablePadding="20sp"
+            android:background="@drawable/edit_text_custom_input"
+            android:hint="@string/website_example"
+            android:inputType="textUri"
+            android:padding="10sp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_weight="55"
-            android:padding="8sp"
-            android:onClick="OpenMultiChoiceDialog"
-            android:drawableStart="@drawable/instruments_icon_layer_list"
-            android:background="@drawable/button_custom_background"
-            android:text="@string/instruments"/>
-
-    </LinearLayout>
-
-    <!-- Link To Website --><!-- Optional -->
-    <EditText
-        android:id="@+id/edLink"
-        android:layout_width="300sp"
-        android:layout_height="65sp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12sp"
-        android:ems="10"
-        android:drawableStart="@drawable/custom_link_icon"
-        android:drawablePadding="20sp"
-        android:background="@drawable/edit_text_custom_input"
-        android:hint="@string/website_example"
-        android:inputType="textUri"
-        android:padding="10dp"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="129dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="2"
-        android:layout_marginTop="28sp"
-        android:layout_marginStart="20sp"
-        android:layout_marginEnd="20sp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnSaveChange"
-            android:layout_width="wrap_content"
-            android:layout_height="40sp"
+            android:layout_height="wrap_content"
+            android:weightSum="2"
+            android:layout_marginTop="18sp"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"
-            android:layout_weight="1"
-            android:padding="8sp"
-            android:onClick="mainClick"
-            android:drawableStart="@drawable/save_changes_icon_layer_list"
-            android:background="@drawable/button_custom_background"
-            android:text="@string/savechange" />
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnReturn"
-            android:layout_width="wrap_content"
-            android:layout_height="40sp"
-            android:layout_marginStart="20sp"
-            android:layout_marginEnd="20sp"
-            android:layout_weight="1"
-            android:padding="8sp"
-            android:onClick="mainClick"
-            android:drawableStart="@drawable/back_arrow_icon_layer_list"
-            android:background="@drawable/button_custom_background"
-            android:text="@string/Return" />
+            <Button
+                android:id="@+id/btnSaveChange"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_weight="1"
+                android:padding="8sp"
+                android:onClick="mainClick"
+                android:drawableStart="@drawable/save_changes_icon_layer_list"
+                android:background="@drawable/button_custom_background"
+                android:text="@string/savechange" />
+
+            <Button
+                android:id="@+id/btnReturn"
+                android:layout_width="wrap_content"
+                android:layout_height="40sp"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
+                android:layout_weight="1"
+                android:padding="8sp"
+                android:onClick="mainClick"
+                android:drawableStart="@drawable/back_arrow_icon_layer_list"
+                android:background="@drawable/button_custom_background"
+                android:text="@string/Return" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

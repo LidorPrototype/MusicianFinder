@@ -3,6 +3,7 @@ package com.LYEO.musicianfinder.Chat;
  * created by yisrael bar
  */
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,13 +36,15 @@ public class Chat extends AppCompatActivity {
     DatabaseReference myRef1 ;
     String other_name = "";
     private TextView nameRecipient;
+    private TextView textViewHeadline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-        l1=(ListView)findViewById(R.id.l1);
-        eText=(EditText)findViewById(R.id.edText);
+
+        l1 = (ListView)findViewById(R.id.l1);
+        eText = (EditText)findViewById(R.id.edText);
         btnReturn = findViewById(R.id.image_btnReturn);
         nameRecipient = findViewById(R.id.textView_UserNameRecipient);
 
@@ -76,7 +79,11 @@ public class Chat extends AppCompatActivity {
                 fb1.sendMessageToFb(m);
             }
         });
+        Typeface typefaceHeadlineChat = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
+        nameRecipient.setTypeface(typefaceHeadlineChat);
+
     }
+
     private void onChild() {
         myRef1.addChildEventListener(new ChildEventListener() {
             @Override
@@ -117,6 +124,7 @@ public class Chat extends AppCompatActivity {
             l1.setAdapter(adapter);
         }
     }
+
     private void goToMenu(){
         Intent intent=new Intent(this, Rooms.class);
         startActivity(intent);

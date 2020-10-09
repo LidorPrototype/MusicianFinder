@@ -2,15 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+    android:background="@color/colorTransparent"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="4dp"
+        android:layout_margin="6sp"
+        android:background="@drawable/each_post_bg"
         >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -18,59 +20,99 @@
             >
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="80sp"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
-                android:text="Name: "
+                android:text="@string/publisher"
                 />
+
             <TextView
-            android:id="@+id/tv0"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            />
+                android:id="@+id/tv0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                />
 
         </LinearLayout>
-        <TextView
-            android:id="@+id/tv1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            />
 
-        <TextView
-            android:id="@+id/tv2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-
-            />
-        <TextView
-            android:id="@+id/tv3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-
-            />
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="To send a message click the button: "
-                android:textSize="18dp"
-                android:layout_weight="1"
-                >
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
 
-            </TextView>
-            <Button
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="80sp"
                 android:layout_height="wrap_content"
-                android:text="send"
-                android:id="@+id/btAdapterPosts"
-                android:layout_weight="1"
-                ></Button>
+                android:padding="2dp"
+                android:text="@string/location"
+                />
+
+            <TextView
+                android:id="@+id/tv1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                />
+
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="80sp"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/publish_instrument"
+                />
+
+            <TextView
+                android:id="@+id/tv2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="80sp"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/publish_content"
+                />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btAdapterPosts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/send"
+            android:background="@drawable/send_from_post_btn"
+            android:layout_marginTop="12sp"
+            android:clickable="true"
+            android:focusable="true"
+            />
+
+
     </LinearLayout>
+
 </LinearLayout>

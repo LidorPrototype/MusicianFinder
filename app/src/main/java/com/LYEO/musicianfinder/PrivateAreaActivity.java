@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +53,11 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
         textView_Headline = findViewById(R.id.privateAreaHeadline);
 
         Configuration configurationObj = new Configuration();
+        int h = configurationObj.getHeight();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.setMargins(0, h, 0, h);
+        findViewById(R.id.linearLayout_PrivateAreaInside).setLayoutParams(layoutParams);
 
         textView_Instruments.setMovementMethod(new ScrollingMovementMethod());
 

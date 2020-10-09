@@ -3,10 +3,10 @@ package com.LYEO.musicianfinder.Posts;/*
  */
 
 public class Post {
-    private String userName;
-    private String content;
-    private String location;
-    private String instrument;
+    private String userName = "";
+    private String content = "";
+    private String location = "";
+    private String instrument = "";
     private boolean itIsABand ;
 
 
@@ -38,7 +38,7 @@ public class Post {
     }
 
     public String getUserName() {
-        return userName;
+        return userName == null ? "" : userName;
     }
 
     public void setUserName(String userName) {

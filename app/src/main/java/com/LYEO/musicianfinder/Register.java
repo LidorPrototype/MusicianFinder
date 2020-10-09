@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -15,10 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.graphics.drawable.AnimationDrawable;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -58,39 +59,45 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        try {
-            edUserName = findViewById(R.id.edUserName);
-        edUserPass = findViewById(R.id.edUserPass);
-        edName = findViewById(R.id.edName);
-        edAge = findViewById(R.id.edAge);
-        actvLocation = findViewById(R.id.actvLocation);
-        edBio = findViewById(R.id.edBio);
-        edLink = findViewById(R.id.edLink);
-        textView_Instruments = findViewById(R.id.textView_listOfInstruments);
-        textView_Genres = findViewById(R.id.textView_listOfGenres);
-
+        Login.cn1 = getApplicationContext();
         Configuration configurationObj = new Configuration();
 
-        textView_Instruments.setMovementMethod(new ScrollingMovementMethod());
+        int h = configurationObj.getHeight();
+        ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(
+                ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.setMargins(10, h, 10, h);
+        findViewById(R.id.linearLayout_Register).setLayoutParams(layoutParams);
 
-        progressDialog = new ProgressDialog(this);
-        btReg = findViewById(R.id.btnRegister);
-        fb1 = new FireBase();
+        try {
+            edUserName = findViewById(R.id.edUserName);
+            edUserPass = findViewById(R.id.edUserPass);
+            edName = findViewById(R.id.edName);
+            edAge = findViewById(R.id.edAge);
+            actvLocation = findViewById(R.id.actvLocation);
+            edBio = findViewById(R.id.edBio);
+            edLink = findViewById(R.id.edLink);
+            textView_Instruments = findViewById(R.id.textView_listOfInstruments);
+            textView_Genres = findViewById(R.id.textView_listOfGenres);
+            btReg = findViewById(R.id.btnRegister);
 
-        // Activity Area
-        cities = configurationObj.getCities();
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                R.layout.cities_items, R.id.text_city_name, cities);
-        actvLocation.setAdapter(adapter);
+            textView_Instruments.setMovementMethod(new ScrollingMovementMethod());
 
-        // Getting the Genres
-        genreList = configurationObj.getGenres();
-        genresCheckedItems = new boolean[genreList.length];
+            progressDialog = new ProgressDialog(this);
+            fb1 = new FireBase();
+
+            // Activity Area
+            cities = configurationObj.getCities();
+            final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                    R.layout.cities_items, R.id.text_city_name, cities);
+            actvLocation.setAdapter(adapter);
+
+            // Getting the Genres
+            genreList = configurationObj.getGenres();
+            genresCheckedItems = new boolean[genreList.length];
 
         }catch (Exception e){
             Log.d("yisrael", "yaa "+e);
         }
-
 
         // Register Button Animation
         animDrawableReg = (AnimationDrawable) btReg.getBackground();

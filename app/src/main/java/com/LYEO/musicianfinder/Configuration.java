@@ -1,8 +1,12 @@
 package com.LYEO.musicianfinder;
 
+import android.content.res.Resources;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.LYEO.musicianfinder.Login.cn1;
 
 /**
  * Created by Lidor on 9/24/2020.
@@ -19,12 +23,14 @@ import java.util.List;
  */
 
 
-class Configuration{
+public class Configuration{
 
     private List<Instruments> instrumentsList = new ArrayList<Instruments>();
     private String citiesID = "citiesList";
     private ArrayList<String> _cities = new ArrayList<String>();
     private String[] genres = new String[61];
+
+    private int height = 0;
 
     public Configuration() {
         initialization();
@@ -34,6 +40,11 @@ class Configuration{
         initList();
         initGenres();
         initCities();
+        Resources resources = cn1.getResources();
+        int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            height = resources.getDimensionPixelSize(resourceId);   // height now set tot he height of the bottom navigation bar
+        }
     }
 
     private void initList(){
@@ -225,6 +236,10 @@ class Configuration{
     public ArrayList<String> getCities() {
         return _cities;
     }
+    public int getHeight() {
+        return height;
+    }
+
 }
 
 class Instruments {

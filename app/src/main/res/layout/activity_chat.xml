@@ -15,7 +15,9 @@ xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:weightSum="100">
+        android:weightSum="100"
+        android:layout_margin="4sp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,20 +70,21 @@ xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="45"
-            android:paddingTop="2sp"
+            android:padding="2sp"
+            android:layout_marginStart="4sp"
+            android:layout_marginEnd="4sp"
             >
 
             <EditText
                 android:id="@+id/edText"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="8sp"
                 android:hint="@string/type_a_message"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/img_btnSend"
-                android:layout_marginEnd="4sp"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/img_btnSend"

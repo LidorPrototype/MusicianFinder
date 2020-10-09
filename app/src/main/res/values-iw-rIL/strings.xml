@@ -36,13 +36,20 @@
     <string name="data_saved">השינויים נשמרו</string>
     <string name="posts">פוסטים</string>
     <string name="re_choose_instruments">#אנא בחר את הכלים מחדש</string>
-    <string name="musicain_or_band">מוזיקאי בודד או להקה?</string>
+    <string name="musician_or_band_question">אני / אנחנו:</string>
     <string name="publish_a_post">פרסם פוסט</string>
-    <string name="single">מוזיקאי בודד</string>
+    <string name="musician">מוזיקאי</string>
     <string name="band">להקה</string>
     <string name="publish">פרסם</string>
     <string name="content">תוכן</string>
     <string name="instrument">כלי נגינה</string>
     <string name="play_location">מיקום הנגינה</string>
     <string name="type_a_message">כתוב הודעה</string>
+    <string name="all_posts">כלל הפוסטים</string>
+    <string name="search">חפש</string>
+    <string name="send">שלח</string>
+    <string name="publisher">מפרסם:</string>
+    <string name="location">מיקום:</string>
+    <string name="publish_instrument">"כלי: "</string>
+    <string name="publish_content">"רקע: "</string>
 </resources>

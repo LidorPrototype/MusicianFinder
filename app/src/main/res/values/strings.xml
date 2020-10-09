@@ -37,10 +37,10 @@
     <string name="data_saved">data been update</string>
     <string name="posts">Posts</string>
     <string name="re_choose_instruments">#Re-Choose All your instruments</string>
-    <string name="musicain_or_band">Musicain or band?</string>
-    <string name="publish_a_post">publish a post</string>
-    <string name="single">single</string>
-    <string name="band">band</string>
+    <string name="musician_or_band_question">I\'m / We\'re a:</string>
+    <string name="publish_a_post">Publish a Post</string>
+    <string name="musician">Musician</string>
+    <string name="band">Band</string>
     <string name="publish">publish</string>
     <string name="content">Content</string>
     <string name="instrument">Instrument</string>
@@ -48,4 +48,9 @@
     <string name="type_a_message">Type a message</string>
     <string name="all_posts">All Posts</string>
     <string name="search">Search</string>
+    <string name="send">Send a message</string>
+    <string name="publisher">Publisher:</string>
+    <string name="location">"Location: "</string>
+    <string name="publish_instrument">"Instrument: "</string>
+    <string name="publish_content">"Content: "</string>
 </resources>

@@ -1,28 +1,31 @@
 package com.LYEO.musicianfinder.Posts;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.LYEO.musicianfinder.Configuration;
 import com.LYEO.musicianfinder.FireBase;
 import com.LYEO.musicianfinder.Login;
 import com.LYEO.musicianfinder.MenuActivity;
-import com.LYEO.musicianfinder.Posts.Post;
 import com.LYEO.musicianfinder.R;
 
 public class PublishYourselfActivity extends AppCompatActivity{
-    RadioGroup radioGroup;
-    RadioButton rbBand, rbSingle;
-    EditText edPlayLocation, edInstrument, edContent;
+
+    private RadioGroup radioGroup;
+    private RadioButton rbBand, rbSingle;
+    private EditText edPlayLocation, edInstrument, edContent;
+    private TextView textView_PublishYourselfHeadline;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,19 @@ public class PublishYourselfActivity extends AppCompatActivity{
         edPlayLocation = (EditText)findViewById(R.id.edPlayLocation);
         edInstrument = (EditText)findViewById(R.id.edInstrument);
         edContent = (EditText)findViewById(R.id.edContent);
+        textView_PublishYourselfHeadline = findViewById(R.id.publish_post_headline);
+
+        Login.cn1 = getApplicationContext();
+        Configuration configurationObj = new Configuration();
+
+        int h = configurationObj.getHeight();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.setMargins(10, h, 10, h);
+        findViewById(R.id.LinearLayout_PublishPost).setLayoutParams(layoutParams);
+
+        Typeface typefaceHeadlinePrivateArea = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
+        textView_PublishYourselfHeadline.setTypeface(typefaceHeadlinePrivateArea);
 
     }
 

@@ -8,6 +8,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.LYEO.musicianfinder.Configuration;
 import com.LYEO.musicianfinder.MenuActivity;
 import com.LYEO.musicianfinder.R;
 import com.google.firebase.database.ChildEventListener;
@@ -43,10 +45,20 @@ public class DisplayPosts extends AppCompatActivity {
 
         textViewPostHeadline = findViewById(R.id.textView_PostsHeadline);
 
+        Configuration configurationObj = new Configuration();
+        int h = configurationObj.getHeight();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.setMargins(30, 20, 30, h);
+        findViewById(R.id.linearLayout_Posts).setLayoutParams(layoutParams);
+
         Typeface typefaceHeadlinePost = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
         textViewPostHeadline.setTypeface(typefaceHeadlinePost);
 
         l1=(ListView)findViewById(R.id.l1);
+
+        l1.setDividerHeight(0);
+
         try {
             cn1=this;
             getAllNewPost();
