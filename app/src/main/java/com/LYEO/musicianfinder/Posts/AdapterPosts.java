@@ -53,7 +53,7 @@ public class AdapterPosts extends ArrayAdapter<Post> {
                 String user_name = tv0.getText().toString();
                 try{
 //                    user_name = tv0.getText().toString();
-//                    Log.d("yisrael", "yaa "+user_name);
+                    Log.d("yisrael", "yaa "+user_name);
 
                     sql s=new sql(DisplayPosts.cn1,"yisrael",null,1);
                     if (!s.searchUserIfExist(user_name))
@@ -64,6 +64,7 @@ public class AdapterPosts extends ArrayAdapter<Post> {
                 Intent intent = new Intent(DisplayPosts.cn1, Rooms.class);
 //                intent.putExtra("user_name",user_name);
                 DisplayPosts.cn1.startActivity(intent);
+
             }
         });
         return myView;

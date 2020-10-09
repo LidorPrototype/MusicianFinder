@@ -24,7 +24,7 @@ public class PublishYourselfActivity extends AppCompatActivity{
 
     private RadioGroup radioGroup;
     private RadioButton rbBand, rbSingle;
-    private EditText edPlayLocation, edInstrument, edContent;
+    private EditText edPlayLocation, edInstrument, edContent, edGenre;
     private TextView textView_PublishYourselfHeadline;
 
     @Override
@@ -38,6 +38,7 @@ public class PublishYourselfActivity extends AppCompatActivity{
         edPlayLocation = (EditText)findViewById(R.id.edPlayLocation);
         edInstrument = (EditText)findViewById(R.id.edInstrument);
         edContent = (EditText)findViewById(R.id.edContent);
+        edGenre = (EditText)findViewById(R.id.edGenre);
         textView_PublishYourselfHeadline = findViewById(R.id.publish_post_headline);
 
         Login.cn1 = getApplicationContext();
@@ -60,11 +61,12 @@ public class PublishYourselfActivity extends AppCompatActivity{
         if (v.getId()== R.id.btnPublish){
             try {
                 boolean itIsABand = rbBand.isChecked();
-                String playLocation = "", content = "", instrument = "";
+                String playLocation = "", content = "", instrument = "", genre = "";
                 playLocation = edPlayLocation.getText().toString();
                 content =  edContent.getText().toString();
                 instrument = edInstrument.getText().toString();
-                Post p1 = new Post(Login.userName, content, playLocation, instrument, itIsABand);
+                genre = edGenre.getText().toString();
+                Post p1 = new Post(Login.userName, content, playLocation, instrument, itIsABand,genre);
                 FireBase fb1 = new FireBase();
                 fb1.sendPostToFb(p1);
                 Toast.makeText(this,"post been published",Toast.LENGTH_LONG).show();

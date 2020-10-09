@@ -12,10 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.LYEO.musicianfinder.Chat.Rooms;
 import com.LYEO.musicianfinder.Posts.DisplayPosts;
 import com.LYEO.musicianfinder.Posts.PublishYourselfActivity;
+import com.LYEO.musicianfinder.Posts.SearchScreenActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private LinearLayout ToPrivateArea, ToFindABand, ToFindAMusician, ToPublishYouself, ToChats, ToPosts;
+    private LinearLayout ToPrivateArea, ToFindABand, ToFindAMusician, ToPublishYouself, ToChats, ToPosts, ToSearch;
     private Intent intent;
 
     @Override
@@ -29,6 +30,7 @@ public class MenuActivity extends AppCompatActivity {
         ToPublishYouself = findViewById(R.id.linearLayout_Publish);
         ToChats = findViewById(R.id.linearLayout_Chat);
         ToPosts = findViewById(R.id.linearLayout_Posts);
+        ToSearch = findViewById(R.id.linearLayout_Search);
 
         ToPrivateArea.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +53,7 @@ public class MenuActivity extends AppCompatActivity {
         ToPublishYouself.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openPublishYouself();
+                openPublishYourself();
             }
         });
         ToChats.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +66,12 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 openPosts();
+            }
+        });
+        ToSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSearch();
             }
         });
         try {
@@ -79,7 +87,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
-    public void openPrivateArea(){
+    private void openPrivateArea(){
         Log.d("yisrael", "yaa "+Login.u1);
         try {
         intent = new Intent(this,PrivateAreaActivity.class);
@@ -89,27 +97,37 @@ public class MenuActivity extends AppCompatActivity {
         }
     }
 
-    public void openFindABand(){
+    private void openFindABand(){
         intent = new Intent(this,BandSearchScreenActivity.class);
         startActivity(intent);
+        finish();
     }
 
-    public void openFindAMusician(){
-    intent = new Intent(this,MusicianSearchScreenActivity.class);
+    private void openFindAMusician(){
+    intent = new Intent(this, SearchScreenActivity.class);
     startActivity(intent);
+        finish();
     }
 
-    public void openPublishYouself(){
+    private void openPublishYourself(){
     intent = new Intent(this, PublishYourselfActivity.class);
     startActivity(intent);
+        finish();
     }
 
-    public void openChats() {
+    private void openChats() {
         intent = new Intent(this, Rooms.class);
         startActivity(intent);
+        finish();
     }
-    public void openPosts() {
+    private void openPosts() {
         intent = new Intent(this, DisplayPosts.class);
         startActivity(intent);
+        finish();
+    }
+    private void openSearch() {
+        intent = new Intent(this, SearchScreenActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

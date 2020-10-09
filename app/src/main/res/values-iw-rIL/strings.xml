@@ -47,9 +47,15 @@
     <string name="type_a_message">כתוב הודעה</string>
     <string name="all_posts">כלל הפוסטים</string>
     <string name="search">חפש</string>
-    <string name="send">שלח</string>
+    <string name="send">שלח הודעה</string>
     <string name="publisher">מפרסם:</string>
     <string name="location">מיקום:</string>
     <string name="publish_instrument">"כלי: "</string>
     <string name="publish_content">"רקע: "</string>
+    <string name="genre">זאנר</string>
+    <string name="search_by">חפש לפי:</string>
+    <string name="search_by_location">חפש לפי מיקום</string>
+    <string name="search_by_genre">חפש לפי זאנר</string>
+    <string name="search_by_instrument">חפש לפי כלי</string>
+
 </resources>

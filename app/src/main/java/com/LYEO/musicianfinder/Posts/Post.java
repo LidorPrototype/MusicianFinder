@@ -8,6 +8,8 @@ public class Post {
     private String location = "";
     private String instrument = "";
     private boolean itIsABand ;
+    private String genre;
+
 
 
     //empty constructor
@@ -17,16 +19,27 @@ public class Post {
         location = "jerusalem";
         instrument = "bass";
         itIsABand = false;
+        genre = "jezz";
     }
 
-    public Post(String userName, String content, String location, String instrument, boolean itIsABand) {
+    public Post(String userName, String content, String location, String instrument, boolean itIsABand, String genre) {
         this.userName = userName;
         this.content = content;
         this.location = location;
         this.instrument = instrument;
         this.itIsABand = itIsABand;
+        this.genre = genre;
     }
 
+
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
 
     //get replaced the is
     public boolean getItIsABand() {
