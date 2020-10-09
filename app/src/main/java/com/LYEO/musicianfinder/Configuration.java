@@ -40,6 +40,7 @@ public class Configuration{
         initList();
         initGenres();
         initCities();
+        // Size of the device default AppBar height
         Resources resources = cn1.getResources();
         int resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android");
         if (resourceId > 0) {
