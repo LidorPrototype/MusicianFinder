@@ -39,6 +39,13 @@ public class Chat extends AppCompatActivity {
     private TextView textViewHeadline;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        return;
+    }
+
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);

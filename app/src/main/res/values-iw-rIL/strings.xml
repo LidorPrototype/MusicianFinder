@@ -57,5 +57,6 @@
     <string name="search_by_location">חפש לפי מיקום</string>
     <string name="search_by_genre">חפש לפי זאנר</string>
     <string name="search_by_instrument">חפש לפי כלי</string>
+    <string name="for_message_press"><![CDATA[לשליחת הודעה לחץ =>]]></string>
 
 </resources>

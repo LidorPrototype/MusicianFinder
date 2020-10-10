@@ -3,6 +3,7 @@ package com.LYEO.musicianfinder.Chat;
  * created by yisrael bar
  */
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -27,9 +28,16 @@ public class Rooms extends AppCompatActivity {
     private TextView textViewChatHeadline;
     private LinearLayout linearLayoutListAndButton;
     public static List<String> chatsList=new ArrayList<>();
-    public ListView l1;
+    private ListView l1;
     public static Context cn1;
-    public Button btnReturn;
+    private Button btnReturn;
+    public static Activity act;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,16 +70,14 @@ public class Rooms extends AppCompatActivity {
         textViewChatHeadline.setTypeface(typefaceHeadlineChatsRoom);
 
         try {
-            cn1=this;
+            cn1 = this;
+            act = this;
             chatsList.clear();
             sql s=new sql(getApplicationContext(),"yisrael",null,1);
 
             //put in chat list all the chats from sql
             s.showChatNames();
-//            if (chatsList.size()<1){
-//                s.AddChatName("test");
-//                s.showChatNames();
-//            }
+
             //send the chat list to the adapter to display
             adaptersForNewChat adapter=new adaptersForNewChat(getApplicationContext(),chatsList);
             l1.setAdapter(adapter);
@@ -84,4 +90,7 @@ public class Rooms extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+
+
 }

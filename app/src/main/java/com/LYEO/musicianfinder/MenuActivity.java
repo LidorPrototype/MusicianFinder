@@ -38,18 +38,18 @@ public class MenuActivity extends AppCompatActivity {
                 openPrivateArea();
             }
         });
-        ToFindABand.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openFindABand();
-            }
-        });
-        ToFindAMusician.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openFindAMusician();
-            }
-        });
+//        ToFindABand.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openFindABand();
+//            }
+//        });
+//        ToFindAMusician.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openFindAMusician();
+//            }
+//        });
         ToPublishYouself.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -88,26 +88,27 @@ public class MenuActivity extends AppCompatActivity {
 
 
     private void openPrivateArea(){
-        Log.d("yisrael", "yaa "+Login.u1);
+//        Log.d("yisrael", "yaa "+Login.u1);
         try {
         intent = new Intent(this,PrivateAreaActivity.class);
         startActivity(intent);
+        finish();
         }catch (Exception e){
             Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
         }
     }
 
-    private void openFindABand(){
-        intent = new Intent(this,BandSearchScreenActivity.class);
-        startActivity(intent);
-        finish();
-    }
+//    private void openFindABand(){
+//        intent = new Intent(this,BandSearchScreenActivity.class);
+//        startActivity(intent);
+//        finish();
+//    }
 
-    private void openFindAMusician(){
-    intent = new Intent(this, SearchScreenActivity.class);
-    startActivity(intent);
-        finish();
-    }
+//    private void openFindAMusician(){
+//    intent = new Intent(this, SearchScreenActivity.class);
+//    startActivity(intent);
+//        finish();
+//    }
 
     private void openPublishYourself(){
     intent = new Intent(this, PublishYourselfActivity.class);

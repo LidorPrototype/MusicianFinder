@@ -59,6 +59,7 @@
 <!--    Search by Genre-->
     <string name="search_by_genre">Search by Genre</string>
     <string name="search_by_instrument">Search by Instrument</string>
+    <string name="for_message_press"><![CDATA[for message press =>]]></string>
 
 
 </resources>

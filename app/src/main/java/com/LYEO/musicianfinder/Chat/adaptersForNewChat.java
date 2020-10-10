@@ -2,6 +2,7 @@ package com.LYEO.musicianfinder.Chat;/*
  * created by yisrael bar
  */
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -18,8 +19,8 @@ import com.LYEO.musicianfinder.R;
 import java.util.List;
 
 public class adaptersForNewChat  extends ArrayAdapter<String> {
-    Button bt1;
-    String pd1;
+    private Button bt1;
+    private String pd1;
     public adaptersForNewChat(@NonNull Context context, @NonNull List<String> objects) {
         super(context, 0, objects);
     }
@@ -27,7 +28,7 @@ public class adaptersForNewChat  extends ArrayAdapter<String> {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View myView= LayoutInflater.from(getContext()).inflate(R.layout.activity_adapters_for_new_chat,parent,false);
+        final View myView= LayoutInflater.from(getContext()).inflate(R.layout.activity_adapters_for_new_chat,parent,false);
 
         bt1=(Button)myView.findViewById(R.id.btAdapter);
         pd1=getItem(position);
@@ -43,6 +44,9 @@ public class adaptersForNewChat  extends ArrayAdapter<String> {
                 Intent intent = new Intent(Rooms.cn1,Chat.class);
                 intent.putExtra("other_name",other_name);
                 Rooms.cn1.startActivity(intent);
+                Rooms.act.finish();
+
+
             }
         });
         return myView;

@@ -22,8 +22,8 @@ import com.LYEO.musicianfinder.R;
 import java.util.List;
 
 public class AdapterPosts extends ArrayAdapter<Post> {
-    TextView tv0,tv1,tv2,tv3;
-    Button btnAdapterPost;
+    private TextView tv0,tv1,tv2,tv3;
+    private Button btnAdapterPost;
     public AdapterPosts(@NonNull Context context, @NonNull List<Post> objects) {
         super(context, 0, objects);
     }
@@ -36,21 +36,22 @@ public class AdapterPosts extends ArrayAdapter<Post> {
         tv1=(TextView)myView.findViewById(R.id.tv1);
         tv2=(TextView)myView.findViewById(R.id.tv2);
         tv3=(TextView)myView.findViewById(R.id.tv3);
-
         btnAdapterPost = (Button)myView.findViewById(R.id.btAdapterPosts);
 
         Post pd1=getItem(position);
         tv0.setText(pd1.getUserName());
+        btnAdapterPost.setText(pd1.getUserName());
         tv1.setText(pd1.getLocation());
         tv2.setText(pd1.getInstrument());
         tv3.setText(pd1.getContent());
+
 
         myView.findViewById(R.id.btAdapterPosts).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //need to change to text view
-//                Button btn1 = (Button) v;     // Irrelevant b/c of new UI
-                String user_name = tv0.getText().toString();
+                Button btn1 = (Button) v;     // Irrelevant b/c of new UI
+                String user_name = btn1.getText().toString();
                 try{
 //                    user_name = tv0.getText().toString();
                     Log.d("yisrael", "yaa "+user_name);
@@ -64,6 +65,7 @@ public class AdapterPosts extends ArrayAdapter<Post> {
                 Intent intent = new Intent(DisplayPosts.cn1, Rooms.class);
 //                intent.putExtra("user_name",user_name);
                 DisplayPosts.cn1.startActivity(intent);
+                DisplayPosts.act.finish();
 
             }
         });

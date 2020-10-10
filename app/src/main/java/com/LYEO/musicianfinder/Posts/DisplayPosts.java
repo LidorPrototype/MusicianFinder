@@ -2,6 +2,7 @@ package com.LYEO.musicianfinder.Posts;
 /*
  * created by yisrael bar
  */
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -31,11 +32,11 @@ import java.util.List;
 public class DisplayPosts extends AppCompatActivity {
 
     private TextView textViewPostHeadline;
-    ListView l1;
-    List<Post> postList = new ArrayList<>();
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private ListView l1;
+    private List<Post> postList = new ArrayList<>();
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
     public static Context cn1;
-//    Post p1 = new Post();
+    public static Activity act;
 
 
     @Override
@@ -60,7 +61,8 @@ public class DisplayPosts extends AppCompatActivity {
         l1.setDividerHeight(0);
 
         try {
-            cn1=this;
+            cn1 = this;
+            act = this;
             getAllNewPost();
 
         }catch (Exception e){
@@ -76,8 +78,10 @@ public class DisplayPosts extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
-    public void getAllNewPost(){
+    private void getAllNewPost(){
         DatabaseReference  myRef1= database.getReference("posts");
         myRef1.addChildEventListener(new ChildEventListener() {
             @Override
@@ -129,4 +133,7 @@ public class DisplayPosts extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

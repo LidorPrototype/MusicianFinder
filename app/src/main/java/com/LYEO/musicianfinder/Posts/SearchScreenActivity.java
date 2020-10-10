@@ -71,6 +71,7 @@ public class SearchScreenActivity extends AppCompatActivity {
                 getAllNewPost();
             }
         });
+        //go back button
         findViewById(R.id.btnReturn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

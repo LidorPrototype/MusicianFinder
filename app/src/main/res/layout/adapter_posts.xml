@@ -100,17 +100,35 @@
                 />
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/btAdapterPosts"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/send"
-            android:background="@drawable/send_from_post_btn"
-            android:layout_marginTop="12sp"
-            android:clickable="true"
-            android:focusable="true"
-            />
+            android:orientation="horizontal"
+            android:id="@+id/linearLayout_get_user"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/for_message_press"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:layout_weight="1"
+
+                />
+
+            <Button
+                android:id="@+id/btAdapterPosts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/send"
+                android:background="@drawable/send_from_post_btn"
+                android:layout_marginTop="12sp"
+                android:clickable="true"
+                android:focusable="true"
+                />
+
+        </LinearLayout>
 
 
     </LinearLayout>
