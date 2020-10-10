@@ -39,8 +39,8 @@
     <string name="re_choose_instruments">#Re-Choose All your instruments</string>
     <string name="musician_or_band_question">I\'m / We\'re a:</string>
     <string name="publish_a_post">Publish a Post</string>
-    <string name="musician">Musician</string>
-    <string name="band">Band</string>
+    <string name="im_musician">I\'m a Musician</string>
+    <string name="were_band">We\'re a Band</string>
     <string name="publish">publish</string>
     <string name="content">Content</string>
     <string name="instrument">Instrument</string>
@@ -60,6 +60,10 @@
     <string name="search_by_genre">Search by Genre</string>
     <string name="search_by_instrument">Search by Instrument</string>
     <string name="for_message_press"><![CDATA[for message press =>]]></string>
+    <string name="where_you_play">Where Do You Play?</string>
+    <string name="what_you_play_instrument">What Instrument?</string>
+    <string name="what_you_play_genre">What Genre You\'re Playing?</string>
+    <string name="extra_content">What More Would You Like To Say?</string>
 
 
 </resources>

@@ -38,8 +38,6 @@
     <string name="re_choose_instruments">#אנא בחר את הכלים מחדש</string>
     <string name="musician_or_band_question">אני / אנחנו:</string>
     <string name="publish_a_post">פרסם פוסט</string>
-    <string name="musician">מוזיקאי</string>
-    <string name="band">להקה</string>
     <string name="publish">פרסם</string>
     <string name="content">תוכן</string>
     <string name="instrument">כלי נגינה</string>
@@ -58,5 +56,11 @@
     <string name="search_by_genre">חפש לפי זאנר</string>
     <string name="search_by_instrument">חפש לפי כלי</string>
     <string name="for_message_press"><![CDATA[לשליחת הודעה לחץ =>]]></string>
+    <string name="im_musician">אני מוזיקאי</string>
+    <string name="were_band">אנחנו להקה</string>
+    <string name="where_you_play">איזור הניגון?</string>
+    <string name="what_you_play_instrument">איזה כלי?</string>
+    <string name="what_you_play_genre">איזה סגנון ניגון?</string>
+    <string name="extra_content">עוד מידע שניתן לשתף?</string>
 
 </resources>

@@ -94,10 +94,10 @@
             android:ems="10"
             android:drawablePadding="20sp"
             android:drawableStart="@drawable/custom_location_icon"
-            android:completionHint="Select a city"
             android:background="@drawable/edit_text_custom_input"
             android:inputType="textCapWords"
             android:layout_weight="25"
+            android:popupBackground="@color/colorTransparent"
             android:padding="10dp" />
 
     </LinearLayout>

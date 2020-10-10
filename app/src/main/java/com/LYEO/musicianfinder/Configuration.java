@@ -28,6 +28,8 @@ public class Configuration{
     private List<Instruments> instrumentsList = new ArrayList<Instruments>();
     private String citiesID = "citiesList";
     private ArrayList<String> _cities = new ArrayList<String>();
+    private ArrayList<String> instrumentsArrayList = new ArrayList<String>();
+    private ArrayList<String> genresArrayList = new ArrayList<String>();
     private String[] genres = new String[61];
 
     private int height = 0;
@@ -128,6 +130,9 @@ public class Configuration{
         instrumentsList.add(new Instruments("Violin", R.drawable.violin));
         instrumentsList.add(new Instruments("Vuvuzela", R.drawable.vuvuzela));
         instrumentsList.add(new Instruments("Xylophone", R.drawable.xylophone));
+        for (int i = 0; i < instrumentsList.size(); i++) {
+            instrumentsArrayList.add(instrumentsList.get(i).getInstrument());
+        }
     }
 
     private void initGenres(){          /* In User.java you need to add the number of genres manually!!! */
@@ -192,6 +197,7 @@ public class Configuration{
         genres[58] = ("Vocal");
         genres[59] = ("Western");
         genres[60] = ("World");
+        genresArrayList.addAll(Arrays.asList(genres));
     }
 
     private void initCities(){
@@ -234,8 +240,14 @@ public class Configuration{
     public List<Instruments> getInstruments() {
         return instrumentsList;
     }
+    public ArrayList<String> getInstrumentsArray() {
+        return instrumentsArrayList;
+    }
     public ArrayList<String> getCities() {
         return _cities;
+    }
+    public ArrayList<String> getGenresArrayList() {
+        return genresArrayList;
     }
     public int getHeight() {
         return height;
