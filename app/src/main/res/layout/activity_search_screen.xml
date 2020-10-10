@@ -21,7 +21,7 @@
     <RadioGroup
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
-        android:layout_height="120sp"
+        android:layout_height="140sp"
         android:orientation="horizontal"
         android:gravity="center"
         android:padding="2sp"
@@ -29,7 +29,7 @@
         >
         <RadioButton
             android:id="@+id/rbLocation"
-            android:layout_width="100sp"
+            android:layout_width="110sp"
             android:layout_height="match_parent"
             android:padding="16sp"
             android:layout_margin="4sp"
@@ -53,7 +53,7 @@
 <!--            />-->
         <RadioButton
             android:id="@+id/rbGenre"
-            android:layout_width="100sp"
+            android:layout_width="110sp"
             android:layout_height="match_parent"
             android:padding="16sp"
             android:layout_margin="4sp"
@@ -75,7 +75,7 @@
 <!--            />-->
         <RadioButton
             android:id="@+id/rbInstrument"
-            android:layout_width="100sp"
+            android:layout_width="110sp"
             android:layout_height="match_parent"
             android:padding="16sp"
             android:layout_margin="4sp"

@@ -10,10 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.LYEO.musicianfinder.FireBase;
+import com.LYEO.musicianfinder.Login;
 import com.LYEO.musicianfinder.R;
 
 import java.util.List;
@@ -34,8 +37,27 @@ public class adaptersForNewChat  extends ArrayAdapter<String> {
         pd1=getItem(position);
         bt1.setText(pd1);
 
-//        myView.findViewById(R.id.btAdapter).setText(getItem(position));
+        //delete a chat
+        myView.findViewById(R.id.btAdapter).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                try {
+                    Button btn1 = (Button)view;
+                    String other_name = btn1.getText().toString();
+                    FireBase fb1 = new FireBase();
+                    sql s=new sql(Rooms.cn1.getApplicationContext(),"yisrael",null,1);
+                    fb1.deleteChatFromFb(other_name);
+                    s.DELETEChat(other_name);
+                    Toast.makeText(Rooms.cn1,other_name + " chat is deleted",Toast.LENGTH_LONG).show();
 
+                }catch (Exception e){
+
+                }
+
+                return false;
+            }
+        });
+        //go to another chat
         myView.findViewById(R.id.btAdapter).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

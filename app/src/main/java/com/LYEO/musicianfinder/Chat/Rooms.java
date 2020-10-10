@@ -86,11 +86,6 @@ public class Rooms extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //work
-//        FireBase fb1= new FireBase();
-//        fb1.deleteChatFromFb("yisrael");
-//        s.DELETEChat("yisrael");
-
     }
     private void goToMenu(){
         Intent intent=new Intent(this,MenuActivity.class);
