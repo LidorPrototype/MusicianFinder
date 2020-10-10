@@ -47,8 +47,9 @@ public class PublishYourselfActivity extends AppCompatActivity{
         actvGenre = findViewById(R.id.actvGenres);
         edContent = (EditText)findViewById(R.id.edContent);
         textView_PublishYourselfHeadline = findViewById(R.id.publish_post_headline);
-
+        //
         Login.cn1 = getApplicationContext();
+
         Configuration configurationObj = new Configuration();
 
         int h = configurationObj.getHeight();

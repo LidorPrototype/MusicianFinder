@@ -22,7 +22,7 @@ import com.LYEO.musicianfinder.R;
 import java.util.List;
 
 public class AdapterPosts extends ArrayAdapter<Post> {
-    private TextView tv0,tv1,tv2,tv3;
+    private TextView tv0,tv1,tv2,tv3,tv4;
     private Button btnAdapterPost;
     public AdapterPosts(@NonNull Context context, @NonNull List<Post> objects) {
         super(context, 0, objects);
@@ -36,6 +36,8 @@ public class AdapterPosts extends ArrayAdapter<Post> {
         tv1=(TextView)myView.findViewById(R.id.tv1);
         tv2=(TextView)myView.findViewById(R.id.tv2);
         tv3=(TextView)myView.findViewById(R.id.tv3);
+        tv4=(TextView)myView.findViewById(R.id.tv4);
+
         btnAdapterPost = (Button)myView.findViewById(R.id.btAdapterPosts);
 
         Post pd1=getItem(position);
@@ -44,6 +46,7 @@ public class AdapterPosts extends ArrayAdapter<Post> {
         tv1.setText(pd1.getLocation());
         tv2.setText(pd1.getInstrument());
         tv3.setText(pd1.getContent());
+        tv4.setText(pd1.getGenre());
 
 
         myView.findViewById(R.id.btAdapterPosts).setOnClickListener(new View.OnClickListener() {

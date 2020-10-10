@@ -9,12 +9,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import com.LYEO.musicianfinder.Configuration;
 import com.LYEO.musicianfinder.MenuActivity;
 import com.LYEO.musicianfinder.R;
 import com.google.firebase.database.ChildEventListener;
@@ -29,13 +34,15 @@ import java.util.List;
 public class SearchScreenActivity extends AppCompatActivity {
     private RadioGroup radioGroup;
     private RadioButton rbLocation, rbGenre, rbInstrument;
-    private EditText edSearch;
-    private Button btnSearch;
+//    private EditText edSearch;
+    private LinearLayout btnSearch;
     private ListView l1;
     private List<Post> postList = new ArrayList<>();
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
     public static Context cn1;
     private String searchBy = "";
+    private AutoCompleteTextView actvPlayLocation, actvInstrument, actvGenre;
+    private ArrayList<String> cities, instruments, genres;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +52,34 @@ public class SearchScreenActivity extends AppCompatActivity {
         rbLocation = findViewById(R.id.rbLocation);
         rbGenre = findViewById(R.id.rbGenre);
         rbInstrument = findViewById(R.id.rbInstrument);
-        edSearch = findViewById(R.id.edSearch);
-        btnSearch = findViewById(R.id.btnSearch);
+//        edSearch = findViewById(R.id.edSearch);
+        btnSearch = findViewById(R.id.linearLayout_Search);
         l1 = findViewById(R.id.l1);
+
+        actvPlayLocation = findViewById(R.id.actvPlayLocation);
+        actvInstrument = findViewById(R.id.actvInstruments);
+        actvGenre = findViewById(R.id.actvGenres);
 
         //update the edit text filed
         radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 if (rbLocation.isChecked()){
-                    edSearch.setHint(R.string.search_by_location);
+//                    edSearch.setHint(R.string.search_by_location);
+                    actvPlayLocation.setVisibility(View.VISIBLE);
+                    actvInstrument.setVisibility(View.GONE);
+                    actvGenre.setVisibility(View.GONE);
                 }else if (rbGenre.isChecked()){
-                    edSearch.setHint(R.string.search_by_genre);
+//                    edSearch.setHint(R.string.search_by_genre);
+                    actvPlayLocation.setVisibility(View.GONE);
+                    actvInstrument.setVisibility(View.GONE);
+                    actvGenre.setVisibility(View.VISIBLE);
 
                 }else if (rbInstrument.isChecked()){
-                    edSearch.setHint(R.string.search_by_instrument);
+//                    edSearch.setHint(R.string.search_by_instrument);
+                    actvPlayLocation.setVisibility(View.GONE);
+                    actvInstrument.setVisibility(View.VISIBLE);
+                    actvGenre.setVisibility(View.GONE);
                 }
             }
         });
@@ -67,8 +87,25 @@ public class SearchScreenActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                searchBy = edSearch.getText().toString();
+//                searchBy = edSearch.getText().toString();
+                if (rbLocation.isChecked()){
+                    searchBy = actvPlayLocation.getText().toString();
+
+                }else if (rbGenre.isChecked()){
+                    searchBy = actvGenre.getText().toString();
+
+                }else if (rbInstrument.isChecked()){
+                    searchBy = actvInstrument.getText().toString();
+
+                }
                 getAllNewPost();
+
+                //close virtual keyboard
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
             }
         });
         //go back button
@@ -80,6 +117,28 @@ public class SearchScreenActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        Configuration configurationObj = new Configuration();
+
+
+        // Activity Area
+        cities = configurationObj.getCities();
+        final ArrayAdapter<String> adapterCities = new ArrayAdapter<String>(this,
+                R.layout.cities_items, R.id.text_city_name, cities);
+        actvPlayLocation.setAdapter(adapterCities);
+        // Instruments
+        instruments = configurationObj.getInstrumentsArray();
+        final ArrayAdapter<String> adapterInstruments = new ArrayAdapter<String>(this,
+                R.layout.cities_items, R.id.text_city_name, instruments);
+        actvInstrument.setAdapter(adapterInstruments);
+        // Genres
+        genres = configurationObj.getGenresArrayList();
+        final ArrayAdapter<String> adapterGenres = new ArrayAdapter<String>(this,
+                R.layout.cities_items, R.id.text_city_name, genres);
+        actvGenre.setAdapter(adapterGenres);
+
+
+
 
     }
     //search posts in firebase by location or genre or instrument

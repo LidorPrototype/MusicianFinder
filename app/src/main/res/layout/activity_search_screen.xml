@@ -14,55 +14,198 @@
         android:layout_height="wrap_content"
         android:text="@string/search_by"
         android:padding="20sp"
-        android:textSize="20sp"
+        android:textSize="26sp"
+        android:textAlignment="center"
+
         />
     <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="120sp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="2sp"
+        android:layout_marginBottom="8sp"
         >
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/location"
             android:id="@+id/rbLocation"
+            android:layout_width="100sp"
+            android:layout_height="match_parent"
+            android:padding="16sp"
+            android:layout_margin="4sp"
+            android:button="@color/colorTransparent"
+            android:background="@drawable/radio_btn_selector"
+            android:textColor="@drawable/radio_btn_text_color"
+            android:drawableBottom="@drawable/custom_location_icon"
+            android:drawablePadding="8sp"
+            android:elevation="4sp"
+            android:text="@string/search_by_location"
+            android:textAlignment="center"
+            android:maxLines="3"
             android:checked="true"
             />
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/location"-->
+<!--            android:id="@+id/rbLocation"-->
+<!--            android:checked="true"-->
+<!--            />-->
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/genre"
             android:id="@+id/rbGenre"
+            android:layout_width="100sp"
+            android:layout_height="match_parent"
+            android:padding="16sp"
+            android:layout_margin="4sp"
+            android:button="@color/colorTransparent"
+            android:background="@drawable/radio_btn_selector"
+            android:textColor="@drawable/radio_btn_text_color"
+            android:drawableBottom="@drawable/genre_icon_layer_list"
+            android:drawablePadding="8sp"
+            android:elevation="4sp"
+            android:text="@string/search_by_genre"
+            android:textAlignment="center"
+            android:maxLines="3"
             />
-
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/genre"-->
+<!--            android:id="@+id/rbGenre"-->
+<!--            />-->
         <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/instrument"
             android:id="@+id/rbInstrument"
+            android:layout_width="100sp"
+            android:layout_height="match_parent"
+            android:padding="16sp"
+            android:layout_margin="4sp"
+            android:button="@color/colorTransparent"
+            android:background="@drawable/radio_btn_selector"
+            android:textColor="@drawable/radio_btn_text_color"
+            android:drawableBottom="@drawable/instruments_icon_layer_list"
+            android:drawablePadding="8sp"
+            android:elevation="4sp"
+            android:text="@string/search_by_instrument"
+            android:textAlignment="center"
+            android:maxLines="3"
             />
+<!--        <RadioButton-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/instrument"-->
+<!--            android:id="@+id/rbInstrument"-->
+<!--            />-->
     </RadioGroup>
+
+    <AutoCompleteTextView
+        android:id="@+id/actvPlayLocation"
+        android:layout_width="match_parent"
+        android:layout_height="65sp"
+        android:hint="@string/search_by_location"
+        android:completionThreshold="1"
+        android:ems="10"
+        android:drawablePadding="20sp"
+        android:textAlignment="center"
+        android:drawableStart="@drawable/custom_location_icon"
+        android:background="@drawable/edit_text_custom_input"
+        android:inputType="textCapWords"
+        android:popupBackground="@color/colorTransparent"
+        android:layout_marginBottom="8sp"
+        android:padding="10dp"
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        />
+    <!-- Instrument -->
+    <AutoCompleteTextView
+        android:id="@+id/actvInstruments"
+        android:layout_width="match_parent"
+        android:layout_height="65sp"
+        android:hint="@string/search_by_instrument"
+        android:completionThreshold="1"
+        android:ems="10"
+        android:drawablePadding="20sp"
+        android:textAlignment="center"
+        android:drawableStart="@drawable/instruments_icon_layer_list"
+        android:background="@drawable/edit_text_custom_input"
+        android:inputType="textCapWords"
+        android:popupBackground="@color/colorTransparent"
+        android:layout_marginBottom="8sp"
+        android:padding="10dp"
+        android:visibility="gone"
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        />
+
+    <!-- Genre - Band Choice Only -->
+    <AutoCompleteTextView
+        android:id="@+id/actvGenres"
+        android:layout_width="match_parent"
+        android:layout_height="65sp"
+        android:visibility="gone"
+        android:hint="@string/search_by_genre"
+        android:completionThreshold="1"
+        android:ems="10"
+        android:textAlignment="center"
+        android:drawablePadding="20sp"
+        android:drawableStart="@drawable/genre_icon_layer_list"
+        android:background="@drawable/edit_text_custom_input"
+        android:inputType="textCapWords"
+        android:popupBackground="@color/colorTransparent"
+        android:layout_marginBottom="8sp"
+        android:padding="10dp"
+        android:layout_marginLeft="8sp"
+        android:layout_marginRight="8sp"
+        />
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/search_by_location"
-            android:layout_marginLeft="4sp"
-            android:id="@+id/edSearch"
-            />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10sp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout_Search"
+            android:layout_width="180sp"
+            android:layout_height="60sp"
+            android:background="@drawable/greyish_bg"
+            android:paddingTop="5sp"
+            android:paddingBottom="5sp"
+            android:paddingRight="8sp"
+            android:paddingLeft="8sp"
+            android:layout_marginLeft="8sp"
+            android:layout_marginRight="8sp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/search"
+                android:layout_weight="66"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="33"
+                android:gravity="center"
+                android:textSize="20sp"
+                android:text="@string/search" />
+
+        </LinearLayout>
 
         <Button
+            android:layout_marginLeft="8sp"
+            android:layout_marginRight="8sp"
+            android:id="@+id/btnReturn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/search"
-            android:id="@+id/btnSearch"
-            android:layout_marginRight="4sp"
-            android:layout_marginLeft="4sp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:padding="12sp"
+            android:drawablePadding="12sp"
+            android:drawableStart="@drawable/back_arrow_icon_layer_list"
+            android:background="@drawable/button_custom_background"
+            android:text="@string/Return"
             />
-
     </LinearLayout>
     <ListView
         android:padding="20sp"
@@ -70,17 +213,5 @@
         android:layout_height="400sp"
         android:id="@+id/l1"
         />
-    <Button
-        android:id="@+id/btnReturn"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="92"
-        android:layout_gravity="center"
-        android:padding="12sp"
-        android:drawablePadding="12sp"
-        android:drawableStart="@drawable/back_arrow_icon_layer_list"
-        android:background="@drawable/button_custom_background"
-        android:text="@string/Return"
-        android:layout_marginBottom="60sp"
-        />
+
 </LinearLayout>
