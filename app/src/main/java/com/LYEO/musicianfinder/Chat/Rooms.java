@@ -17,6 +17,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.LYEO.musicianfinder.Configuration;
+import com.LYEO.musicianfinder.FireBase;
 import com.LYEO.musicianfinder.MenuActivity;
 import com.LYEO.musicianfinder.R;
 
@@ -32,7 +33,7 @@ public class Rooms extends AppCompatActivity {
     public static Context cn1;
     private Button btnReturn;
     public static Activity act;
-
+    private sql s;
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -73,7 +74,7 @@ public class Rooms extends AppCompatActivity {
             cn1 = this;
             act = this;
             chatsList.clear();
-            sql s=new sql(getApplicationContext(),"yisrael",null,1);
+            s=new sql(getApplicationContext(),"yisrael",null,1);
 
             //put in chat list all the chats from sql
             s.showChatNames();
@@ -84,6 +85,12 @@ public class Rooms extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        //work
+//        FireBase fb1= new FireBase();
+//        fb1.deleteChatFromFb("yisrael");
+//        s.DELETEChat("yisrael");
+
     }
     private void goToMenu(){
         Intent intent=new Intent(this,MenuActivity.class);

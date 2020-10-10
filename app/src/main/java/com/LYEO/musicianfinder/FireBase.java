@@ -36,6 +36,10 @@ public class FireBase {
 //        myRef1.push().setValue(p);
 
     }
+    public void deleteChatFromFb(String other_name){
+        DatabaseReference myRef1 = database.getReference("rooms").child(Login.userName).child(other_name);
+        myRef1.removeValue();
+    }
 
     public void getAllNewChats (){
         try{
