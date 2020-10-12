@@ -41,7 +41,10 @@ public class Chat extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        return;
+        Intent intent = new Intent(this, Rooms.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
     }
 
 
@@ -133,8 +136,6 @@ public class Chat extends AppCompatActivity {
     }
 
     private void goToMenu(){
-        Intent intent=new Intent(this, Rooms.class);
-        startActivity(intent);
-        finish();
+        onBackPressed();
     }
 }

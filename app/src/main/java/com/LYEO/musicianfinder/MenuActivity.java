@@ -1,8 +1,8 @@
 package com.LYEO.musicianfinder;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -16,8 +16,18 @@ import com.LYEO.musicianfinder.Posts.SearchScreenActivity;
 
 public class MenuActivity extends AppCompatActivity {
 
-    private LinearLayout ToPrivateArea, ToFindABand, ToFindAMusician, ToPublishYouself, ToChats, ToPosts, ToSearch;
+    private LinearLayout ToPrivateArea, ToPublishYouself, ToChats, ToPosts, ToSearch;
     private Intent intent;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        ActivityOptions options = ActivityOptions
+                .makeSceneTransitionAnimation(MenuActivity.this);
+        intent = new Intent(this, WelcomePageActivity.class);
+        startActivity(intent, options.toBundle());
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +35,6 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         ToPrivateArea = findViewById(R.id.linearLayout_Profile);
-        ToFindABand = findViewById(R.id.linearLayout_Band);
-        ToFindAMusician = findViewById(R.id.linearLayout_Musician);
         ToPublishYouself = findViewById(R.id.linearLayout_Publish);
         ToChats = findViewById(R.id.linearLayout_Chat);
         ToPosts = findViewById(R.id.linearLayout_Posts);
@@ -38,18 +46,6 @@ public class MenuActivity extends AppCompatActivity {
                 openPrivateArea();
             }
         });
-//        ToFindABand.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openFindABand();
-//            }
-//        });
-//        ToFindAMusician.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openFindAMusician();
-//            }
-//        });
         ToPublishYouself.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,60 +71,47 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
         try {
-        //get all new chat
-        FireBase fb1= new FireBase();
-        fb1.getAllNewChats();
+            //get all new chat
+            FireBase fb1= new FireBase();
+            fb1.getAllNewChats();
         }catch (Exception e){
 //            Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
-
         }
 
     }
 
-
-
     private void openPrivateArea(){
-//        Log.d("yisrael", "yaa "+Login.u1);
         try {
-        intent = new Intent(this,PrivateAreaActivity.class);
-        startActivity(intent);
-        finish();
+            intent = new Intent(this, PrivateAreaActivity.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.push_left_inside, R.anim.push_left_outside);
+            finish();
         }catch (Exception e){
             Toast.makeText(MenuActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
         }
     }
-
-//    private void openFindABand(){
-//        intent = new Intent(this,BandSearchScreenActivity.class);
-//        startActivity(intent);
-//        finish();
-//    }
-
-//    private void openFindAMusician(){
-//    intent = new Intent(this, SearchScreenActivity.class);
-//    startActivity(intent);
-//        finish();
-//    }
-
-    private void openPublishYourself(){
-    intent = new Intent(this, PublishYourselfActivity.class);
-    startActivity(intent);
+    private void openSearch() {
+        intent = new Intent(this, SearchScreenActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.push_left_inside, R.anim.push_left_outside);
         finish();
     }
-
+    private void openPublishYourself(){
+        intent = new Intent(this, PublishYourselfActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.push_left_inside, R.anim.push_left_outside);
+        finish();
+    }
     private void openChats() {
         intent = new Intent(this, Rooms.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.push_left_inside, R.anim.push_left_outside);
         finish();
     }
     private void openPosts() {
         intent = new Intent(this, DisplayPosts.class);
         startActivity(intent);
-        finish();
-    }
-    private void openSearch() {
-        intent = new Intent(this, SearchScreenActivity.class);
-        startActivity(intent);
+        overridePendingTransition(R.anim.push_left_inside, R.anim.push_left_outside);
         finish();
     }
 }

@@ -184,38 +184,48 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2"
+            android:layout_height="50sp"
             android:layout_marginTop="18sp"
             android:layout_marginStart="20sp"
             android:layout_marginEnd="20sp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnSaveChange"
-                android:layout_width="wrap_content"
-                android:layout_height="40sp"
-                android:layout_marginStart="20sp"
-                android:layout_marginEnd="20sp"
-                android:layout_weight="1"
-                android:padding="8sp"
-                android:onClick="mainClick"
-                android:drawableStart="@drawable/save_changes_icon_layer_list"
-                android:background="@drawable/button_custom_background"
-                android:text="@string/savechange" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
 
             <Button
                 android:id="@+id/btnReturn"
-                android:layout_width="wrap_content"
-                android:layout_height="40sp"
-                android:layout_marginStart="20sp"
-                android:layout_marginEnd="20sp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
                 android:layout_weight="1"
                 android:padding="8sp"
                 android:onClick="mainClick"
                 android:drawableStart="@drawable/back_arrow_icon_layer_list"
                 android:background="@drawable/button_custom_background"
                 android:text="@string/Return" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:onClick="openInfo"
+                android:src="@drawable/information"
+                android:layout_weight="1.5"
+                android:padding="2sp"
+                />
+
+            <Button
+                android:id="@+id/btnSaveChange"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10sp"
+                android:layout_marginEnd="10sp"
+                android:layout_weight="1"
+                android:padding="8sp"
+                android:onClick="mainClick"
+                android:drawableStart="@drawable/save_changes_icon_layer_list"
+                android:background="@drawable/button_custom_background"
+                android:text="@string/savechange" />
 
         </LinearLayout>
 

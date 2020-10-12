@@ -17,7 +17,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.LYEO.musicianfinder.Configuration;
-import com.LYEO.musicianfinder.FireBase;
 import com.LYEO.musicianfinder.MenuActivity;
 import com.LYEO.musicianfinder.R;
 
@@ -28,15 +27,20 @@ public class Rooms extends AppCompatActivity {
 
     private TextView textViewChatHeadline;
     private LinearLayout linearLayoutListAndButton;
-    public static List<String> chatsList=new ArrayList<>();
+    public static List<String> chatsList = new ArrayList<>();
     private ListView l1;
     public static Context cn1;
     private Button btnReturn;
     public static Activity act;
-    private sql s;
+    private static sql s;
+    private static adaptersForNewChat adapter;
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
         finish();
     }
 
@@ -46,8 +50,8 @@ public class Rooms extends AppCompatActivity {
         setContentView(R.layout.activity_rooms);
 
         linearLayoutListAndButton = findViewById(R.id.linearLayout_list_n_btn);
-        l1=(ListView)findViewById(R.id.l1);
-        btnReturn = (Button) findViewById(R.id.btnReturn);
+        l1 = findViewById(R.id.l1);
+        btnReturn = findViewById(R.id.btnReturn);
         textViewChatHeadline = findViewById(R.id.textView_ChatHeadline);
 
         l1.setDividerHeight(0);
@@ -74,25 +78,31 @@ public class Rooms extends AppCompatActivity {
             cn1 = this;
             act = this;
             chatsList.clear();
-            s=new sql(getApplicationContext(),"yisrael",null,1);
+            s = new sql(getApplicationContext(),"yisrael",null,1);
 
             //put in chat list all the chats from sql
             s.showChatNames();
 
             //send the chat list to the adapter to display
-            adaptersForNewChat adapter=new adaptersForNewChat(getApplicationContext(),chatsList);
+            adapter = new adaptersForNewChat(getApplicationContext(), chatsList, this);
             l1.setAdapter(adapter);
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-    private void goToMenu(){
-        Intent intent=new Intent(this,MenuActivity.class);
-        startActivity(intent);
-        finish();
+
+    public static void adapterNotify(){
+        chatsList.clear();
+        s.showChatNames();
+
+        adapter.notifyDataSetChanged();
     }
 
-
+    private void goToMenu(){
+        onBackPressed();
+    }
 
 }

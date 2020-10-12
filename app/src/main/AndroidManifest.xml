@@ -15,12 +15,9 @@
         <activity android:name=".Posts.SearchScreenActivity" />
         <activity android:name=".Chat.Chat" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Chat.Rooms" />
-        <activity android:name=".Publish_Musician" />
-        <activity android:name=".Publish_Band" />
         <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".Posts.PublishYourselfActivity" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".BandSearchScreenActivity" />
         <activity android:name=".PrivateAreaActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".WelcomePageActivity" />

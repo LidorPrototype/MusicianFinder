@@ -41,71 +41,6 @@
 
     </LinearLayout>
 
-<!--  Do Not Use  -->
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/linearLayout_Band"
-        android:layout_width="180sp"
-        android:layout_height="60sp"
-        android:layout_marginTop="25sp"
-        android:weightSum="100"
-        android:background="@drawable/greyish_bg"
-        android:paddingTop="5sp"
-        android:paddingBottom="5sp"
-        android:paddingRight="8sp"
-        android:paddingLeft="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Profile" >
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/band"
-            android:layout_weight="66"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/find_a_band" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/linearLayout_Musician"
-        android:layout_width="180sp"
-        android:layout_height="60sp"
-        android:layout_marginTop="25sp"
-        android:weightSum="100"
-        android:background="@drawable/greyish_bg"
-        android:paddingTop="5sp"
-        android:paddingBottom="5sp"
-        android:paddingRight="8sp"
-        android:paddingLeft="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Band">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/musician_icon"
-            android:layout_weight="66"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="33"
-            android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/find_a_musician" />
-
-    </LinearLayout>
-<!--  Do Not Use  -->
-
     <LinearLayout
         android:id="@+id/linearLayout_Search"
         android:layout_width="180sp"
@@ -119,7 +54,7 @@
         android:paddingLeft="8sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Musician">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_Profile">
 
         <ImageView
             android:layout_width="match_parent"

@@ -38,6 +38,14 @@ public class DisplayPosts extends AppCompatActivity {
     public static Context cn1;
     public static Activity act;
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +64,7 @@ public class DisplayPosts extends AppCompatActivity {
         Typeface typefaceHeadlinePost = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
         textViewPostHeadline.setTypeface(typefaceHeadlinePost);
 
-        l1=(ListView)findViewById(R.id.l1);
+        l1 = findViewById(R.id.l1);
 
         l1.setDividerHeight(0);
 
@@ -73,9 +81,7 @@ public class DisplayPosts extends AppCompatActivity {
         findViewById(R.id.btnReturn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-                startActivity(intent);
-                finish();
+                onBackPressed();
             }
         });
 
@@ -133,7 +139,4 @@ public class DisplayPosts extends AppCompatActivity {
             }
         });
     }
-
-
-
 }

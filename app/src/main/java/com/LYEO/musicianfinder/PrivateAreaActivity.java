@@ -38,6 +38,15 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
     private ArrayList<String> cities;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_private_area);
@@ -110,6 +119,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
         actvLocation.setAdapter(adapter);
 
     }
+
     public void mainClick (View v){
         if (v.getId()==R.id.btnSaveChange){
             try {
@@ -144,9 +154,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
             }
         }
         if (v.getId()==R.id.btnReturn){
-            Intent intent=new Intent(this,MenuActivity.class);
-            startActivity(intent);
-            finish();
+            onBackPressed();
         }
     }
 
@@ -157,6 +165,20 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
     public void openDialog(){
         MultiChoiceDialog multiChoiceDialog = new MultiChoiceDialog();
         multiChoiceDialog.show(getSupportFragmentManager(), "multi_choice dialog");
+    }
+
+    public void openInfo(View view) {
+        openInfoDialog(0);
+    }
+
+    public void openInfoDialog(int type){
+        /**
+         * type = 0     -->     TermOfUse + PrivacyPolicy           (Default Value, Enter Negative)
+         * type = 1     -->     Generated Password For User
+         * */
+        if(type < 0){type = 0;}
+        TOU_PP_Dialog dialogInfo = new TOU_PP_Dialog().newInstance(type);
+        dialogInfo.show(getSupportFragmentManager(), "info dialog");
     }
 
     @Override

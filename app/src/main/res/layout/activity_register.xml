@@ -19,7 +19,7 @@
     <EditText
         android:id="@+id/edUserName"
         android:layout_width="300sp"
-        android:layout_height="65sp"
+        android:layout_height="60sp"
         android:layout_gravity="center_horizontal"
         android:ems="10"
         android:drawableStart="@drawable/custom_username_icon"
@@ -35,7 +35,7 @@
     <EditText
         android:id="@+id/edUserPass"
         android:layout_width="300sp"
-        android:layout_height="65sp"
+        android:layout_height="60sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12sp"
         android:ems="10"
@@ -50,7 +50,7 @@
     <EditText
         android:id="@+id/edName"
         android:layout_width="300sp"
-        android:layout_height="65sp"
+        android:layout_height="60sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12sp"
         android:ems="10"
@@ -67,7 +67,7 @@
     <EditText
         android:id="@+id/edAge"
         android:layout_width="300sp"
-        android:layout_height="65sp"
+        android:layout_height="60sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12sp"
         android:ems="10"
@@ -81,14 +81,14 @@
     <!-- Activity Area --><!-- Mandatory -->
     <LinearLayout
         android:layout_width="300sp"
-        android:layout_height="70sp"
+        android:layout_height="60sp"
         android:layout_marginTop="12sp"
         android:layout_gravity="center_horizontal|center_vertical">
 
         <AutoCompleteTextView
             android:id="@+id/actvLocation"
             android:layout_width="0dp"
-            android:layout_height="65sp"
+            android:layout_height="60sp"
             android:hint="@string/enter_an_address"
             android:completionThreshold="1"
             android:ems="10"
@@ -106,7 +106,7 @@
     <EditText
         android:id="@+id/edBio"
         android:layout_width="300sp"
-        android:layout_height="65sp"
+        android:layout_height="60sp"
         android:layout_gravity="center"
         android:layout_marginTop="12sp"
         android:ems="10"
@@ -121,7 +121,7 @@
     <!-- Genre List --><!-- Optional -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
         android:padding="2sp"
@@ -155,7 +155,7 @@
     <!-- Instruments --><!-- Mandatory -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="55sp"
         android:layout_marginStart="8sp"
         android:layout_marginEnd="8sp"
         android:padding="2sp"
@@ -190,7 +190,7 @@
     <EditText
         android:id="@+id/edLink"
         android:layout_width="300sp"
-        android:layout_height="65sp"
+        android:layout_height="60sp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="12sp"
         android:ems="10"
@@ -203,16 +203,38 @@
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="129dp" />
 
-    <!-- Register Btn -->
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="350sp"
-        android:layout_height="50sp"
-        android:layout_gravity="center"
-        android:layout_marginTop="6sp"
-        android:background="@drawable/animation_list_btn_sign_in"
-        android:onClick="mainClick"
-        android:text="@string/register" />
+    <!-- Register Btn + TOU_PP -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="16sp"
+        android:layout_marginStart="6sp"
+        android:layout_marginEnd="6sp"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:onClick="openInfo"
+            android:src="@drawable/information"
+            android:layout_weight="5"
+            />
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="45sp"
+            android:layout_gravity="center"
+            android:background="@drawable/animation_list_btn_sign_in"
+            android:onClick="mainClick"
+            android:text="@string/register"
+            android:layout_weight="1"
+            />
+
+
+    </LinearLayout>
 
 </LinearLayout>
 

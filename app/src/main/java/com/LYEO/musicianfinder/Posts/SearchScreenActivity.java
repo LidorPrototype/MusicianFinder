@@ -1,9 +1,5 @@
 package com.LYEO.musicianfinder.Posts;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +9,15 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.LYEO.musicianfinder.Configuration;
 import com.LYEO.musicianfinder.MenuActivity;
@@ -32,10 +32,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SearchScreenActivity extends AppCompatActivity {
+
     private RadioGroup radioGroup;
     private RadioButton rbLocation, rbGenre, rbInstrument;
 //    private EditText edSearch;
-    private LinearLayout btnSearch;
+    private Button btnSearch;
     private ListView l1;
     private List<Post> postList = new ArrayList<>();
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -43,6 +44,15 @@ public class SearchScreenActivity extends AppCompatActivity {
     private String searchBy = "";
     private AutoCompleteTextView actvPlayLocation, actvInstrument, actvGenre;
     private ArrayList<String> cities, instruments, genres;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +63,7 @@ public class SearchScreenActivity extends AppCompatActivity {
         rbGenre = findViewById(R.id.rbGenre);
         rbInstrument = findViewById(R.id.rbInstrument);
 //        edSearch = findViewById(R.id.edSearch);
-        btnSearch = findViewById(R.id.linearLayout_Search);
+        btnSearch = findViewById(R.id.btnSearch);
         l1 = findViewById(R.id.l1);
 
         actvPlayLocation = findViewById(R.id.actvPlayLocation);
@@ -87,34 +97,32 @@ public class SearchScreenActivity extends AppCompatActivity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                searchBy = edSearch.getText().toString();
                 if (rbLocation.isChecked()){
                     searchBy = actvPlayLocation.getText().toString();
-
                 }else if (rbGenre.isChecked()){
                     searchBy = actvGenre.getText().toString();
-
                 }else if (rbInstrument.isChecked()){
                     searchBy = actvInstrument.getText().toString();
-
                 }
-                getAllNewPost();
+                if(searchBy == null || searchBy.equals("") || searchBy.equals(" ")){
+                    Toast.makeText(SearchScreenActivity.this, R.string.no_filter, Toast.LENGTH_SHORT).show();
+                }else {
+                    getAllNewPost();
 
-                //close virtual keyboard
-                InputMethodManager inputManager = (InputMethodManager)
-                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                    //close virtual keyboard
+                    InputMethodManager inputManager = (InputMethodManager)
+                            getSystemService(Context.INPUT_METHOD_SERVICE);
 
-                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                        InputMethodManager.HIDE_NOT_ALWAYS);
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+                }
             }
         });
         //go back button
         findViewById(R.id.btnReturn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-                startActivity(intent);
-                finish();
+                onBackPressed();
             }
         });
 
@@ -136,7 +144,12 @@ public class SearchScreenActivity extends AppCompatActivity {
         final ArrayAdapter<String> adapterGenres = new ArrayAdapter<String>(this,
                 R.layout.cities_items, R.id.text_city_name, genres);
         actvGenre.setAdapter(adapterGenres);
-
+        // AppBar Height DisBlock
+        int h = configurationObj.getHeight();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        layoutParams.setMargins(0, h - 10, 0, h - 10);
+        findViewById(R.id.linearLayout_SearchPage).setLayoutParams(layoutParams);
 
 
 

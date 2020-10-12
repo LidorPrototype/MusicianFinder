@@ -39,6 +39,7 @@ public class WelcomePageActivity extends AppCompatActivity {
     protected AnimationDrawable animDrawableLogin, animDrawableSignIn;
     protected ValueAnimator anim1, anim2;
     public static Context cn1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,28 +116,26 @@ public class WelcomePageActivity extends AppCompatActivity {
         });
         // Headline Animation - END
 
-
-
-
     }
 
     public  void mainClick (View v){
         if (v.getId()==R.id.btnLogin){
             Intent intent= new Intent(getApplicationContext(),Login.class);
             startActivity(intent);
+            // Intent Animation --> from Up to Down
+            overridePendingTransition(R.anim.up_to_bottom_2, R.anim.bottom_to_up_2);
         }else if (v.getId()==R.id.btnRegister){
             try {
-//                Log.d("yisrael", "im here");
-
             Intent intent= new Intent(getApplicationContext(),Register.class);
             startActivity(intent);
+            // Intent Animation --> from Down to Up
+            overridePendingTransition(R.anim.bottom_to_up, R.anim.up_to_bottom);
             }catch (Exception e){
                 Log.d("yisrael", "yaa "+e);
 
             }
-
         }
-
+        finish();
     }
 
     @Override

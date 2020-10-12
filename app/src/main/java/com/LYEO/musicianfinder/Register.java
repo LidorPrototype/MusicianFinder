@@ -35,7 +35,7 @@ import java.util.List;
 
 public class Register extends AppCompatActivity implements MultiChoiceDialog.MultiChoiceDialogListener {
 
-    private String UserName = "",UserPass = "", Name = "",UserLocation = "", UserBio = "", UserLink = "";
+    private String UserName = "", UserPass = "", Name = "", UserLocation = "", UserBio = "", UserLink = "";
     private List<String> instrumentsNames = new ArrayList<>();
     private List<String> genresNames = new ArrayList<>();
     private String[] genreList = new String[61];
@@ -53,6 +53,16 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     private ArrayList<Integer> userGenres = new ArrayList<>();
     private ArrayList<String> cities;
     protected AnimationDrawable animDrawableReg;
+    protected Configuration configurationObj;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, WelcomePageActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.up_to_bottom_2, R.anim.bottom_to_up_2);
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +70,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         setContentView(R.layout.activity_register);
 
         Login.cn1 = getApplicationContext();
-        Configuration configurationObj = new Configuration();
+        configurationObj = new Configuration();
 
         int h = configurationObj.getHeight();
         ConstraintLayout.LayoutParams layoutParams = new ConstraintLayout.LayoutParams(
@@ -95,8 +105,8 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
             genreList = configurationObj.getGenres();
             genresCheckedItems = new boolean[genreList.length];
 
-        }catch (Exception e){
-            Log.d("yisrael", "yaa "+e);
+        } catch (Exception e) {
+            Log.d("yisrael", "yaa " + e);
         }
 
         // Register Button Animation
@@ -106,12 +116,12 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
 
     }
 
-    public  void mainClick (View v){
-        if (v.getId()==R.id.btnRegister){
+    public void mainClick(View v) {
+        if (v.getId() == R.id.btnRegister) {
             try {
-                if (edUserName.getText().toString().equals("") || edUserPass.getText().toString().equals("")){
+                if (edUserName.getText().toString().equals("") || edUserPass.getText().toString().equals("")) {
                     Toast.makeText(this, "Please Fill The Mandatory Parts!", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
                     UserName = edUserName.getText().toString();
                     UserPass = edUserPass.getText().toString();
                     Name = edName.getText().toString();
@@ -126,21 +136,21 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                             : UserLink));
                     boolean validUrl = Patterns.WEB_URL.matcher(UserLink).matches();
                     // Validate the link - END
-                    if(validUrl || UserLink.equals("")){
+                    if (validUrl || UserLink.equals("")) {
                         // 1) Url is valid
                         // 2) User did not provide a url
                         // continue to register
-                    }else{
+                    } else {
                         //invalid Url
                         Toast.makeText(this, "Please provide a valid link!", Toast.LENGTH_SHORT).show();
                     }
 
                     // TODO Fix Register for Mandatory + Optional Data: (9 in general) - current 7 saved
                     u1 = new User(UserName, UserPass, Name, UserLocation, UserBio, genresNames, genresCheckedItemsList, instrumentsNames, UserLink, UserAge);
-                    registerUser(UserName,UserPass);
-                    Login.u1 =this.u1;
+                    registerUser(UserName, UserPass);
+                    Login.u1 = this.u1;
 //                     User u1 = new User(UserName,UserPass);
-                    Toast.makeText(Register.this,"in register",Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register.this, "in register", Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
                 Toast.makeText(this, "Try Again Please!", Toast.LENGTH_SHORT).show();
@@ -150,9 +160,9 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
 
     }
 
-    private void registerUser(String userName,String userPass){
+    private void registerUser(String userName, String userPass) {
 
-        userName+="@gmail.com";
+        userName += "@gmail.com";
 
         progressDialog.setMessage("Registering Please Wait...");
         progressDialog.show();
@@ -162,18 +172,18 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //checking if success
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             //display some message here
-                            Toast.makeText(Register.this,"Successfully registered",Toast.LENGTH_LONG).show();
-                            if (fb1.sendUserInfoFb(u1)){
+                            Toast.makeText(Register.this, "Successfully registered", Toast.LENGTH_LONG).show();
+                            if (fb1.sendUserInfoFb(u1)) {
                                 btReg.setText("User added");
-                                Intent intent= new Intent(getApplicationContext(),MenuActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
                                 startActivity(intent);
                                 finish();
                             }
-                        }else{
+                        } else {
                             //display some message here
-                            Toast.makeText(Register.this,"Registration Error",Toast.LENGTH_LONG).show();
+                            Toast.makeText(Register.this, "Registration Error", Toast.LENGTH_LONG).show();
 
                         }
                         progressDialog.dismiss();
@@ -186,22 +196,22 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         openDialog();
     }
 
-    public void openDialog(){
+    public void openDialog() {
         MultiChoiceDialog multiChoiceDialog = new MultiChoiceDialog();
         multiChoiceDialog.show(getSupportFragmentManager(), "multi_choice dialog");
     }
 
     @Override
     public void applyData(ArrayList<Instruments> _listOfItems, int flag) {// 0 - Empty, 1 - Full
-        if(flag == 0){
+        if (flag == 0) {
             textView_Instruments.setText("No Instruments Selected!");
-        }else if(flag == 1){
+        } else if (flag == 1) {
             instrumentsNames.clear();
             StringBuilder tmp = new StringBuilder();
-            for (int h = 0; h < _listOfItems.size(); h++){
+            for (int h = 0; h < _listOfItems.size(); h++) {
                 tmp.append(_listOfItems.get(h).getInstrument());
                 instrumentsNames.add(_listOfItems.get(h).getInstrument());
-                if(h < _listOfItems.size() - 1){
+                if (h < _listOfItems.size() - 1) {
                     tmp.append(", ");
                 }
             }
@@ -215,9 +225,9 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
         mBuilder.setMultiChoiceItems(genreList, genresCheckedItems, new DialogInterface.OnMultiChoiceClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int position, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     userGenres.add(position);
-                }else{
+                } else {
                     userGenres.remove((Integer.valueOf(position)));
                 }
             }
@@ -271,7 +281,7 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     @Override
     protected void onResume() {
         super.onResume();
-        if (animDrawableReg != null && !animDrawableReg.isRunning()){
+        if (animDrawableReg != null && !animDrawableReg.isRunning()) {
             animDrawableReg.start();
         }
     }
@@ -279,11 +289,24 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
     @Override
     protected void onPause() {
         super.onPause();
-        if (animDrawableReg != null && animDrawableReg.isRunning()){
+        if (animDrawableReg != null && animDrawableReg.isRunning()) {
             animDrawableReg.stop();
         }
     }
 
+    public void openInfo(View view) {
+        openInfoDialog(0);
+    }
+
+    public void openInfoDialog(int type){
+        /**
+         * type = 0     -->     TermOfUse + PrivacyPolicy           (Default Value, Enter Negative)
+         * type = 1     -->     Generated Password For User
+         * */
+        if(type < 0){type = 0;}
+        TOU_PP_Dialog dialogInfo = new TOU_PP_Dialog().newInstance(type);
+        dialogInfo.show(getSupportFragmentManager(), "info dialog");
+    }
 }
 
 

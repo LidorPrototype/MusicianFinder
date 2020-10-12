@@ -28,6 +28,7 @@ Contributions:
             20  - search icon             ->  Freepik             -   https://www.flaticon.com/authors/freepik
             21  - publish_btn_icon        ->  Smashicons          -   https://www.flaticon.com/authors/smashicons
             21  - content_icon            ->  Eucalyp             -   https://www.flaticon.com/authors/eucalyp
+            21  - information             ->  Smashicons          -   https://www.flaticon.com/authors/smashicons
 
             ij  - ttt                     ->  ttt                 -   ttt
 

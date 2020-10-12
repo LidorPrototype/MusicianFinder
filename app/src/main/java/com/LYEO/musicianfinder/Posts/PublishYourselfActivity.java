@@ -35,6 +35,15 @@ public class PublishYourselfActivity extends AppCompatActivity{
     private ArrayList<String> cities, instruments, genres;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, MenuActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_yourself);
@@ -110,9 +119,7 @@ public class PublishYourselfActivity extends AppCompatActivity{
                 Log.d("yisrael", "PublishYourselfActivity " + e);
             }
         }else if (v.getId()== R.id.btnReturn){
-            Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
-            startActivity(intent);
-            finish();
+            onBackPressed();
         }
     }
 

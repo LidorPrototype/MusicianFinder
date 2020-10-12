@@ -68,6 +68,7 @@ public class AdapterPosts extends ArrayAdapter<Post> {
                 Intent intent = new Intent(DisplayPosts.cn1, Rooms.class);
 //                intent.putExtra("user_name",user_name);
                 DisplayPosts.cn1.startActivity(intent);
+                DisplayPosts.act.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);;
                 DisplayPosts.act.finish();
 
             }

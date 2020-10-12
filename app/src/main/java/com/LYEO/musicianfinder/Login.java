@@ -1,5 +1,6 @@
 package com.LYEO.musicianfinder;
 
+import android.app.ActivityOptions;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -40,9 +41,19 @@ public class Login extends AppCompatActivity {
     protected AnimationDrawable animationDrawableLogin;
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(this, WelcomePageActivity.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.bottom_to_up, R.anim.up_to_bottom);
+        finish();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         edUser = findViewById(R.id.edUserName);
         edpass = findViewById((R.id.edPassword));
         textViewHeadline = findViewById(R.id.textView_LoginHeadline);
@@ -118,7 +129,10 @@ public class Login extends AppCompatActivity {
                     //display some message here
                     finish();
                     progressDialog.dismiss();
-                    startActivity(new Intent(getApplicationContext(),MenuActivity.class));
+                    ActivityOptions options = ActivityOptions
+                            .makeSceneTransitionAnimation(Login.this);
+                    Intent intent = new Intent(getApplicationContext(), MenuActivity.class);
+                    startActivity(intent, options.toBundle());
                     finish();
                 }else{
                     //display some message here

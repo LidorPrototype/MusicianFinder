@@ -54,9 +54,8 @@
     <string name="publish_instrument">"Instrument: "</string>
     <string name="publish_content">"Content: "</string>
     <string name="genre">Genre</string>
-    <string name="search_by">search by:</string>
+    <string name="search_by">Search By:</string>
     <string name="search_by_location">Search by Location</string>
-<!--    Search by Genre-->
     <string name="search_by_genre">Search by Genre</string>
     <string name="search_by_instrument">Search by Instrument</string>
     <string name="for_message_press"><![CDATA[for message press =>]]></string>
@@ -64,6 +63,7 @@
     <string name="what_you_play_instrument">What Instrument?</string>
     <string name="what_you_play_genre">What Genre You\'re Playing?</string>
     <string name="extra_content">What More Would You Like To Say?</string>
+    <string name="no_filter">Please Specify A Filter!</string>
 
 
 </resources>
