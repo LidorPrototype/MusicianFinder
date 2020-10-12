@@ -113,11 +113,12 @@ public class Login extends AppCompatActivity {
                     fb1.getAUesr(userName);
                     login(userName, userPass);
 
-                    //close virtual keyboard
-                    InputMethodManager inputManager = (InputMethodManager)
-                            getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
-                            InputMethodManager.HIDE_NOT_ALWAYS);
+                    //close virtual keyboard--------------------------------
+//                    make null pointer Exception because the keyboard is not always open
+//                    InputMethodManager inputManager = (InputMethodManager)
+//                            getSystemService(Context.INPUT_METHOD_SERVICE);
+//                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+//                            InputMethodManager.HIDE_NOT_ALWAYS);
 //                    Log.d("yisrael", "yaa "+u1);
                 }
             }catch (Exception e) {
