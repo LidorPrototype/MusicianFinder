@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -24,6 +25,7 @@ import java.util.List;
 public class AdapterPosts extends ArrayAdapter<Post> {
     private TextView tv0,tv1,tv2,tv3,tv4;
     private Button btnAdapterPost;
+    private LinearLayout linearLayoutGenre;
     public AdapterPosts(@NonNull Context context, @NonNull List<Post> objects) {
         super(context, 0, objects);
     }
@@ -37,7 +39,7 @@ public class AdapterPosts extends ArrayAdapter<Post> {
         tv2=(TextView)myView.findViewById(R.id.tv2);
         tv3=(TextView)myView.findViewById(R.id.tv3);
         tv4=(TextView)myView.findViewById(R.id.tv4);
-
+        linearLayoutGenre = myView.findViewById(R.id.linearLayout_Genre);
         btnAdapterPost = (Button)myView.findViewById(R.id.btAdapterPosts);
 
         Post pd1=getItem(position);
@@ -47,6 +49,8 @@ public class AdapterPosts extends ArrayAdapter<Post> {
         tv2.setText(pd1.getInstrument());
         tv3.setText(pd1.getContent());
         tv4.setText(pd1.getGenre());
+        if (pd1.getGenre().equals(""))
+            linearLayoutGenre.setVisibility(View.GONE);
 
 
         myView.findViewById(R.id.btAdapterPosts).setOnClickListener(new View.OnClickListener() {
