@@ -3,13 +3,13 @@ package com.LYEO.musicianfinder;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,12 +39,14 @@ public class WelcomePageActivity extends AppCompatActivity {
     protected AnimationDrawable animDrawableLogin, animDrawableSignIn;
     protected ValueAnimator anim1, anim2;
     public static Context cn1;
+    public static Activity actW;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome_page);
         cn1=this;
+        actW = this;
         btnLogin = findViewById(R.id.btnLogin);
         btnSignIn = findViewById(R.id.btnRegister);
         textView_Headline = findViewById(R.id.textView_WelcomeHeadLine);
@@ -131,8 +133,8 @@ public class WelcomePageActivity extends AppCompatActivity {
             // Intent Animation --> from Down to Up
             overridePendingTransition(R.anim.bottom_to_up, R.anim.up_to_bottom);
             }catch (Exception e){
-                Log.d("yisrael", "yaa "+e);
-
+//                Log.d("yisrael", "yaa "+e);
+                e.printStackTrace();
             }
         }
         finish();

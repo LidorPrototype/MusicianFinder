@@ -1,6 +1,7 @@
 package com.LYEO.musicianfinder;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -8,6 +9,7 @@ import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Patterns;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -109,7 +111,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
             UserName = Login.u1.getUserName();
             UserPass = Login.u1.getUserPass();
         }catch (Exception e){
-            Toast.makeText(PrivateAreaActivity.this,"load Error" +e,Toast.LENGTH_LONG).show();
+            Toast.makeText(PrivateAreaActivity.this,R.string.load_error, Toast.LENGTH_LONG).show();
         }
 
         // Activity Area
@@ -121,7 +123,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
     }
 
     public void mainClick (View v){
-        if (v.getId()==R.id.btnSaveChange){
+        if (v.getId() == R.id.btnSaveChange){
             try {
                 Name = edName.getText().toString();
                 UserLocation = actvLocation.getText().toString();
@@ -146,6 +148,13 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
                  User  u2 = new User(UserName, UserPass, Name, UserLocation, UserBio, genresNames, genresCheckedItemsList, instrumentsNames, UserLink, UserAge);
                 FireBase fb1 = new FireBase();
                 Login.u1 = u2;
+
+                //close virtual keyboard
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+
                 if (fb1.sendUserInfoFb(u2)){
                     Toast.makeText(this, R.string.data_saved, Toast.LENGTH_SHORT).show();
                 }else Toast.makeText(PrivateAreaActivity.this,"Update Error",Toast.LENGTH_LONG).show();
@@ -156,6 +165,7 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
         if (v.getId()==R.id.btnReturn){
             onBackPressed();
         }
+
     }
 
     public void OpenMultiChoiceDialog(View view) {
@@ -241,17 +251,6 @@ public class PrivateAreaActivity extends AppCompatActivity implements MultiChoic
                 dialogInterface.dismiss();
             }
         });
-
-//        mBuilder.setNeutralButton(R.string.clear_all_label, new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int which) {
-//                for (int i = 0; i < checkedItems.length; i++) {
-//                    checkedItems[i] = false;
-//                    mUserItems.clear();
-//                    mItemSelected.setText("");
-//                }
-//            }
-//        });
 
         AlertDialog mDialog = mBuilder.create();
         mDialog.show();

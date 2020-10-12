@@ -63,5 +63,6 @@
     <string name="what_you_play_genre">איזה סגנון ניגון?</string>
     <string name="extra_content">עוד מידע שניתן לשתף?</string>
     <string name="no_filter">בבקשה לכתוב קריטריון!</string>
+    <string name="load_error">בעיית טעינה - אנא  טען את הדף מחדש</string>
 
 </resources>

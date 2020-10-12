@@ -1,10 +1,11 @@
 package com.LYEO.musicianfinder.Posts;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CompoundButton;
@@ -111,12 +112,33 @@ public class PublishYourselfActivity extends AppCompatActivity{
                 content =  edContent.getText().toString();
                 instrument = actvInstrument.getText().toString();
                 genre = actvGenre.getText().toString();
+                if(itIsABand){
+                    if(playLocation.equals("") || instrument.equals("") || genre.equals("") ||
+                            playLocation.equals(" ") || instrument.equals(" ") || genre.equals(" ")){
+                        Toast.makeText(this, "Please fill all the mandatory parts!", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }else {
+                    if(playLocation.equals("") || instrument.equals("") ||
+                            playLocation.equals(" ") || instrument.equals(" ")){
+                        Toast.makeText(this, "Please fill all the mandatory parts", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
                 Post p1 = new Post(Login.userName, content, playLocation, instrument, itIsABand,genre);
                 FireBase fb1 = new FireBase();
                 fb1.sendPostToFb(p1);
-                Toast.makeText(this,"post been published",Toast.LENGTH_LONG).show();
+
+                //close virtual keyboard
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
+
+                Toast.makeText(this,"Post been published",Toast.LENGTH_LONG).show();
             }catch (Exception e){
-                Log.d("yisrael", "PublishYourselfActivity " + e);
+//                Log.d("yisrael", "PublishYourselfActivity " + e);
+                e.printStackTrace();
             }
         }else if (v.getId()== R.id.btnReturn){
             onBackPressed();

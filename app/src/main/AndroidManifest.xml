@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Posts.DisplayPosts"></activity>
-        <activity android:name=".Posts.SearchScreenActivity" />
+        <activity android:name=".Posts.DisplayPosts" />
+        <activity android:name=".Posts.SearchScreenActivity" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Chat.Chat" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".Chat.Rooms" />
-        <activity android:name=".Register" />
-        <activity android:name=".Login" />
+        <activity android:name=".Chat.Rooms" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Register" android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".Login" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".Posts.PublishYourselfActivity" android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".PrivateAreaActivity" />
+        <activity android:name=".PrivateAreaActivity" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".WelcomePageActivity" />
         <activity android:name=".EntrancePageActivity">

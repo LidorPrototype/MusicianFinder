@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -74,8 +73,8 @@ public class DisplayPosts extends AppCompatActivity {
             getAllNewPost();
 
         }catch (Exception e){
-            Log.d("yisrael", "yaa "+e);
-
+//            Log.d("yisrael", "yaa "+e);
+            e.printStackTrace();
         }
         // go back button
         findViewById(R.id.btnReturn).setOnClickListener(new View.OnClickListener() {

@@ -34,7 +34,7 @@
     <string name="find_a_musician">Find a Musician</string>
     <string name="publish_yourself">Publish yourself</string>
     <string name="welcome_headline" translatable="false">Welcome To\nMusician Finder</string>
-    <string name="data_saved">data been update</string>
+    <string name="data_saved">Data been update</string>
     <string name="posts">Posts</string>
     <string name="re_choose_instruments">#Re-Choose All your instruments</string>
     <string name="musician_or_band_question">I\'m / We\'re a:</string>
@@ -64,6 +64,6 @@
     <string name="what_you_play_genre">What Genre You\'re Playing?</string>
     <string name="extra_content">What More Would You Like To Say?</string>
     <string name="no_filter">Please Specify A Filter!</string>
-
+    <string name="load_error">Load Error - Please re-enter to this section</string>
 
 </resources>

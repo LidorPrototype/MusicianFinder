@@ -2,14 +2,15 @@ package com.LYEO.musicianfinder;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -106,7 +107,8 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
             genresCheckedItems = new boolean[genreList.length];
 
         } catch (Exception e) {
-            Log.d("yisrael", "yaa " + e);
+//            Log.d("yisrael", "yaa " + e);
+            e.printStackTrace();
         }
 
         // Register Button Animation
@@ -145,16 +147,22 @@ public class Register extends AppCompatActivity implements MultiChoiceDialog.Mul
                         Toast.makeText(this, "Please provide a valid link!", Toast.LENGTH_SHORT).show();
                     }
 
-                    // TODO Fix Register for Mandatory + Optional Data: (9 in general) - current 7 saved
                     u1 = new User(UserName, UserPass, Name, UserLocation, UserBio, genresNames, genresCheckedItemsList, instrumentsNames, UserLink, UserAge);
                     registerUser(UserName, UserPass);
                     Login.u1 = this.u1;
-//                     User u1 = new User(UserName,UserPass);
+
+                    //close virtual keyboard
+                    InputMethodManager inputManager = (InputMethodManager)
+                            getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
+
                     Toast.makeText(Register.this, "in register", Toast.LENGTH_LONG).show();
                 }
             } catch (Exception e) {
                 Toast.makeText(this, "Try Again Please!", Toast.LENGTH_SHORT).show();
-                Log.d("ERROR_REGISTER", "\nError msg: " + e + "\n");
+//                Log.d("ERROR_REGISTER", "\nError msg: " + e + "\n");
+                e.printStackTrace();
             }
         }
 

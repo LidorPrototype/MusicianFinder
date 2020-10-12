@@ -3,7 +3,6 @@ package com.LYEO.musicianfinder.Posts;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -112,7 +111,6 @@ public class SearchScreenActivity extends AppCompatActivity {
                     //close virtual keyboard
                     InputMethodManager inputManager = (InputMethodManager)
                             getSystemService(Context.INPUT_METHOD_SERVICE);
-
                     inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                             InputMethodManager.HIDE_NOT_ALWAYS);
                 }
@@ -127,7 +125,6 @@ public class SearchScreenActivity extends AppCompatActivity {
         });
 
         Configuration configurationObj = new Configuration();
-
 
         // Activity Area
         cities = configurationObj.getCities();
@@ -180,11 +177,8 @@ public class SearchScreenActivity extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Log.d("yisrael", "yaa "+e);
-
+//                    Log.d("yisrael", "yaa "+e);
                 }
-
-
             }
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
@@ -208,7 +202,7 @@ public class SearchScreenActivity extends AppCompatActivity {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    Log.d("yisrael", "yaa "+e);
+//                    Log.d("yisrael", "yaa "+e);
 
                 }
             }

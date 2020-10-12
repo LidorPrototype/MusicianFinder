@@ -9,6 +9,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -111,6 +112,12 @@ public class Login extends AppCompatActivity {
                     FireBase fb1= new FireBase();
                     fb1.getAUesr(userName);
                     login(userName, userPass);
+
+                    //close virtual keyboard
+                    InputMethodManager inputManager = (InputMethodManager)
+                            getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                            InputMethodManager.HIDE_NOT_ALWAYS);
 //                    Log.d("yisrael", "yaa "+u1);
                 }
             }catch (Exception e) {

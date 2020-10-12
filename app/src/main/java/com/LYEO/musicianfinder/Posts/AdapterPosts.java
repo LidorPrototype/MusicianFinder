@@ -4,7 +4,6 @@ package com.LYEO.musicianfinder.Posts;/*
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,7 @@ import androidx.annotation.Nullable;
 import com.LYEO.musicianfinder.Chat.Rooms;
 import com.LYEO.musicianfinder.Chat.sql;
 import com.LYEO.musicianfinder.R;
+import com.LYEO.musicianfinder.WelcomePageActivity;
 
 import java.util.List;
 
@@ -52,7 +52,6 @@ public class AdapterPosts extends ArrayAdapter<Post> {
         if (pd1.getGenre().equals(""))
             linearLayoutGenre.setVisibility(View.GONE);
 
-
         myView.findViewById(R.id.btAdapterPosts).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,20 +59,30 @@ public class AdapterPosts extends ArrayAdapter<Post> {
                 Button btn1 = (Button) v;     // Irrelevant b/c of new UI
                 String user_name = btn1.getText().toString();
                 try{
-//                    user_name = tv0.getText().toString();
-                    Log.d("yisrael", "yaa "+user_name);
+//                    Log.d("yisrael", "yaa "+user_name);
+                    if(DisplayPosts.cn1 != null){
+                        sql s = new sql(DisplayPosts.cn1,"yisrael",null,1);
+                        if (!s.searchUserIfExist(user_name))
+                            s.AddChatName(user_name);
 
-                    sql s=new sql(DisplayPosts.cn1,"yisrael",null,1);
-                    if (!s.searchUserIfExist(user_name))
-                    s.AddChatName(user_name);
+                        Intent intent = new Intent(DisplayPosts.cn1, Rooms.class);
+                        DisplayPosts.cn1.startActivity(intent);
+                        DisplayPosts.act.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);;
+                        DisplayPosts.act.finish();
+                    }else{
+                        sql s = new sql(WelcomePageActivity.cn1,"yisrael",null,1);
+                        if (!s.searchUserIfExist(user_name))
+                            s.AddChatName(user_name);
+
+                        Intent intent = new Intent(WelcomePageActivity.cn1, Rooms.class);
+                        WelcomePageActivity.cn1.startActivity(intent);
+                        WelcomePageActivity.actW.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);;
+                    }
+
                 }catch (Exception e){
-                    Log.d("yisrael", "yaa "+e);
+//                    Log.d("yisrael", "yaa "+e);
+                    e.printStackTrace();
                 }
-                Intent intent = new Intent(DisplayPosts.cn1, Rooms.class);
-//                intent.putExtra("user_name",user_name);
-                DisplayPosts.cn1.startActivity(intent);
-                DisplayPosts.act.overridePendingTransition(R.anim.fade_in, R.anim.fade_out);;
-                DisplayPosts.act.finish();
 
             }
         });

@@ -2,10 +2,12 @@ package com.LYEO.musicianfinder.Chat;
 /*
  * created by yisrael bar
  */
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -37,6 +39,7 @@ public class Chat extends AppCompatActivity {
     String other_name = "";
     private TextView nameRecipient;
     private TextView textViewHeadline;
+    private Adapter adapter;
 
     @Override
     public void onBackPressed() {
@@ -87,6 +90,12 @@ public class Chat extends AppCompatActivity {
                 m = new Message( Login.u1.getUserName(), other_name, toSend);
                 FireBase fb1 = new FireBase();
                 fb1.sendMessageToFb(m);
+
+                //close virtual keyboard
+                InputMethodManager inputManager = (InputMethodManager)
+                        getSystemService(Context.INPUT_METHOD_SERVICE);
+                inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
+                        InputMethodManager.HIDE_NOT_ALWAYS);
             }
         });
         Typeface typefaceHeadlineChat = Typeface.createFromAsset(getAssets(), "fonts/epilogue.regular.ttf");
@@ -130,8 +139,15 @@ public class Chat extends AppCompatActivity {
         for (DataSnapshot ds1:dataSnapshot.getChildren())    {
             Message m1 = ds1.getValue(Message.class);
             messageList.add(m1);
-            Adapter adapter=new Adapter(getApplicationContext(),messageList);
+            adapter = new Adapter(getApplicationContext(),messageList);
             l1.setAdapter(adapter);
+
+            l1.post(new Runnable() {
+                @Override
+                public void run() {
+                    l1.setSelection(adapter.getCount() - 1);
+                }
+            });
         }
     }
 
