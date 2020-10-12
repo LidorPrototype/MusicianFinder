@@ -441,7 +441,22 @@ public class Configuration extends FragmentActivity {
                 "If you have any questions about this Privacy Policy, You can contact us:\n" +
                 "•\tBy email: findermusician@gmail.com\n" +
                 "Privacy Policy for Musician Finder\n" +
-                "\n";
+                "<br><br><br>" +
+                "<b>Icons were made by:</b>" +
+                "<ul>" +
+                "<li><a href=\"https://www.flaticon.com/authors/iconixar\">iconixar</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/freepik\">Freepik</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/eucalyp\">Eucalyp</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/pixel-perfect\">Pixel perfect</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/surang\">surang</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/gorbachev\">Gorbachev</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/becris\">Becris</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/ultimatearm\">ultimatearm</a></li>" +
+                "<li><a href=\"https://www.flaticon.com/authors/smashicons\">Smashicons</a></li>" +
+                "</ul>" +
+                "from <a href=\"www.flaticon.com\">www.flaticon.com</a><br>" +
+                "<a href=\"https://icons8.com/icons/set/sent\">Email Send icon</a> icon by " +
+                "<a href=\"https://icons8.com\">Icons8</a>";
         return pp;
     }
     public String[] getGenres() {
