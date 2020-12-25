@@ -61,7 +61,6 @@ public class SearchScreenActivity extends AppCompatActivity {
         rbLocation = findViewById(R.id.rbLocation);
         rbGenre = findViewById(R.id.rbGenre);
         rbInstrument = findViewById(R.id.rbInstrument);
-//        edSearch = findViewById(R.id.edSearch);
         btnSearch = findViewById(R.id.btnSearch);
         l1 = findViewById(R.id.l1);
 
@@ -198,12 +197,10 @@ public class SearchScreenActivity extends AppCompatActivity {
                         }
                         AdapterPosts adapterPosts = new AdapterPosts(getApplicationContext(), postList);
                         l1.setAdapter(adapterPosts);
-
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
 //                    Log.d("yisrael", "yaa "+e);
-
                 }
             }
 
