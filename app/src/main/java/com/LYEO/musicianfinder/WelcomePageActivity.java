@@ -16,19 +16,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-/**
- * Created by Lidor on 9/25/2020.
- * Developer name: L-ES
- *  _        _   _____     ____    ______
- * | |      |_| |  __ \   / __ \  |  O   |
- * | |      | | | |  | | | |  | | |   ___/
- * | |____  | | | |__| | | |__| | | | \
- * |______| |_| |_____/   \____/  |_|__\
- *  ____         ____
- * |  __|       |  __|
- * |  __|   _   |__  |
- * |____|  |_|  |____|
- */
 
 public class WelcomePageActivity extends AppCompatActivity {
 
