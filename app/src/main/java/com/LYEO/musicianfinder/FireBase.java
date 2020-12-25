@@ -42,10 +42,9 @@ public class FireBase {
     public void getAllNewChats (){
         try{
 //            Log.d("yisrael", "im here0");
-
             sql1=new sql(WelcomePageActivity.cn1.getApplicationContext(),"yisrael",null,1);
         }catch (Exception e){
-//            Log.d("yisrael", "yaa "+e);
+//            Log.d("yisrael", "im here1 "+e);
             e.printStackTrace();
         }
 
